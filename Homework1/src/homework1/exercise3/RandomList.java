@@ -48,11 +48,7 @@ public class RandomList {
             }
         }
 
-        Robot [] robotArray = new Robot[robots.size()];
-        for (int i = 0; i < robots.size(); i++) {
-            robotArray[i] = robots.get(i);
-        }
-        return robotArray;
+        return robots.toArray(new Robot[robots.size()]);
     }
 
     public String getListAsString(){
