@@ -1,6 +1,4 @@
 package homework1.exercise2;
-
-import homework1.exercise1.*;
 import java.util.Random;
 
 /**
