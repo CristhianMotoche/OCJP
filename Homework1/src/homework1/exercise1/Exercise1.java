@@ -33,7 +33,7 @@ public class Exercise1 {
         System.out.println(randomList.getMaxNumber());
 
         // Imprimir la diferencia entre el segundo número más grande y el segundo más pequeño 
-        System.out.println("\n3. Diferencia entre el segundo número más grande y el segundo más pequeño: ");
+        System.out.println("\n4. Diferencia entre el segundo número más grande y el segundo más pequeño: ");
         System.out.println(randomList.getDifference());
     }
 }
