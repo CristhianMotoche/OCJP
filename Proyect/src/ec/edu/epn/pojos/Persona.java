@@ -13,12 +13,12 @@ import java.util.Date;
  */
 public class Persona {
     private int id;
-    private String nombre;
-    private byte edad;
+    protected String nombre;
+    protected byte edad;
     private Date fechaNacimiento;
     private Double sueldo;
-    private String email;
-    private static char PAIS = 'E';
+    protected String email;
+    public static char PAIS = 'E';
 
     public Persona() {
     }
