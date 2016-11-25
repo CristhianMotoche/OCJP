@@ -5,6 +5,8 @@
  */
 package ec.edu.epn.pojos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Cristhian Motoche
@@ -12,8 +14,15 @@ package ec.edu.epn.pojos;
 public class Usuario {
     private String nombre;
     private String apellido;
+    private ArrayList<Persona> personas;
 
     public Usuario() {
+    }
+
+    public Usuario(String nombre, String apellido, ArrayList<Persona> personas) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.personas = personas;
     }
 
     public String getNombre() {
@@ -22,5 +31,13 @@ public class Usuario {
 
     public String getApellido() {
         return apellido;
+    }
+
+    public ArrayList<Persona> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(ArrayList<Persona> personas) {
+        this.personas = personas;
     }
 }

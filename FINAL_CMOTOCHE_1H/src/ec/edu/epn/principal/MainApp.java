@@ -6,6 +6,8 @@
 package ec.edu.epn.principal;
 
 import ec.edu.epn.clases.Main;
+import ec.edu.epn.pojos.Usuario;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,6 +15,8 @@ import ec.edu.epn.clases.Main;
  */
 public class MainApp {
     public static void main(String[] args) {
-        Main.main(args);
+        ArrayList<Usuario> users = new ArrayList<>();
+        users.add(new Usuario("Cristhian", "Motoche", null));
+        Main.main(args, users);
     }
 }

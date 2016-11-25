@@ -5,7 +5,9 @@
  */
 package ec.edu.epn.clases;
 
+import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,15 +20,18 @@ import javafx.stage.Stage;
  * @author camm
  */
 public class Main extends Application {
+
     private Stage primaryStage;
     private BorderPane rootLayout;
+    private static String TITLE = "OCJP - Proyecto";
+    private static ArrayList<Usuario> users;
 
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
+        this.primaryStage.setTitle(Main.TITLE);
 
         initRootLayout();
-
         showLogin();
     }
 
@@ -68,6 +73,7 @@ public class Main extends Application {
 
     /**
      * Returns the main stage.
+     *
      * @return
      */
     public Stage getPrimaryStage() {
@@ -77,7 +83,8 @@ public class Main extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args, ArrayList users) {
         launch(args);
+        Main.users = users;
     }
 }
