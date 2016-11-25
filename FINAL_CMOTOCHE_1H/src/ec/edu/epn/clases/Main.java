@@ -5,6 +5,7 @@
  */
 package ec.edu.epn.clases;
 
+import ec.edu.epn.clases.controller.LoginController;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class Main extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private static String TITLE = "OCJP - Proyecto";
-    private static ArrayList<Usuario> users;
+    public static ArrayList<Usuario> users;
 
     @Override
     public void start(Stage primaryStage) {
@@ -66,6 +67,10 @@ public class Main extends Application {
 
             // Set person overview into the center of root layout.
             rootLayout.setCenter(personOverview);
+
+            // Give the controller access to the main app.
+            LoginController controller = loader.getController();
+            controller.setMainApp(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -82,9 +87,10 @@ public class Main extends Application {
 
     /**
      * @param args the command line arguments
+     * @param users the list of users in the system
      */
     public static void main(String[] args, ArrayList users) {
-        launch(args);
         Main.users = users;
+        launch(args);
     }
 }

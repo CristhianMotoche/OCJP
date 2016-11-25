@@ -20,13 +20,13 @@
                <children>
                   <ButtonBar layoutX="150.0" layoutY="144.0" prefHeight="40.0" prefWidth="234.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
                      <buttons>
-                        <Button id="btn_sing_in" mnemonicParsing="false" text="Login" textAlignment="CENTER" />
-                        <Button id="btn_new_user" mnemonicParsing="false" text="New User?" textAlignment="CENTER" />
+                        <Button id="btn_sing_in" fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" text="Login" textAlignment="CENTER" />
+                        <Button id="btn_new_user" fx:id="btnNewUser" mnemonicParsing="false" onAction="#handleNewUser" text="New User?" textAlignment="CENTER" />
                      </buttons>
                   </ButtonBar>
                   <Label layoutX="128.0" layoutY="14.0" text="Login" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="127.0" />
-                  <TextField id="txt_user_name" layoutX="65.0" layoutY="62.0" promptText="User name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
-                  <PasswordField id="pass_password" layoutX="60.0" layoutY="105.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <TextField id="txt_user_name" fx:id="txtUserName" layoutX="65.0" layoutY="62.0" promptText="User name" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                  <PasswordField id="pass_password" fx:id="passPassword" layoutX="60.0" layoutY="105.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                </children>
             </AnchorPane>
         </items>

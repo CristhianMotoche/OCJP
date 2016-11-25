@@ -6,6 +6,7 @@
 package ec.edu.epn.pojos;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -39,5 +40,20 @@ public class Usuario {
 
     public void setPersonas(ArrayList<Persona> personas) {
         this.personas = personas;
+    }
+
+    @Override
+    public boolean equals(Object usr_) {
+        Usuario usr = (Usuario) usr_;
+        return this.nombre.equals(usr.nombre)
+                && this.apellido.equals(usr.apellido);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 43 * hash + Objects.hashCode(this.nombre);
+        hash = 43 * hash + Objects.hashCode(this.apellido);
+        return hash;
     }
 }
