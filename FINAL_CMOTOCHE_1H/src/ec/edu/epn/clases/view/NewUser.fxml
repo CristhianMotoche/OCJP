@@ -10,6 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="300.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.epn.clases.controller.NewUserController">
     <stylesheets>
         <URL value="@newuser.css" />
+      <URL value="@DarkTheme.css" />
     </stylesheets>
    <children>
       <Label layoutX="90.0" layoutY="24.0" text="Register New User" textAlignment="CENTER" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
