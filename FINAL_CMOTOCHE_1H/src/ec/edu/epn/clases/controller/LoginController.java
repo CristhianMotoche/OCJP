@@ -91,6 +91,8 @@ public class LoginController implements Initializable {
 
             // Set person overview into the center of root layout.
             main.getRootLayout().setCenter(newUserView);
+            main.getPrimaryStage().setWidth(400);
+            main.getPrimaryStage().setHeight(380);
 
             // Give the controller access to the main app.
             MainMenuController controller = loader.getController();
