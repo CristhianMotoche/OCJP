@@ -5,16 +5,14 @@
  */
 package ec.edu.epn.principal;
 
+import ec.edu.epn.clases.Main;
+
 /**
  *
- * @author Cristhian Motoche
+ * @author camm
  */
-public class Proyect {
-
-    /**
-     * @param args the command line arguments
-     */
+public class MainApp {
     public static void main(String[] args) {
-        
+        Main.main(args);
     }
 }
