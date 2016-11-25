@@ -76,7 +76,7 @@ public class LoginController implements Initializable {
 
             // Give the controller access to the main app.
             NewUserController controller = loader.getController();
-            controller.setMainApp(this.main);
+            controller.setMain(this.main);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,7 +101,7 @@ public class LoginController implements Initializable {
         }
     }
 
-     public void setMainApp(Main main) {
+    public void setMain(Main main) {
         this.main = main;
     }
 }

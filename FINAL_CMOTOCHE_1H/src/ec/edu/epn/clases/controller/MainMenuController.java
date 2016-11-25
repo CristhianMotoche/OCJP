@@ -16,11 +16,17 @@ import javafx.fxml.Initializable;
  * @author camm
  */
 public class MainMenuController implements Initializable {
+    private Main main;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    public void setMainApp(Main main) {
+        this.main = main;
     }
 }

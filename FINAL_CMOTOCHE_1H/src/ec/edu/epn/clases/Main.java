@@ -70,7 +70,7 @@ public class Main extends Application {
 
             // Give the controller access to the main app.
             LoginController controller = loader.getController();
-            controller.setMainApp(this);
+            controller.setMain(this);
         } catch (IOException e) {
             e.printStackTrace();
         }
