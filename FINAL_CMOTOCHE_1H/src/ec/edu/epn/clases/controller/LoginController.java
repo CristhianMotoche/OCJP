@@ -11,9 +11,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import ec.edu.epn.clases.Main;
 import ec.edu.epn.pojos.Usuario;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -45,7 +48,7 @@ public class LoginController implements Initializable {
     private void handleLogin(){
         Usuario user = new Usuario(txtUserName.getText(), passPassword.getText(), null);
         if (Main.users.contains(user)) {
-            System.err.println("Entra");
+            handleMainMenuController();
         } else {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -58,7 +61,42 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handleNewUser(){
-        System.err.println("LOLOLOLOL2");
+        handleNewUserController();
+    }
+
+    private void handleNewUserController(){
+        try {
+            // Load new user view.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/NewUser.fxml"));
+            AnchorPane newUserView = (AnchorPane) loader.load();
+
+            // Set person overview into the center of root layout.
+            main.getRootLayout().setCenter(newUserView);
+
+            // Give the controller access to the main app.
+            NewUserController controller = loader.getController();
+            controller.setMainApp(this.main);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void handleMainMenuController(){
+        try {
+            // Load new user view.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/MainMenu.fxml"));
+            AnchorPane newUserView = (AnchorPane) loader.load();
+
+            // Set person overview into the center of root layout.
+            main.getRootLayout().setCenter(newUserView);
+
+            // Give the controller access to the main app.
+            MainMenuController controller = loader.getController();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
      public void setMainApp(Main main) {

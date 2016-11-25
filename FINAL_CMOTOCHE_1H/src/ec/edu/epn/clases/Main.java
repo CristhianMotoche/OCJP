@@ -85,6 +85,10 @@ public class Main extends Application {
         return primaryStage;
     }
 
+    public BorderPane getRootLayout() {
+        return rootLayout;
+    }
+
     /**
      * @param args the command line arguments
      * @param users the list of users in the system
