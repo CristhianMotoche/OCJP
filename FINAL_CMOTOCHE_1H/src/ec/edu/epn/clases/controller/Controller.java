@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
  * @author camm
  */
 public abstract class Controller {
-    private Main main;
+    protected Main main;
 
     public void setMain(Main main) {
         this.main = main;

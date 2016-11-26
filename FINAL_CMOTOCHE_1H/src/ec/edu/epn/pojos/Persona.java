@@ -46,4 +46,28 @@ public class Persona {
     public String getEmail() {
         return email;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEdad(byte edad) {
+        this.edad = edad;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setSueldo(Double sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

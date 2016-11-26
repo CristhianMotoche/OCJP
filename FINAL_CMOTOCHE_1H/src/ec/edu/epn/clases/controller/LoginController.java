@@ -30,21 +30,19 @@ public class LoginController
     @FXML
     private PasswordField passPassword;
 
-    public LoginController() {
-    }
+    public LoginController() {}
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }
+    public void initialize(URL url, ResourceBundle rb) {}
 
     @FXML
     private void handleLogin(){
         Usuario user = new Usuario(txtUserName.getText(), passPassword.getText(), null);
         if (Main.users.contains(user)) {
-            handleMainMenuController();
+            routeToMainMenuController();
         } else {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -57,14 +55,16 @@ public class LoginController
 
     @FXML
     private void handleNewUser(){
-        handleNewUserController();
+        routeToNewUserController();
     }
 
-    private void handleNewUserController(){
+    private void routeToNewUserController(){
         routeToController("view/NewUser.fxml", new NewUserController());
     }
 
-    private void handleMainMenuController(){
+    private void routeToMainMenuController(){
+        this.main.getPrimaryStage().setWidth(400);
+        this.main.getPrimaryStage().setHeight(400);
         routeToController("view/MainMenu.fxml", new MainMenuController());
     }
 }
