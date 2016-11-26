@@ -21,15 +21,15 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author camm
  */
-public class NewUserController implements Initializable {
+public class NewUserController
+        extends Controller
+        implements Initializable {
 
     @FXML
     private TextField txtUserName;
 
     @FXML
     private TextField txtPassword;
-
-    private Main main;
 
     @FXML
     private void handleAcept(){
@@ -51,24 +51,6 @@ public class NewUserController implements Initializable {
     }
 
     private void handleLoginController(){
-        try {
-            // Load new user view.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/Login.fxml"));
-            AnchorPane newUserView = (AnchorPane) loader.load();
-
-            // Set person overview into the center of root layout.
-            main.getRootLayout().setCenter(newUserView);
-
-            // Give the controller access to the main app.
-            LoginController controller = loader.getController();
-            controller.setMain(this.main);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    void setMain(Main main) {
-        this.main = main;
+        routeToController("view/Login.fxml", new LoginController());
     }
 }

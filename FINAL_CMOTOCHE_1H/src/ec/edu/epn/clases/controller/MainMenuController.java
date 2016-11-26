@@ -6,8 +6,10 @@
 package ec.edu.epn.clases.controller;
 
 import ec.edu.epn.clases.Main;
+import ec.edu.epn.pojos.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -15,18 +17,42 @@ import javafx.fxml.Initializable;
  *
  * @author camm
  */
-public class MainMenuController implements Initializable {
+public class MainMenuController
+        extends Controller
+        implements Initializable {
     private Main main;
+    private Usuario user;
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) { }
+
+    @FXML
+    private void handleAddItem(){
+
+    }
+    @FXML
+    private void handleEditItem(){
+
+    }
+    @FXML
+    private void handleRemoveItem(){
+
+    }
+    @FXML
+    private void handleSearchItem(){
+
     }
 
-    public void setMainApp(Main main) {
-        this.main = main;
+    @FXML
+    private void handlePrintItems(){
+
+    }
+
+    @FXML
+    private void handleExit(){
+
     }
 }

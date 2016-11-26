@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="237.0" prefWidth="316.0" styleClass="mainFxmlClass" stylesheets="@../DarkTheme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.76-ea" fx:controller="ec.edu.epn.clases.controller.dialogs.AddItemDialogController">
+   <children>
+      <Label layoutX="132.0" layoutY="14.0" text="Persona" />
+      <TextField layoutX="53.0" layoutY="40.0" promptText="Nombre" />
+      <TextField layoutX="53.0" layoutY="78.0" promptText="Edad" />
+      <DatePicker layoutX="53.0" layoutY="119.0" prefHeight="32.0" prefWidth="210.0" />
+      <TextField layoutX="53.0" layoutY="153.0" promptText="Sueldo" />
+      <TextField layoutX="53.0" layoutY="191.0" promptText="Email" />
+   </children>
+</AnchorPane>
