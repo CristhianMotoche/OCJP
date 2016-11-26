@@ -11,6 +11,7 @@ import ec.edu.epn.pojos.Persona;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,21 +31,28 @@ public class MainMenuController
         implements Initializable {
 
     private Main main;
-    private Usuario user;
+
+    public MainMenuController() {
+    }
+
+    public MainMenuController(Usuario user) {
+        this.user = user;
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-    }
+    public void initialize(URL url, ResourceBundle rb) {}
 
     @FXML
     private void handleAddItem() {
-        showPersonEditDialog();
+        Optional<Persona> newPersona = showPersonEditDialog();
+        newPersona.ifPresent(p -> { this.user.getPersonas().add(p); });
+        this.user.getPersonas().forEach(p -> { System.out.println(p); });
     }
 
-    public boolean showPersonEditDialog() {
+    public Optional<Persona> showPersonEditDialog() {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
@@ -62,10 +70,9 @@ public class MainMenuController
             AddItemDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             dialogStage.showAndWait();
-            return true;
+            return Optional.of(controller.getPersona());
         } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+            return Optional.empty();
         }
     }
 

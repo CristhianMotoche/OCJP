@@ -15,9 +15,17 @@ import java.util.Objects;
 public class Usuario {
     private String nombre;
     private String apellido;
-    private ArrayList<Persona> personas;
+    private ArrayList<Persona> personas = new ArrayList<>();
 
     public Usuario() {
+    }
+
+    public Usuario(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.personas.add(new Persona());
+        this.personas.add(new Persona());
+        this.personas.add(new Persona());
     }
 
     public Usuario(String nombre, String apellido, ArrayList<Persona> personas) {

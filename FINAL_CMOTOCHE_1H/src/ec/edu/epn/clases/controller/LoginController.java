@@ -30,6 +30,8 @@ public class LoginController
     @FXML
     private PasswordField passPassword;
 
+    private Usuario user;
+
     public LoginController() {}
 
     /**
@@ -40,7 +42,7 @@ public class LoginController
 
     @FXML
     private void handleLogin(){
-        Usuario user = new Usuario(txtUserName.getText(), passPassword.getText(), null);
+        this.user = new Usuario(txtUserName.getText(), passPassword.getText());
         if (Main.users.contains(user)) {
             routeToMainMenuController();
         } else {
@@ -59,12 +61,13 @@ public class LoginController
     }
 
     private void routeToNewUserController(){
-        routeToController("view/NewUser.fxml", new NewUserController());
+        routeToController("view/NewUser.fxml", new NewUserController(), null);
     }
 
     private void routeToMainMenuController(){
         this.main.getPrimaryStage().setWidth(400);
         this.main.getPrimaryStage().setHeight(400);
-        routeToController("view/MainMenu.fxml", new MainMenuController());
+        MainMenuController controller = new MainMenuController();
+        routeToController("view/MainMenu.fxml", controller, this.user);
     }
 }

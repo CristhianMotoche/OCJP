@@ -47,6 +47,6 @@ public class NewUserController
     public void initialize(URL url, ResourceBundle rb) {}
 
     private void routeToLoginController(){
-        routeToController("view/Login.fxml", new LoginController());
+        routeToController("view/Login.fxml", new LoginController(), null);
     }
 }

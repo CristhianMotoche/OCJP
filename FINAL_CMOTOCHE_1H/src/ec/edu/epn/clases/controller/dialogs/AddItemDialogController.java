@@ -59,17 +59,20 @@ public class AddItemDialogController
         this.persona = persona;
     }
 
+    public Persona getPersona() {
+        return this.persona;
+    }
+
     @FXML
     private void handleAcept(){
-        Persona persona = new Persona();
-        persona.setNombre(txtNombre.getText());
-        persona.setEdad(Byte.parseByte(txtEdad.getText()));
-        persona.setSueldo(Double.parseDouble(txtSueldo.getText()));
+        this.persona = new Persona();
+        this.persona.setNombre(txtNombre.getText());
+        this.persona.setEdad(Byte.parseByte(txtEdad.getText()));
+        this.persona.setSueldo(Double.parseDouble(txtSueldo.getText()));
         Date date = Date.from(dateDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        persona.setFechaNacimiento(date);
-        persona.setEmail(txtEmail.getText());
+        this.persona.setFechaNacimiento(date);
+        this.persona.setEmail(txtEmail.getText());
 
-        this.persona = persona;
         dialogStage.close();
     }
 }
