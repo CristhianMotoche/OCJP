@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class MainApp {
     public static void main(String[] args) {
         ArrayList<Usuario> users = new ArrayList<>();
-        users.add(new Usuario("Cristhian", "Motoche", null));
+        users.add(new Usuario("Cristhian", "Motoche"));
         Main.main(args, users);
     }
 }

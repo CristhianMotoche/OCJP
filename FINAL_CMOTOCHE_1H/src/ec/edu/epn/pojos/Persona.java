@@ -23,6 +23,14 @@ public class Persona {
     public Persona() {
     }
 
+    public Persona(String nombre, byte edad, Date fechaNacimiento, Double sueldo, String email) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.sueldo = sueldo;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

@@ -7,12 +7,15 @@ package ec.edu.epn.clases.controller;
 
 import ec.edu.epn.clases.Main;
 import ec.edu.epn.clases.controller.dialogs.AddItemDialogController;
+import ec.edu.epn.clases.controller.dialogs.PrintItemsDialogController;
 import ec.edu.epn.pojos.Persona;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -49,7 +52,6 @@ public class MainMenuController
     private void handleAddItem() {
         Optional<Persona> newPersona = showPersonEditDialog();
         newPersona.ifPresent(p -> { this.user.getPersonas().add(p); });
-        this.user.getPersonas().forEach(p -> { System.out.println(p); });
     }
 
     public Optional<Persona> showPersonEditDialog() {
@@ -70,7 +72,7 @@ public class MainMenuController
             AddItemDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             dialogStage.showAndWait();
-            return Optional.of(controller.getPersona());
+            return Optional.ofNullable(controller.getPersona());
         } catch (IOException e) {
             return Optional.empty();
         }
@@ -93,7 +95,32 @@ public class MainMenuController
 
     @FXML
     private void handlePrintItems() {
+        ObservableList<Persona> peopleData = FXCollections.observableArrayList();
+        this.user.getPersonas().forEach(p -> { peopleData.add(p); });
+        showPeople(peopleData);
+    }
 
+    public void showPeople(ObservableList<Persona> peopleData) {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/dialogs/PrintItemsDialog.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Show People");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            PrintItemsDialogController controller = loader.getController();
+            controller.setPersonTableItems(peopleData);
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
