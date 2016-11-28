@@ -24,8 +24,6 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<Usuario> users = new ArrayList<>();
-        users.add(new Usuario("Cristhian", "Motoche"));
-        Main.main(args, users);
+        Main.main(args);
     }
 }

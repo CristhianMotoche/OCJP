@@ -29,24 +29,38 @@ public class NewUserController
     private TextField txtPassword;
 
     @FXML
-    private void handleAcept(){
-        Usuario user = new Usuario(txtUserName.getText(), txtPassword.getText(), null);
-        Main.users.add(user);
-        routeToLoginController();
+    private void handleAcept() {
+        String checks = checkValidInput();
+        if (!hasErrors(checks)) {
+            Usuario user = new Usuario(txtUserName.getText(), txtPassword.getText());
+            Main.users.add(user);
+            routeToController("view/Login.fxml", new LoginController(), null);
+        }
+    }
+
+    public String checkValidInput() {
+        String errors = "";
+        if (txtUserName.getText().equals("")) {
+            errors += "*The user name musn't be empty\n";
+        }
+        if (txtPassword.getText().equals("")) {
+            errors += "*The password name musn't be empty\n";
+        }
+        if (Main.users.contains(new Usuario(txtUserName.getText(), txtPassword.getText()))) {
+            errors += "*The user already exists\n";
+        }
+        return errors;
     }
 
     @FXML
-    private void handleCancel(){
-        routeToLoginController();
+    private void handleCancel() {
+        routeToController("view/Login.fxml", new LoginController(), null);
     }
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}
-
-    private void routeToLoginController(){
-        routeToController("view/Login.fxml", new LoginController(), null);
+    public void initialize(URL url, ResourceBundle rb) {
     }
 }

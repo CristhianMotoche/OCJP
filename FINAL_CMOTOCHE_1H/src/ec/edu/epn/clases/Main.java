@@ -25,12 +25,14 @@ public class Main extends Application {
     private Stage primaryStage;
     private BorderPane rootLayout;
     private static String TITLE = "OCJP - Proyecto";
-    public static ArrayList<Usuario> users;
+    public static ArrayList<Usuario> users = new ArrayList<>();
+
 
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle(Main.TITLE);
+        Main.users.add(new Usuario("Cristhian", "Motoche"));
 
         initRootLayout();
         showLogin();
@@ -93,8 +95,7 @@ public class Main extends Application {
      * @param args the command line arguments
      * @param users the list of users in the system
      */
-    public static void main(String[] args, ArrayList users) {
-        Main.users = users;
+    public static void main(String[] args) {
         launch(args);
     }
 }

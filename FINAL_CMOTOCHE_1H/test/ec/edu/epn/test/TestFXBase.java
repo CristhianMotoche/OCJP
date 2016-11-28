@@ -16,7 +16,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 
@@ -25,9 +24,18 @@ import org.testfx.framework.junit.ApplicationTest;
  * @author camm
  */
 public class TestFXBase extends ApplicationTest {
+
+    protected final String BTN_LOGIN = "Login";
+    protected final String BTN_NEW_USER = "New User?";
+    protected final String BTN_ACEPT = "#btnAcept";
+    protected final String BTN_CANCEL = "#btnCancel";
+    protected final String TXT_USER_NAME = "#txtUserName";
+    protected final String TXT_PASSWORD = "#txtPassword";
+    protected final String PASS_PASSWORD = "#passPassword";
+
     @BeforeClass
     public static void setUpClass() throws Exception {
-        ApplicationTest.launch(Main.class, null);
+        ApplicationTest.launch(Main.class);
     }
 
     @Override
