@@ -76,7 +76,7 @@ public abstract class Controller {
 
     public boolean hasErrors(String errorMessage){
         if (errorMessage.length() == 0) {
-            return true;
+            return false;
         } else {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -85,7 +85,7 @@ public abstract class Controller {
             alert.setContentText(errorMessage);
 
             alert.showAndWait();
-            return false;
+            return true;
         }
     }
 }

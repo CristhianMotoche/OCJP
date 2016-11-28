@@ -13,7 +13,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
@@ -40,9 +39,10 @@ public class PrintItemsDialogController
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        columnNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
+        columnNombre.setCellValueFactory(cellData
+                -> new SimpleStringProperty(cellData.getValue().getNombre()));
         columnEdad.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf((int) cellData.getValue().getEdad())));
-        columnFecha.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getFechaNacimiento())));
+        columnFecha.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getFechaNacimiento().toString()));
         columnSalario.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
         columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty((cellData.getValue().getEmail())));
     }

@@ -5,7 +5,7 @@
  */
 package ec.edu.epn.pojos;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -24,9 +24,9 @@ public class Usuario {
     public Usuario(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.personas.add(new Persona("Juan", (byte) 25, new Date(1991, 12, 2), 323.23, "jc@gmail.ec"));
-        this.personas.add(new Persona("José", (byte) 22, new Date(1994, 11, 12), 223.23, "jj@hotmail.ec"));
-        this.personas.add(new Persona("Laura", (byte) 24, new Date(1992, 1, 12), 433.23, "lj@epn.edu.ec"));
+        this.personas.add(new Persona("Juan", (byte) 25, new Date("1994/10/10"), 323.23, "jc@gmail.ec"));
+        this.personas.add(new Persona("José", (byte) 22, new Date("1991/12/4"), 223.23, "jj@hotmail.ec"));
+        this.personas.add(new Persona("Laura", (byte) 24, new Date("1992/1/4"), 433.23, "lj@epn.edu.ec"));
     }
 
     public Usuario(String nombre, String apellido, ArrayList<Persona> personas) {
