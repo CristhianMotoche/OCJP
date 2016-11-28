@@ -5,7 +5,7 @@
  */
 package ec.edu.epn.clases.controller.dialogs;
 
-import ec.edu.epn.clases.controller.Controller;
+import ec.edu.epn.clases.controller.DialogController;
 import ec.edu.epn.pojos.Persona;
 import java.net.URL;
 import java.time.ZoneId;
@@ -23,7 +23,7 @@ import javafx.stage.Stage;
  * @author camm
  */
 public class AddItemDialogController
-        extends Controller
+        extends DialogController
         implements Initializable {
 
     @FXML

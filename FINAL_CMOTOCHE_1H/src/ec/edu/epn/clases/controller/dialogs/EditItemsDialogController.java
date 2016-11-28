@@ -6,6 +6,7 @@
 package ec.edu.epn.clases.controller.dialogs;
 
 import ec.edu.epn.clases.Main;
+import ec.edu.epn.clases.controller.DialogController;
 import ec.edu.epn.pojos.Persona;
 import java.io.IOException;
 import java.net.URL;
@@ -29,7 +30,9 @@ import javafx.stage.Stage;
  *
  * @author camm
  */
-public class EditItemsDialogController implements Initializable {
+public class EditItemsDialogController
+        extends DialogController
+        implements Initializable {
 
     @FXML
     private TableView<Persona> personTable;
@@ -56,10 +59,6 @@ public class EditItemsDialogController implements Initializable {
         columnFecha.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getFechaNacimiento())));
         columnSalario.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
         columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
-    }
-
-    public void setPersonTableItems(ObservableList<Persona> peopleData) {
-        this.personTable.setItems(peopleData);
     }
 
     @FXML

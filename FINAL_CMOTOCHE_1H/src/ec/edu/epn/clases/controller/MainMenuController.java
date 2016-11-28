@@ -7,8 +7,9 @@ package ec.edu.epn.clases.controller;
 
 import ec.edu.epn.clases.Main;
 import ec.edu.epn.clases.controller.dialogs.AddItemDialogController;
-import ec.edu.epn.clases.controller.dialogs.EditItemsDialogController;
+import ec.edu.epn.clases.controller.dialogs.EditItemDialogController;
 import ec.edu.epn.clases.controller.dialogs.PrintItemsDialogController;
+import ec.edu.epn.clases.controller.dialogs.SearchItemsDialogController;
 import ec.edu.epn.pojos.Persona;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
@@ -33,8 +34,6 @@ import javafx.stage.Stage;
 public class MainMenuController
         extends Controller
         implements Initializable {
-
-    private Main main;
 
     public MainMenuController() {
     }
@@ -88,30 +87,7 @@ public class MainMenuController
         this.user.getPersonas().forEach(p -> {
             peopleData.add(p);
         });
-        showPersonAddDialog(peopleData);
-    }
-
-    public void showPersonAddDialog(ObservableList<Persona> peopleData) {
-        try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/dialogs/EditItemsDialog.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
-
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit People");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-            // Set the person into the controller.
-            EditItemsDialogController controller = loader.getController();
-            controller.setPersonTableItems(peopleData);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       showDialog("Edit Person", "view/dialogs/EditItemsDialog.fxml", new EditItemDialogController(), peopleData);
     }
 
     @FXML
@@ -121,7 +97,11 @@ public class MainMenuController
 
     @FXML
     private void handleSearchItem() {
-
+        ObservableList<Persona> peopleData = FXCollections.observableArrayList();
+        this.user.getPersonas().forEach(p -> {
+            peopleData.add(p);
+        });
+        showDialog("Search Person", "view/dialogs/SearchItemsDialog.fxml", new SearchItemsDialogController(), peopleData);
     }
 
     @FXML
@@ -130,30 +110,7 @@ public class MainMenuController
         this.user.getPersonas().forEach(p -> {
             peopleData.add(p);
         });
-        showPeople(peopleData);
-    }
-
-    public void showPeople(ObservableList<Persona> peopleData) {
-        try {
-            // Load the fxml file and create a new stage for the popup dialog.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/dialogs/PrintItemsDialog.fxml"));
-            AnchorPane page = (AnchorPane) loader.load();
-
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Show People");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-
-            // Set the person into the controller.
-            PrintItemsDialogController controller = loader.getController();
-            controller.setPersonTableItems(peopleData);
-            dialogStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        showDialog("Show People", "view/dialogs/PrintItemsDialog.fxml", new PrintItemsDialogController(), peopleData);
     }
 
     @FXML

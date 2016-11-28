@@ -8,8 +8,12 @@ package ec.edu.epn.clases.controller;
 import ec.edu.epn.clases.Main;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  *
@@ -41,6 +45,29 @@ public abstract class Controller {
             controller = loader.getController();
             controller.setMain(this.main);
             controller.setUser(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void showDialog(String title, String pathView, DialogController dialogController, ObservableList peopleData) {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource(pathView));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle(title);
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            dialogController = loader.getController();
+            dialogController.setPersonTableItems(peopleData);
+            dialogStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }

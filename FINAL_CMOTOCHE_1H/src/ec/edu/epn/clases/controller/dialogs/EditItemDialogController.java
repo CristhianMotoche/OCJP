@@ -5,6 +5,7 @@
  */
 package ec.edu.epn.clases.controller.dialogs;
 
+import ec.edu.epn.clases.controller.DialogController;
 import ec.edu.epn.pojos.Persona;
 import java.net.URL;
 import java.time.ZoneId;
@@ -21,7 +22,9 @@ import javafx.stage.Stage;
  *
  * @author camm
  */
-public class EditItemDialogController implements Initializable {
+public class EditItemDialogController
+        extends DialogController
+        implements Initializable {
 
     @FXML
     private TextField txtNombre;
