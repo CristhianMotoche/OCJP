@@ -5,17 +5,10 @@
  */
 package ec.edu.epn.clases.controller;
 
-import ec.edu.epn.clases.Main;
 import ec.edu.epn.pojos.Persona;
-import java.io.IOException;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 /**
  *

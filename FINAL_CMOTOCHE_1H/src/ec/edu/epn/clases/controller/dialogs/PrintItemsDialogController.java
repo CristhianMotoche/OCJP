@@ -25,8 +25,6 @@ public class PrintItemsDialogController
         implements Initializable {
 
     @FXML
-    private TableView<Persona> personTable;
-    @FXML
     private TableColumn<Persona, String> columnNombre;
     @FXML
     private TableColumn<Persona, String> columnEdad;

@@ -7,6 +7,7 @@ package ec.edu.epn.clases.controller;
 
 import ec.edu.epn.clases.Main;
 import ec.edu.epn.clases.controller.dialogs.AddItemDialogController;
+import ec.edu.epn.clases.controller.dialogs.DeleteItemsDialogController;
 import ec.edu.epn.clases.controller.dialogs.EditItemDialogController;
 import ec.edu.epn.clases.controller.dialogs.PrintItemsDialogController;
 import ec.edu.epn.clases.controller.dialogs.SearchItemsDialogController;
@@ -14,6 +15,7 @@ import ec.edu.epn.pojos.Persona;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -92,7 +94,38 @@ public class MainMenuController
 
     @FXML
     private void handleRemoveItem() {
+        ObservableList<Persona> peopleData = FXCollections.observableArrayList();
+        this.user.getPersonas().forEach(p -> {
+            peopleData.add(p);
+        });
+        showPersonDeleteDialog(peopleData).ifPresent(people -> this.user.setPersonas(people));
+    }
 
+
+    public Optional<ArrayList<Persona>> showPersonDeleteDialog(ObservableList<Persona> peopleData) {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("view/dialogs/DeleteItemsDialog.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Delete Person");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            DeleteItemsDialogController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setPeople(this.user.getPersonas());
+            controller.setPersonTableItems(peopleData);
+            dialogStage.showAndWait();
+            return Optional.ofNullable(controller.getPeople());
+        } catch (IOException e) {
+            return Optional.empty();
+        }
     }
 
     @FXML
