@@ -6,6 +6,7 @@
 package ec.edu.epn.clases.controller.dialogs;
 
 import ec.edu.epn.clases.controller.DialogController;
+import ec.edu.epn.clases.utils.Utils;
 import ec.edu.epn.pojos.Persona;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,11 +49,16 @@ public class SearchItemsDialogController
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Initialize the columns
-        columnNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        columnEdad.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf((int) cellData.getValue().getEdad())));
-        columnFecha.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getFechaNacimiento())));
-        columnSalario.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
-        columnEmail.setCellValueFactory(cellData -> new SimpleStringProperty((cellData.getValue().getEmail())));
+        columnNombre.setCellValueFactory(cellData
+                -> new SimpleStringProperty(cellData.getValue().getNombre()));
+        columnEdad.setCellValueFactory(cellData
+                -> new SimpleStringProperty(String.valueOf((int) cellData.getValue().getEdad())));
+        columnFecha.setCellValueFactory(cellData
+                -> new SimpleStringProperty(Utils.formatDate(cellData.getValue().getFechaNacimiento())));
+        columnSalario.setCellValueFactory(cellData
+                -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
+        columnEmail.setCellValueFactory(cellData
+                -> new SimpleStringProperty((cellData.getValue().getEmail())));
     }
 
     @FXML
