@@ -3,38 +3,45 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.epn.clases.controller.dialogs;
+package ec.edu.epn.clases.controller;
 
-import ec.edu.epn.clases.controller.TableController;
 import ec.edu.epn.clases.utils.Utils;
 import ec.edu.epn.pojos.Persona;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
- * FXML Controller class
  *
  * @author camm
  */
-public class PrintItemsDialogController
-        extends TableController {
+public class TableController
+    extends Controller
+    implements Initializable {
 
     @FXML
-    private TableColumn<Persona, String> columnNombre;
+    protected TableView<Persona> personTable;
     @FXML
-    private TableColumn<Persona, String> columnEdad;
+    protected TableColumn<Persona, String> columnNombre;
     @FXML
-    private TableColumn<Persona, String> columnFecha;
+    protected TableColumn<Persona, String> columnEdad;
     @FXML
-    private TableColumn<Persona, String> columnSalario;
+    protected TableColumn<Persona, String> columnFecha;
     @FXML
-    private TableColumn<Persona, String> columnEmail;
+    protected TableColumn<Persona, String> columnSalario;
+    @FXML
+    protected TableColumn<Persona, String> columnEmail;
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -47,6 +54,10 @@ public class PrintItemsDialogController
         columnSalario.setCellValueFactory(cellData
                 -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
         columnEmail.setCellValueFactory(cellData
-                -> new SimpleStringProperty((cellData.getValue().getEmail())));
+                -> new SimpleStringProperty(cellData.getValue().getEmail()));
+    }
+
+    public void setPersonTableItems(ObservableList<Persona> peopleData) {
+        this.personTable.setItems(peopleData);
     }
 }

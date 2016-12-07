@@ -50,7 +50,7 @@ public abstract class Controller {
         }
     }
 
-    public void showDialog(String title, String pathView, DialogController dialogController, ObservableList peopleData) {
+    public void showTable(String title, String pathView, TableController dialogController, ObservableList peopleData) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();

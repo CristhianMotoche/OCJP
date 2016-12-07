@@ -6,6 +6,7 @@
 package ec.edu.epn.clases.controller.dialogs;
 
 import ec.edu.epn.clases.controller.DialogController;
+import ec.edu.epn.clases.controller.TableController;
 import ec.edu.epn.pojos.Persona;
 import java.net.URL;
 import java.time.LocalDate;
@@ -26,8 +27,7 @@ import javafx.stage.Stage;
  * @author camm
  */
 public class EditItemDialogController
-        extends DialogController
-        implements Initializable {
+        extends TableController {
 
     @FXML
     private TextField txtNombre;

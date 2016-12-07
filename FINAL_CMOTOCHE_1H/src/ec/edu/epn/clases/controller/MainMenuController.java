@@ -90,7 +90,7 @@ public class MainMenuController
         this.user.getPersonas().forEach(p -> {
             peopleData.add(p);
         });
-        showDialog("Edit Person", "view/dialogs/EditItemsDialog.fxml", new EditItemDialogController(), peopleData);
+        showTable("Edit Person", "view/dialogs/EditItemsDialog.fxml", new EditItemDialogController(), peopleData);
     }
 
     @FXML
@@ -135,7 +135,7 @@ public class MainMenuController
         this.user.getPersonas().forEach(p -> {
             peopleData.add(p);
         });
-        showDialog("Search Person", "view/dialogs/SearchItemsDialog.fxml", new SearchItemsDialogController(), peopleData);
+        showTable("Search Person", "view/dialogs/SearchItemsDialog.fxml", new SearchItemsDialogController(), peopleData);
     }
 
     @FXML
@@ -144,7 +144,7 @@ public class MainMenuController
         this.user.getPersonas().forEach(p -> {
             peopleData.add(p);
         });
-        showDialog("Show People", "view/dialogs/PrintItemsDialog.fxml", new PrintItemsDialogController(), peopleData);
+        showTable("Show People", "view/dialogs/PrintItemsDialog.fxml", new PrintItemsDialogController(), peopleData);
     }
 
     @FXML

@@ -5,18 +5,11 @@
  */
 package ec.edu.epn.clases.controller.dialogs;
 
-import ec.edu.epn.clases.controller.DialogController;
-import ec.edu.epn.clases.utils.Utils;
+import ec.edu.epn.clases.controller.TableController;
 import ec.edu.epn.pojos.Persona;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 /**
@@ -25,41 +18,10 @@ import javafx.scene.control.TextField;
  * @author camm
  */
 public class SearchItemsDialogController
-        extends DialogController
-        implements Initializable {
+        extends TableController {
 
     @FXML
     private TextField filterField;
-    @FXML
-    private TableView<Persona> personTable;
-    @FXML
-    private TableColumn<Persona, String> columnNombre;
-    @FXML
-    private TableColumn<Persona, String> columnEdad;
-    @FXML
-    private TableColumn<Persona, String> columnFecha;
-    @FXML
-    private TableColumn<Persona, String> columnSalario;
-    @FXML
-    private TableColumn<Persona, String> columnEmail;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // Initialize the columns
-        columnNombre.setCellValueFactory(cellData
-                -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        columnEdad.setCellValueFactory(cellData
-                -> new SimpleStringProperty(String.valueOf((int) cellData.getValue().getEdad())));
-        columnFecha.setCellValueFactory(cellData
-                -> new SimpleStringProperty(Utils.formatDate(cellData.getValue().getFechaNacimiento())));
-        columnSalario.setCellValueFactory(cellData
-                -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
-        columnEmail.setCellValueFactory(cellData
-                -> new SimpleStringProperty((cellData.getValue().getEmail())));
-    }
 
     @FXML
     private void handleKeyreleased() {

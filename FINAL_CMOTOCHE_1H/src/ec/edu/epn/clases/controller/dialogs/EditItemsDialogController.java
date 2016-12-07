@@ -6,21 +6,15 @@
 package ec.edu.epn.clases.controller.dialogs;
 
 import ec.edu.epn.clases.Main;
-import ec.edu.epn.clases.controller.DialogController;
-import ec.edu.epn.clases.utils.Utils;
+import ec.edu.epn.clases.controller.TableController;
 import ec.edu.epn.pojos.Persona;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Optional;
-import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,42 +25,7 @@ import javafx.stage.Stage;
  * @author camm
  */
 public class EditItemsDialogController
-        extends DialogController
-        implements Initializable {
-
-    @FXML
-    private TableView<Persona> personTable;
-    @FXML
-    private TableColumn<Persona, String> columnNombre;
-    @FXML
-    private TableColumn<Persona, String> columnEdad;
-    @FXML
-    private TableColumn<Persona, String> columnFecha;
-    @FXML
-    private TableColumn<Persona, String> columnSalario;
-    @FXML
-    private TableColumn<Persona, String> columnEmail;
-
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     * @param rb
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        columnNombre.setCellValueFactory(cellData
-                -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        columnEdad.setCellValueFactory(cellData
-                -> new SimpleStringProperty(String.valueOf((int) cellData.getValue().getEdad())));
-        columnFecha.setCellValueFactory(cellData
-                -> new SimpleStringProperty(Utils.formatDate(cellData.getValue().getFechaNacimiento())));
-        columnSalario.setCellValueFactory(cellData
-                -> new SimpleStringProperty(String.valueOf(cellData.getValue().getSueldo())));
-        columnEmail.setCellValueFactory(cellData
-                -> new SimpleStringProperty(cellData.getValue().getEmail()));
-    }
-
+        extends TableController {
     @FXML
     private void handleEdit() {
         Persona selectedPerson = personTable.getSelectionModel().getSelectedItem();
