@@ -5,7 +5,6 @@
  */
 package ec.edu.epn.clases.controller.dialogs;
 
-import ec.edu.epn.clases.controller.DialogController;
 import ec.edu.epn.clases.controller.TableController;
 import ec.edu.epn.pojos.Persona;
 import java.net.URL;
@@ -16,7 +15,6 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
