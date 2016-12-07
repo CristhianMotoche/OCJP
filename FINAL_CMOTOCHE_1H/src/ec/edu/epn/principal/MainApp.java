@@ -6,8 +6,6 @@
 package ec.edu.epn.principal;
 
 import ec.edu.epn.clases.Main;
-import ec.edu.epn.pojos.Usuario;
-import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

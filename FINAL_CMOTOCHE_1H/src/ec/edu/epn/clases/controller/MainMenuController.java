@@ -76,6 +76,7 @@ public class MainMenuController
             // Set the person into the controller.
             AddItemDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
             dialogStage.showAndWait();
             return Optional.ofNullable(controller.getPersona());
         } catch (IOException e) {
@@ -89,7 +90,7 @@ public class MainMenuController
         this.user.getPersonas().forEach(p -> {
             peopleData.add(p);
         });
-       showDialog("Edit Person", "view/dialogs/EditItemsDialog.fxml", new EditItemDialogController(), peopleData);
+        showDialog("Edit Person", "view/dialogs/EditItemsDialog.fxml", new EditItemDialogController(), peopleData);
     }
 
     @FXML
@@ -100,7 +101,6 @@ public class MainMenuController
         });
         showPersonDeleteDialog(peopleData).ifPresent(people -> this.user.setPersonas(people));
     }
-
 
     public Optional<ArrayList<Persona>> showPersonDeleteDialog(ObservableList<Persona> peopleData) {
         try {
@@ -121,6 +121,7 @@ public class MainMenuController
             controller.setDialogStage(dialogStage);
             controller.setPeople(this.user.getPersonas());
             controller.setPersonTableItems(peopleData);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
             dialogStage.showAndWait();
             return Optional.ofNullable(controller.getPeople());
         } catch (IOException e) {

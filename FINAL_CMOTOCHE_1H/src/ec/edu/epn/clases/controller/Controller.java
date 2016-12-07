@@ -68,6 +68,7 @@ public abstract class Controller {
             // Set the person into the controller.
             dialogController = loader.getController();
             dialogController.setPersonTableItems(peopleData);
+            dialogStage.initModality(Modality.APPLICATION_MODAL);
             dialogStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();

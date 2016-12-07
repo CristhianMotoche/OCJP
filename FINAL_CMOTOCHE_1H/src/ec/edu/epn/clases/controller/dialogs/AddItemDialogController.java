@@ -5,10 +5,8 @@
  */
 package ec.edu.epn.clases.controller.dialogs;
 
-import ec.edu.epn.clases.Main;
 import ec.edu.epn.clases.controller.DialogController;
 import ec.edu.epn.pojos.Persona;
-import ec.edu.epn.pojos.Usuario;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.ResourceBundle;

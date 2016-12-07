@@ -27,7 +27,6 @@ public class Main extends Application {
     private static String TITLE = "OCJP - Proyecto";
     public static ArrayList<Usuario> users = new ArrayList<>();
 
-
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
