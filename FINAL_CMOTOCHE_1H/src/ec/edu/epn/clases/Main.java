@@ -9,6 +9,8 @@ import ec.edu.epn.clases.controller.LoginController;
 import ec.edu.epn.pojos.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,10 +24,10 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
+    public static ArrayList<Usuario> users = new ArrayList<>();
     private Stage primaryStage;
     private BorderPane rootLayout;
     private static String TITLE = "OCJP - Proyecto";
-    public static ArrayList<Usuario> users = new ArrayList<>();
 
     @Override
     public void start(Stage primaryStage) {
@@ -33,48 +35,46 @@ public class Main extends Application {
         this.primaryStage.setTitle(Main.TITLE);
         Main.users.add(new Usuario("Cristhian", "Motoche"));
 
-        initRootLayout();
-        showLogin();
+        try {
+            initRootLayout();
+            showLogin();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
      * Initializes the root layout.
+     * @throws java.io.IOException
      */
-    public void initRootLayout() {
-        try {
-            // Load root layout from fxml file.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
-            this.rootLayout = (BorderPane) loader.load();
+    public void initRootLayout() throws IOException {
+        // Load root layout from fxml file.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/RootLayout.fxml"));
+        this.rootLayout = (BorderPane) loader.load();
 
-            // Show the scene containing the root layout.
-            Scene scene = new Scene(this.rootLayout);
-            this.primaryStage.setScene(scene);
-            this.primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Show the scene containing the root layout.
+        Scene scene = new Scene(this.rootLayout);
+        this.primaryStage.setScene(scene);
+        this.primaryStage.show();
     }
 
     /**
      * Shows the person overview inside the root layout.
+     * @throws java.io.IOException
      */
-    public void showLogin() {
-        try {
-            // Load person overview.
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("view/Login.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
+    public void showLogin() throws IOException {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/Login.fxml"));
+        AnchorPane personOverview = (AnchorPane) loader.load();
 
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
+        // Set person overview into the center of root layout.
+        rootLayout.setCenter(personOverview);
 
-            // Give the controller access to the main app.
-            LoginController controller = loader.getController();
-            controller.setMain(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Give the controller access to the main app.
+        LoginController controller = loader.getController();
+        controller.setMain(this);
     }
 
     /**
@@ -92,7 +92,6 @@ public class Main extends Application {
 
     /**
      * @param args the command line arguments
-     * @param users the list of users in the system
      */
     public static void main(String[] args) {
         launch(args);

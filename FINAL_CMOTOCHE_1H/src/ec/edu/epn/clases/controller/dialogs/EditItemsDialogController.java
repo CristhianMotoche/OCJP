@@ -48,6 +48,7 @@ public class EditItemsDialogController
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -94,14 +95,13 @@ public class EditItemsDialogController
             // Set the person into the controller.
             EditItemDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-        controller.setPerson(person);
+            controller.setPerson(person);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
             return Optional.ofNullable(controller.getPerson());
         } catch (IOException e) {
-            e.printStackTrace();
             return Optional.empty();
         }
     }

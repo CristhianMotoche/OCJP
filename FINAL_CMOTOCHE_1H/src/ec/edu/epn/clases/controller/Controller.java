@@ -47,7 +47,6 @@ public abstract class Controller {
             controller.setMain(this.main);
             controller.setUser(user);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -71,7 +70,6 @@ public abstract class Controller {
             dialogStage.initModality(Modality.APPLICATION_MODAL);
             dialogStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 

@@ -149,6 +149,6 @@ public class MainMenuController
 
     @FXML
     private void handleExit() {
-        System.exit(0);
+        routeToController("view/Login.fxml", new LoginController(), user);
     }
 }
