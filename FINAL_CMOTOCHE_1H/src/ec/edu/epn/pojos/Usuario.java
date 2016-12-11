@@ -14,13 +14,26 @@ import java.util.Objects;
  * @author Cristhian Motoche
  */
 public class Usuario {
+    /**
+     * Private attributes
+     */
     private String nombre;
     private String apellido;
     private ArrayList<Persona> personas = new ArrayList<>();
 
+    /**
+     * Empty Constructor
+     */
     public Usuario() {
     }
 
+    /**
+     *
+     * Constructor with parameters
+     *
+     * @param nombre
+     * @param apellido
+     */
     public Usuario(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -29,28 +42,57 @@ public class Usuario {
         this.personas.add(new Persona("Laura", (byte) 24, new Date("1992/1/4"), 433.23, "lj@epn.edu.ec"));
     }
 
+    /**
+     *
+     * Constructor with parameters
+     *
+     * @param nombre
+     * @param apellido
+     * @param personas
+     */
     public Usuario(String nombre, String apellido, ArrayList<Persona> personas) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.personas = personas;
     }
 
+    /**
+     *
+     * @return String
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @return String
+     */
     public String getApellido() {
         return apellido;
     }
 
+    /**
+     *
+     * @return ArrayList
+     */
     public ArrayList<Persona> getPersonas() {
         return personas;
     }
 
+    /**
+     *
+     * @param personas
+     */
     public void setPersonas(ArrayList<Persona> personas) {
         this.personas = personas;
     }
 
+    /**
+     *
+     * @param usr_
+     * @return boolean
+     */
     @Override
     public boolean equals(Object usr_) {
         Usuario usr = (Usuario) usr_;
@@ -58,6 +100,10 @@ public class Usuario {
                 && this.apellido.equals(usr.apellido);
     }
 
+    /**
+     *
+     * @return int
+     */
     @Override
     public int hashCode() {
         int hash = 3;

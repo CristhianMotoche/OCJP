@@ -49,19 +49,33 @@ public class AddItemDialogController
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
 
+    /**
+     *
+     * @param dialogStage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
+    /**
+     *
+     * @param persona
+     */
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
 
+    /**
+     *
+     * @return
+     */
     public Persona getPersona() {
         return this.persona;
     }
@@ -82,6 +96,10 @@ public class AddItemDialogController
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String checkValidInput() {
         String errors = "";
         // Not empties

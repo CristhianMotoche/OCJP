@@ -32,10 +32,15 @@ public class LoginController
 
     private Usuario user;
 
+    /**
+     *
+     */
     public LoginController() {}
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {}

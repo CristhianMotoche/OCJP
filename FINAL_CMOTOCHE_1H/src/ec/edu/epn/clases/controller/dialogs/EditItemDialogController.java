@@ -68,6 +68,10 @@ public class EditItemDialogController
         }
     }
 
+    /**
+     *
+     * @param person
+     */
     public void setPerson(Persona person) {
         this.person = person;
 
@@ -83,10 +87,18 @@ public class EditItemDialogController
         this.dialogStage = dialogStage;
     }
 
+    /**
+     *
+     * @return
+     */
     public Persona getPerson() {
         return person;
     }
 
+    /**
+     *
+     * @return
+     */
     public String checkValidInput() {
         String errors = "";
         // Not empties

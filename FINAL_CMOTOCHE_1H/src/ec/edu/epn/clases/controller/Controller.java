@@ -21,17 +21,39 @@ import javafx.stage.Stage;
  * @author camm
  */
 public abstract class Controller {
+
+    /**
+     *
+     */
     protected Main main;
+
+    /**
+     *
+     */
     protected Usuario user;
 
+    /**
+     *
+     * @param main
+     */
     public void setMain(Main main) {
         this.main = main;
     }
 
+    /**
+     *
+     * @param user
+     */
     public void setUser(Usuario user) {
         this.user = user;
     }
 
+    /**
+     *
+     * @param fxml
+     * @param controller
+     * @param user
+     */
     public void routeToController(String fxml, Controller controller, Usuario user){
         try {
             // Load new user view.
@@ -50,6 +72,13 @@ public abstract class Controller {
         }
     }
 
+    /**
+     *
+     * @param title
+     * @param pathView
+     * @param dialogController
+     * @param peopleData
+     */
     public void showTable(String title, String pathView, TableController dialogController, ObservableList peopleData) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -73,6 +102,11 @@ public abstract class Controller {
         }
     }
 
+    /**
+     *
+     * @param errorMessage
+     * @return
+     */
     public boolean hasErrors(String errorMessage){
         if (errorMessage.length() == 0) {
             return false;

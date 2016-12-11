@@ -24,6 +24,9 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
+    /**
+     *
+     */
     public static ArrayList<Usuario> users = new ArrayList<>();
     private Stage primaryStage;
     private BorderPane rootLayout;
@@ -86,6 +89,10 @@ public class Main extends Application {
         return primaryStage;
     }
 
+    /**
+     *
+     * @return
+     */
     public BorderPane getRootLayout() {
         return rootLayout;
     }

@@ -41,14 +41,26 @@ public class DeleteItemsDialogController
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Persona> getPeople() {
         return people;
     }
 
+    /**
+     *
+     * @param people
+     */
     public void setPeople(ArrayList<Persona> people) {
         this.people = people;
     }
 
+    /**
+     *
+     * @param dialogStage
+     */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }

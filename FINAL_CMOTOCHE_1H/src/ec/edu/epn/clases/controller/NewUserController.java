@@ -38,6 +38,10 @@ public class NewUserController
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String checkValidInput() {
         String errors = "";
         if (txtUserName.getText().equals("")) {
@@ -59,6 +63,8 @@ public class NewUserController
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -13,6 +13,12 @@ import java.util.Date;
  * @author camm
  */
 public class Utils {
+
+    /**
+     *
+     * @param date
+     * @return
+     */
     public static String formatDate(Date date){
         return new SimpleDateFormat("MM/dd/yyyy").format(date);
     }

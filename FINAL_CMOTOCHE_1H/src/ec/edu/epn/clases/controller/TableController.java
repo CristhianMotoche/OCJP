@@ -24,16 +24,39 @@ public class TableController
     extends Controller
     implements Initializable {
 
+    /**
+     *
+     */
     @FXML
     protected TableView<Persona> personTable;
+
+    /**
+     *
+     */
     @FXML
     protected TableColumn<Persona, String> columnNombre;
+
+    /**
+     *
+     */
     @FXML
     protected TableColumn<Persona, String> columnEdad;
+
+    /**
+     *
+     */
     @FXML
     protected TableColumn<Persona, String> columnFecha;
+
+    /**
+     *
+     */
     @FXML
     protected TableColumn<Persona, String> columnSalario;
+
+    /**
+     *
+     */
     @FXML
     protected TableColumn<Persona, String> columnEmail;
 
@@ -57,6 +80,10 @@ public class TableController
                 -> new SimpleStringProperty(cellData.getValue().getEmail()));
     }
 
+    /**
+     *
+     * @param peopleData
+     */
     public void setPersonTableItems(ObservableList<Persona> peopleData) {
         this.personTable.setItems(peopleData);
     }

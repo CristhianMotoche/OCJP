@@ -42,6 +42,11 @@ public class EditItemsDialogController
         }
     }
 
+    /**
+     *
+     * @param person
+     * @return
+     */
     public Optional<Persona> showPersonEditDialog(Persona person) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.

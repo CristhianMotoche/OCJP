@@ -37,15 +37,24 @@ public class MainMenuController
         extends Controller
         implements Initializable {
 
+    /**
+     *
+     */
     public MainMenuController() {
     }
 
+    /**
+     *
+     * @param user
+     */
     public MainMenuController(Usuario user) {
         this.user = user;
     }
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,6 +68,10 @@ public class MainMenuController
         });
     }
 
+    /**
+     *
+     * @return
+     */
     public Optional<Persona> showPersonAddDialog() {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
@@ -102,6 +115,11 @@ public class MainMenuController
         showPersonDeleteDialog(peopleData).ifPresent(people -> this.user.setPersonas(people));
     }
 
+    /**
+     *
+     * @param peopleData
+     * @return
+     */
     public Optional<ArrayList<Persona>> showPersonDeleteDialog(ObservableList<Persona> peopleData) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
