@@ -39,6 +39,8 @@ public class MainMenuController
 
     /**
      *
+     *  Empty constructor
+     * 
      */
     public MainMenuController() {
     }

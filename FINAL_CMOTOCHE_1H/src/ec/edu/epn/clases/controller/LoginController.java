@@ -33,6 +33,7 @@ public class LoginController
     private Usuario user;
 
     /**
+     * Empty constructor
      *
      */
     public LoginController() {}
