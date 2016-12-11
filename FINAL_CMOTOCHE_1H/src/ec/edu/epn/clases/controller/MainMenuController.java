@@ -149,6 +149,8 @@ public class MainMenuController
 
     @FXML
     private void handleExit() {
+        this.main.getPrimaryStage().setWidth(450);
+        this.main.getPrimaryStage().setHeight(250);
         routeToController("view/Login.fxml", new LoginController(), user);
     }
 }

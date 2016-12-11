@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="loginWindow" prefHeight="200.0" prefWidth="450.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.epn.clases.controller.LoginController">
+<AnchorPane fx:id="loginWindow" prefHeight="250.0" prefWidth="450.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.epn.clases.controller.LoginController">
     <stylesheets>
         <URL value="@DarkTheme.css" />
     </stylesheets>
