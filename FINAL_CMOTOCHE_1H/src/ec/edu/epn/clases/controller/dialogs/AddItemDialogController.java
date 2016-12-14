@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class AddItemDialogController
         extends DialogController

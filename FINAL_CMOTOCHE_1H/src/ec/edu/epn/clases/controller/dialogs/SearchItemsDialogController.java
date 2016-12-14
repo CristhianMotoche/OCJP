@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class SearchItemsDialogController
         extends TableController {

@@ -17,7 +17,7 @@ import javafx.scene.control.TableColumn;
 /**
  * FXML Controller class
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class PrintItemsDialogController
         extends TableController {
