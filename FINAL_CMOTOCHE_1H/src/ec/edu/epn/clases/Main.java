@@ -20,11 +20,13 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class Main extends Application {
 
     /**
+     *
+     * Attributes
      *
      */
     public static ArrayList<Usuario> users = new ArrayList<>();
@@ -48,6 +50,7 @@ public class Main extends Application {
 
     /**
      * Initializes the root layout.
+     *
      * @throws java.io.IOException
      */
     public void initRootLayout() throws IOException {
@@ -64,6 +67,7 @@ public class Main extends Application {
 
     /**
      * Shows the person overview inside the root layout.
+     *
      * @throws java.io.IOException
      */
     public void showLogin() throws IOException {
@@ -91,6 +95,8 @@ public class Main extends Application {
 
     /**
      *
+     * Returns the BorderPane of the first stage
+     *
      * @return
      */
     public BorderPane getRootLayout() {
@@ -98,6 +104,9 @@ public class Main extends Application {
     }
 
     /**
+     *
+     * Main function
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {

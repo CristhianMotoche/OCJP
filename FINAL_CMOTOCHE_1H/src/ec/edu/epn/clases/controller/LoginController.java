@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class LoginController
         extends Controller
@@ -36,21 +36,28 @@ public class LoginController
      * Empty constructor
      *
      */
-    public LoginController() {}
+    public LoginController() {
+    }
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}
+    public void initialize(URL url, ResourceBundle rb) {
+    }
 
     @FXML
-    private void handleLogin(){
+    private void handleLogin() {
         this.user = new Usuario(txtUserName.getText(), passPassword.getText());
         if (Main.users.contains(user)) {
-            routeToMainMenuController();
+            int id = Main.users.indexOf(this.user);
+            this.user = Main.users.get(id);
+            this.main.getPrimaryStage().setWidth(400);
+            this.main.getPrimaryStage().setHeight(400);
+            routeToController("view/MainMenu.fxml", new MainMenuController(), this.user);
         } else {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -62,18 +69,7 @@ public class LoginController
     }
 
     @FXML
-    private void handleNewUser(){
-        routeToNewUserController();
-    }
-
-    private void routeToNewUserController(){
+    private void handleNewUser() {
         routeToController("view/NewUser.fxml", new NewUserController(), null);
-    }
-
-    private void routeToMainMenuController(){
-        this.main.getPrimaryStage().setWidth(400);
-        this.main.getPrimaryStage().setHeight(400);
-        MainMenuController controller = new MainMenuController();
-        routeToController("view/MainMenu.fxml", controller, this.user);
     }
 }

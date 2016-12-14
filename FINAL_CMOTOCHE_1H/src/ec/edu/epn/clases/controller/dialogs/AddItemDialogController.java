@@ -85,6 +85,7 @@ public class AddItemDialogController
         this.persona = new Persona();
         String checks = checkValidInput();
         if (!hasErrors(checks)) {
+            this.persona.setId();
             this.persona.setNombre(txtNombre.getText());
             this.persona.setEdad(Byte.parseByte(txtEdad.getText()));
             this.persona.setSueldo(Double.parseDouble(txtSueldo.getText()));

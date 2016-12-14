@@ -31,6 +31,7 @@ public class Persona {
      * Public attributes
      */
     public static char PAIS = 'E';
+    public static int COUNTER = 0;
 
     /**
      * Empty Constructor
@@ -54,6 +55,7 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
         this.sueldo = sueldo;
         this.email = email;
+        this.id = ++Persona.COUNTER;
     }
 
     /**
@@ -108,8 +110,8 @@ public class Persona {
      *
      * @param id
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setId() {
+        this.id = ++Persona.COUNTER;
     }
 
     /**

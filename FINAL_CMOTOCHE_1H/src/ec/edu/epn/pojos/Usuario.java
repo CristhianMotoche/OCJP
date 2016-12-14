@@ -102,7 +102,7 @@ public class Usuario {
 
     /**
      *
-     * @return int
+     * @return
      */
     @Override
     public int hashCode() {

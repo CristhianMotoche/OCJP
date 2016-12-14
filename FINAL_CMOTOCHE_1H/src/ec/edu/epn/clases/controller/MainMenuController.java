@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class MainMenuController
         extends Controller
@@ -40,7 +40,7 @@ public class MainMenuController
     /**
      *
      *  Empty constructor
-     * 
+     *
      */
     public MainMenuController() {
     }
@@ -55,6 +55,7 @@ public class MainMenuController
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
@@ -71,6 +72,8 @@ public class MainMenuController
     }
 
     /**
+     *
+     * Show Dialog for adding a new person
      *
      * @return
      */
@@ -118,6 +121,8 @@ public class MainMenuController
     }
 
     /**
+     *
+     * Show dialog for deleting a person
      *
      * @param peopleData
      * @return

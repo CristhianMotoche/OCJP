@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class NewUserController
         extends Controller
@@ -39,6 +39,8 @@ public class NewUserController
     }
 
     /**
+     *
+     * Return the errors if any
      *
      * @return
      */
@@ -63,6 +65,7 @@ public class NewUserController
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */

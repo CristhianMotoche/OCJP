@@ -18,21 +18,26 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public abstract class Controller {
 
     /**
      *
+     * Reference to main application
      */
     protected Main main;
 
     /**
      *
+     * Reference to logged user.
+     *
      */
     protected Usuario user;
 
     /**
+     *
+     * Set main
      *
      * @param main
      */
@@ -42,6 +47,8 @@ public abstract class Controller {
 
     /**
      *
+     * Set user
+     *
      * @param user
      */
     public void setUser(Usuario user) {
@@ -49,6 +56,8 @@ public abstract class Controller {
     }
 
     /**
+     *
+     * Route to a new controller. Take the view file, controller instance and user.
      *
      * @param fxml
      * @param controller
@@ -73,6 +82,8 @@ public abstract class Controller {
     }
 
     /**
+     *
+     * Display table based on title, path to view file, controller, and observable list
      *
      * @param title
      * @param pathView
@@ -103,6 +114,8 @@ public abstract class Controller {
     }
 
     /**
+     *
+     * Display errors if any
      *
      * @param errorMessage
      * @return

@@ -18,7 +18,9 @@ import javafx.scene.control.TableView;
 
 /**
  *
- * @author camm
+ * Table Controller that extends from Controller
+ *
+ * @author Cristhian Motoche
  */
 public class TableController
     extends Controller

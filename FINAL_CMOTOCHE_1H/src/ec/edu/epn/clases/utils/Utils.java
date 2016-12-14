@@ -10,11 +10,13 @@ import java.util.Date;
 
 /**
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class Utils {
 
     /**
+     *
+     * Return the format of a date like: "MM/DD/YYYY"
      *
      * @param date
      * @return

@@ -57,6 +57,7 @@ public class EditItemDialogController
     private void handleAcept() {
         String checks = checkValidInput();
         if (!hasErrors(checks)) {
+            this.person.setId();
             this.person.setNombre(txtNombre.getText());
             this.person.setEdad(Byte.parseByte(txtEdad.getText()));
             this.person.setSueldo(Double.parseDouble(txtSueldo.getText()));
@@ -74,7 +75,6 @@ public class EditItemDialogController
      */
     public void setPerson(Persona person) {
         this.person = person;
-
         txtNombre.setText(person.getNombre());
         txtEdad.setText(String.valueOf(person.getEdad()));
         txtEmail.setText(person.getEmail());

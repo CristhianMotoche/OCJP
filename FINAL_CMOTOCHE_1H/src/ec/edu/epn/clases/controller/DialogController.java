@@ -7,7 +7,9 @@ package ec.edu.epn.clases.controller;
 
 /**
  *
- * @author camm
+ * Simple Dialogs controller that extends from Controller
+ *
+ * @author Cristhian Motoche
  */
 public class DialogController
         extends Controller {

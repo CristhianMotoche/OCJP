@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author camm
+ * @author Cristhian Motoche
  */
 public class MainApp extends Application {
 
@@ -19,6 +19,9 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {}
 
     /**
+     *
+     * Main function
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
