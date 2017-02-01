@@ -1,5 +1,8 @@
 package ec.edu.epn.programacion.principal;
 
+import ec.edu.epn.programacion.clases.controladores.CtrlLogin;
+import ec.edu.epn.programacion.clases.gui.FrmLogin;
+
 /**
  *
  * @author camm
@@ -8,6 +11,8 @@ package ec.edu.epn.programacion.principal;
  */
 public class Principal {
     public static void main(String args[]){
-        System.out.println("Esta es la aplicación principal");
+        FrmLogin frmLogin = new FrmLogin();
+        CtrlLogin ctrlLogin = new CtrlLogin(frmLogin);
+        ctrlLogin.start();
     }
 }
