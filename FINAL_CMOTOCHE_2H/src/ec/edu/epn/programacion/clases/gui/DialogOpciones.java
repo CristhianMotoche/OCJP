@@ -5,6 +5,9 @@
  */
 package ec.edu.epn.programacion.clases.gui;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author CAMM
@@ -15,6 +18,11 @@ public class DialogOpciones extends javax.swing.JDialog {
      * Creates new form DialogOpciones
      */
     public DialogOpciones(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+    }
+
+    public DialogOpciones(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -116,7 +124,7 @@ public class DialogOpciones extends javax.swing.JDialog {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -161,4 +169,32 @@ public class DialogOpciones extends javax.swing.JDialog {
     private javax.swing.JLabel lblPOJO;
     private javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public JButton getBtnEditar() {
+        return btnEditar;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public JButton getBtnListar() {
+        return btnListar;
+    }
+
+    public JButton getBtnNuevo() {
+        return btnNuevo;
+    }
+
+    public JButton getBtnRegresar() {
+        return btnRegresar;
+    }
+
+    public JLabel getLblPOJO() {
+        return lblPOJO;
+    }
 }

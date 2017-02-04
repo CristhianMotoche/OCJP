@@ -2,24 +2,21 @@ package ec.edu.epn.programacion.clases.validador;
 
 import ec.edu.epn.programacion.interfaces.Validador;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class ValidadorLogin
+public class ValidadorUsuario
     implements Validador {
 
     @Override
-    public String validar(Object obj){
+    public String validar(Object obj) {
         UsuarioSistema user = (UsuarioSistema) obj;
-//        if (user == null) {
-//            return "\nEl usuario o contaseña no son válidos.";
-//        } else {
-//            return "";
-//        }
-        return "";
+        String messages = "";
+        if (user.getLogin().isEmpty()) {
+            messages += "\nEl nombre de usuario no puede estar vacio";
+        }
+        return messages;
     }
 }

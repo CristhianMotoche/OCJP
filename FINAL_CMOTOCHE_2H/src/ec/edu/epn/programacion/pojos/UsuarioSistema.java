@@ -5,6 +5,8 @@
  */
 package ec.edu.epn.programacion.pojos;
 
+import java.util.Date;
+
 /**
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
@@ -16,6 +18,12 @@ public class UsuarioSistema
     private String password;
 
     public UsuarioSistema() {
+    }
+
+    public UsuarioSistema(String login, String password, String nombre, byte edad, Date fechaNacimiento, String email) {
+        super(nombre, edad, fechaNacimiento, email);
+        this.login = login;
+        this.password = password;
     }
 
     public UsuarioSistema(String login, String password) {

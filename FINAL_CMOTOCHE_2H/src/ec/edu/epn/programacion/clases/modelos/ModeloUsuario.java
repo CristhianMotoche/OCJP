@@ -67,7 +67,8 @@ public class ModeloUsuario
             FileWriter fw = new FileWriter(this.archivoUsuarios, false);
             BufferedWriter bw = new BufferedWriter(fw);
             for (UsuarioSistema usuario : this.usuarios) {
-                bw.write(usuario.getNombre() + " " + usuario.getPassword());
+                bw.write(usuario.getLogin() + " " + usuario.getPassword());
+                bw.newLine();
             }
             bw.close();
             return true;

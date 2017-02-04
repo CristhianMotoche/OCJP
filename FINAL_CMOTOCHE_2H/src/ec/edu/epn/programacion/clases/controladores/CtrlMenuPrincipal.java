@@ -6,6 +6,7 @@
 package ec.edu.epn.programacion.clases.controladores;
 
 import ec.edu.epn.programacion.clases.gui.DialogAdministracion;
+import ec.edu.epn.programacion.clases.gui.DialogTransacciones;
 import ec.edu.epn.programacion.clases.gui.FrmMenuPrincipal;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
 import java.awt.event.ActionEvent;
@@ -23,6 +24,10 @@ public class CtrlMenuPrincipal
     public CtrlMenuPrincipal(FrmMenuPrincipal frmMenuPrincipal, UsuarioSistema user) {
         this.frmMenuPrincipal = frmMenuPrincipal;
         this.user = user;
+
+        this.frmMenuPrincipal.getBtnAdministracion().addActionListener(this);
+        this.frmMenuPrincipal.getBtnTransacciones().addActionListener(this);
+        this.frmMenuPrincipal.getBtnSalir().addActionListener(this);
     }
 
     public void start(){
@@ -35,12 +40,15 @@ public class CtrlMenuPrincipal
         if(e.getSource() == this.frmMenuPrincipal.getBtnAdministracion()){
             DialogAdministracion dlgAdministracion
                     = new DialogAdministracion(this.frmMenuPrincipal, true);
+
             CtrlDialogAdministracion ctrlDialogAdministracion
                     = new CtrlDialogAdministracion(dlgAdministracion);
+
             ctrlDialogAdministracion.start();
         }
         if (e.getSource() == this.frmMenuPrincipal.getBtnTransacciones()) {
-
+            DialogTransacciones dlgTransacciones
+                    = new DialogTransacciones(this.frmMenuPrincipal, true);
         }
         if(e.getSource() == this.frmMenuPrincipal.getBtnSalir()){
             System.exit(0);

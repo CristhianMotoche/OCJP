@@ -5,7 +5,7 @@ import ec.edu.epn.programacion.clases.gui.FrmLogin;
 
 /**
  *
- * @author camm
+ * @author Cristhian Motoche
  * 
  * Clase principal que ejecuta la aplicación
  */

@@ -21,6 +21,11 @@ public class DialogAdministracion extends javax.swing.JDialog {
         initComponents();
     }
 
+    public DialogAdministracion(java.awt.Dialog parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,8 +96,8 @@ public class DialogAdministracion extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 149, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -105,7 +110,7 @@ public class DialogAdministracion extends javax.swing.JDialog {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -163,5 +168,5 @@ public class DialogAdministracion extends javax.swing.JDialog {
 
     public JButton getBtnUsuarios() {
         return btnUsuarios;
-    }    
+    }
 }

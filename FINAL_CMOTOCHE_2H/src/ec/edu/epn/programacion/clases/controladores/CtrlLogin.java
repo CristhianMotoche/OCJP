@@ -40,14 +40,14 @@ public class CtrlLogin
             String password = this.frmLogin.getPassword();
 
             UsuarioSistema user = this.modelo.buscarUsuario(userName, password);
-
-            if (validador.validar(user)) {
+            String mensajesDeError = validador.validar(user);
+            if (mensajesDeError.isEmpty()) {
                 FrmMenuPrincipal frmMenuPrincipal = new FrmMenuPrincipal();
                 CtrlMenuPrincipal ctrlMenuPrincipal = new CtrlMenuPrincipal(frmMenuPrincipal, user);
                 ctrlMenuPrincipal.start();
                 this.frmLogin.dispose();
             } else {
-                JOptionPane.showMessageDialog(this.frmLogin, "El usuario o contaseña no son válidos.");
+                JOptionPane.showMessageDialog(this.frmLogin, mensajesDeError);
             }
         }
         if (e.getSource() == this.frmLogin.getBtnCerrar()) {
