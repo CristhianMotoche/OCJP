@@ -1,5 +1,6 @@
 package ec.edu.epn.programacion.clases.controladores.usuario;
 
+import ec.edu.epn.programacion.clases.gui.usuario.DialogCrearUsuario;
 import ec.edu.epn.programacion.clases.gui.usuario.DialogOpcionesUsuario;
 import ec.edu.epn.programacion.clases.modelos.ModeloUsuario;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
@@ -36,7 +37,7 @@ public class CtrlOpcionesUsuario
         if (remover) {
             this.dialogOpcionesUsuario.getBtnOpcion().setText("Eliminar");
         } else if (editar) {
-
+            this.dialogOpcionesUsuario.getBtnOpcion().setText("Editar");
         } else {
             this.dialogOpcionesUsuario.getBtnOpcion().setVisible(false);
         }
@@ -67,17 +68,57 @@ public class CtrlOpcionesUsuario
                         , "Error"
                         , JOptionPane.ERROR_MESSAGE, null);
             } else {
+                // Actualizar modelo
                 List<UsuarioSistema> usuarios = this.modeloUsuario.listar();
                 TableModel tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
+                // Buscar usuario por login y password
                 String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
                 String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
                 UsuarioSistema user = new UsuarioSistema(login, pass);
+                // Borrar usuario
                 this.modeloUsuario.borrar(user);
+                // Actualizar modelo
                 usuarios = this.modeloUsuario.listar();
                 tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
                 this.dialogOpcionesUsuario.getTableUsuarios().updateUI();
+            }
+        }
+        if (e.getSource() == this.dialogOpcionesUsuario.getBtnOpcion() && this.editar) {
+            int row = this.dialogOpcionesUsuario.getTableUsuarios().getSelectedRow();
+            int rows = this.dialogOpcionesUsuario.getTableUsuarios().getSelectedRowCount();
+            if (row < 1 && rows == 0) {
+                JOptionPane.showMessageDialog(dialogOpcionesUsuario
+                        , "Debe seleccionar una sola fila"
+                        , "Error"
+                        , JOptionPane.ERROR_MESSAGE, null);
+            } else {
+                // Actualizar modelo
+                List<UsuarioSistema> usuarios = this.modeloUsuario.listar();
+                DefaultTableModel tableModel = listToModel(usuarios);
+                this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
+
+                // Buscar usuario por login y password
+                String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
+                String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
+                UsuarioSistema user = new UsuarioSistema(login, pass);
+                for (UsuarioSistema usuario : usuarios) {
+                    if (user.equals(usuario)) {
+                        user = usuario;
+                    }
+                }
+
+                // Borrar usuario
+                DialogCrearUsuario dcu = new DialogCrearUsuario(dialogOpcionesUsuario, true);
+                CtrlNuevoUsuario cnu = new CtrlNuevoUsuario(dcu, user);
+                cnu.start();
+
+                // Actualizar modelo
+                usuarios = this.modeloUsuario.listar();
+                tableModel = listToModel(usuarios);
+                this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
+                ((DefaultTableModel) this.dialogOpcionesUsuario.getTableUsuarios().getModel()).fireTableDataChanged();
             }
         }
         if (e.getSource() == this.dialogOpcionesUsuario.getBtnCancelar()) {
@@ -85,7 +126,7 @@ public class CtrlOpcionesUsuario
         }
     }
 
-    private TableModel listToModel(List<UsuarioSistema> usuarios) {
+    private DefaultTableModel listToModel(List<UsuarioSistema> usuarios) {
         Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Login", "Password"};
         Object [][] data = new Object[usuarios.size()][columns.length];
         for (int i = 0; i < usuarios.size(); i++) {

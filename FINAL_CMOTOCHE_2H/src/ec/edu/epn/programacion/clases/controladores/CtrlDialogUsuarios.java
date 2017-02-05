@@ -59,7 +59,11 @@ public class CtrlDialogUsuarios
             ctrlOpcionesUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnBuscar()) {
-
+            DialogOpcionesUsuario dialogOpcionesUsuario =
+                    new DialogOpcionesUsuario(this.dialogOpciones, true);
+            CtrlOpcionesUsuario ctrlOpcionesUsuario =
+                    new CtrlOpcionesUsuario(dialogOpcionesUsuario, false, false);
+            ctrlOpcionesUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnRegresar()) {
             this.dialogOpciones.dispose();

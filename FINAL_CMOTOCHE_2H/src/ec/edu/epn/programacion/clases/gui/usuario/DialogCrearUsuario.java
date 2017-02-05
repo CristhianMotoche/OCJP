@@ -317,4 +317,12 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
     public void setTxtNombre(String txtNombre) {
         this.txtNombre.setText(txtNombre);
     }
+
+    public void setTxtPass(String pass){
+        this.pass.setText(pass);
+    }
+
+    public void setDateFechaNac(Date date){
+        this.dateFechaNac.setDate(date);
+    }
 }

@@ -29,37 +29,7 @@ public class ModeloUsuario
     private ArrayList<UsuarioSistema> usuarios;
 
     public ModeloUsuario() {
-        try {
-            this.usuarios = new ArrayList();
-            this.archivoUsuarios = new File("./usuarios.txt");
-            fr = new FileReader(this.archivoUsuarios);
-            br = new BufferedReader(fr);
-
-            try {
-                String linea;
-                while((linea = br.readLine())!= null){
-                    String contenidoLinea [] = linea.split(" ");
-                    String login = contenidoLinea[0];
-                    String contrasena = contenidoLinea[1];
-                    String nombre = contenidoLinea[2];
-                    byte edad = new Byte(contenidoLinea[3]);
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fechaNac = sdf.parse(contenidoLinea[4]);
-                    String email = contenidoLinea[5];
-                    UsuarioSistema user = new UsuarioSistema(login, contrasena, nombre, edad, fechaNac, email);
-                    usuarios.add(user);
-                }
-                br.close();
-            } catch (IOException | NumberFormatException | ParseException ex) {
-                JOptionPane.showMessageDialog(null, "Ocurrió un error al leer el archivo");
-                System.err.println("Ocurrió un error al leer el archivo: \n" + ex);
-                System.exit(0);
-            }
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "No existe el fichero de usuarios");
-            System.err.println("No existe el fichero.");
-            System.exit(0);
-        }
+        listar();
     }
 
     public UsuarioSistema buscarUsuario(String userName, String password) {
@@ -103,7 +73,7 @@ public class ModeloUsuario
         if (registrarUsuarios()) {
             return "Se creó el usuario " + user;
         } else {
-            return "No se creó el usuario";
+            return "Existió un error interno.\nNo se creó el usuario";
         }
     }
 
@@ -124,7 +94,7 @@ public class ModeloUsuario
         if (registrarUsuarios()) {
             return "Se actualizó el usuario";
         } else {
-            return "No se actualizó el usuario";
+            return "Existió un error interno.\nNo se actualizó el usuario";
         }
     }
 
@@ -151,6 +121,37 @@ public class ModeloUsuario
 
     @Override
     public List listar() {
+        try {
+            this.usuarios = new ArrayList();
+            this.archivoUsuarios = new File("./usuarios.txt");
+            fr = new FileReader(this.archivoUsuarios);
+            br = new BufferedReader(fr);
+
+            try {
+                String linea;
+                while((linea = br.readLine())!= null){
+                    String contenidoLinea [] = linea.split(" ");
+                    String login = contenidoLinea[0];
+                    String contrasena = contenidoLinea[1];
+                    String nombre = contenidoLinea[2];
+                    byte edad = new Byte(contenidoLinea[3]);
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fechaNac = sdf.parse(contenidoLinea[4]);
+                    String email = contenidoLinea[5];
+                    UsuarioSistema user = new UsuarioSistema(login, contrasena, nombre, edad, fechaNac, email);
+                    usuarios.add(user);
+                }
+                br.close();
+            } catch (IOException | NumberFormatException | ParseException ex) {
+                JOptionPane.showMessageDialog(null, "Ocurrió un error al leer el archivo");
+                System.err.println("Ocurrió un error al leer el archivo: \n" + ex);
+                System.exit(0);
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No existe el fichero de usuarios");
+            System.err.println("No existe el fichero.");
+            System.exit(0);
+        }
         return this.usuarios;
     }
 }

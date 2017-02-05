@@ -12,14 +12,32 @@ import javax.swing.JOptionPane;
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
 public class CtrlNuevoUsuario
-    implements ActionListener {
+        implements ActionListener {
 
     private DialogCrearUsuario dialogCrearUsuario;
     private ModeloUsuario modeloUsuario;
+    private boolean editar;
 
     public CtrlNuevoUsuario(DialogCrearUsuario dialogCrearUsuario) {
         this.dialogCrearUsuario = dialogCrearUsuario;
         this.modeloUsuario = new ModeloUsuario();
+        this.editar = false;
+
+        this.dialogCrearUsuario.getBtnAceptar().addActionListener(this);
+        this.dialogCrearUsuario.getBtnCancelar().addActionListener(this);
+    }
+
+    public CtrlNuevoUsuario(DialogCrearUsuario dialogCrearUsuario, UsuarioSistema usuarioEditar) {
+        this.dialogCrearUsuario = dialogCrearUsuario;
+        this.modeloUsuario = new ModeloUsuario();
+        this.editar = true;
+
+        this.dialogCrearUsuario.setTxtNombre(usuarioEditar.getNombre());
+        this.dialogCrearUsuario.setTxtEdad(Byte.toString(usuarioEditar.getEdad()));
+        this.dialogCrearUsuario.setDateFechaNac(usuarioEditar.getFechaNacimiento());
+        this.dialogCrearUsuario.setTxtEmail(usuarioEditar.getEmail());
+        this.dialogCrearUsuario.setTxtLogin(usuarioEditar.getLogin());
+        this.dialogCrearUsuario.setTxtPass(usuarioEditar.getPassword());
 
         this.dialogCrearUsuario.getBtnAceptar().addActionListener(this);
         this.dialogCrearUsuario.getBtnCancelar().addActionListener(this);
@@ -27,11 +45,27 @@ public class CtrlNuevoUsuario
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.dialogCrearUsuario.getBtnAceptar()) {
+        if (e.getSource() == this.dialogCrearUsuario.getBtnAceptar() && editar) {
             String mensajesDeError = camposValidos();
             if(mensajesDeError.isEmpty()){
                 UsuarioSistema user = getDatosUsuario();
-                this.modeloUsuario.crear(user);
+                String result = this.modeloUsuario.actualizar(user);
+                JOptionPane.showMessageDialog(this.dialogCrearUsuario, result);
+                this.dialogCrearUsuario.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this.dialogCrearUsuario
+                        , mensajesDeError
+                        , "Errores de usuario"
+                        , JOptionPane.ERROR_MESSAGE
+                        , null);
+            }
+        }
+        if (e.getSource() == this.dialogCrearUsuario.getBtnAceptar() && !editar) {
+            String mensajesDeError = camposValidos();
+            if(mensajesDeError.isEmpty()){
+                UsuarioSistema user = getDatosUsuario();
+                String result = this.modeloUsuario.crear(user);
+                JOptionPane.showMessageDialog(this.dialogCrearUsuario, result);
                 this.dialogCrearUsuario.dispose();
             } else {
                 JOptionPane.showMessageDialog(this.dialogCrearUsuario
