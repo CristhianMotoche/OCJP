@@ -29,7 +29,7 @@ public class ModeloUsuario
     private ArrayList<UsuarioSistema> usuarios;
 
     public ModeloUsuario() {
-        listar();
+        cargarUsuarios();
     }
 
     public UsuarioSistema buscarUsuario(String userName, String password) {
@@ -121,6 +121,11 @@ public class ModeloUsuario
 
     @Override
     public List listar() {
+        cargarUsuarios();
+        return this.usuarios;
+    }
+
+    private void cargarUsuarios(){
         try {
             this.usuarios = new ArrayList();
             this.archivoUsuarios = new File("./usuarios.txt");
@@ -152,6 +157,5 @@ public class ModeloUsuario
             System.err.println("No existe el fichero.");
             System.exit(0);
         }
-        return this.usuarios;
     }
 }
