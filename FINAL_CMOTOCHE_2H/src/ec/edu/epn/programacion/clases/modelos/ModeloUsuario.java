@@ -9,7 +9,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -36,12 +39,18 @@ public class ModeloUsuario
                 String linea;
                 while((linea = br.readLine())!= null){
                     String contenidoLinea [] = linea.split(" ");
-                    String nombre = contenidoLinea[0];
+                    String login = contenidoLinea[0];
                     String contrasena = contenidoLinea[1];
-                    usuarios.add(new UsuarioSistema(nombre, contrasena));
+                    String nombre = contenidoLinea[2];
+                    byte edad = new Byte(contenidoLinea[3]);
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fechaNac = sdf.parse(contenidoLinea[4]);
+                    String email = contenidoLinea[5];
+                    UsuarioSistema user = new UsuarioSistema(login, contrasena, nombre, edad, fechaNac, email);
+                    usuarios.add(user);
                 }
                 br.close();
-            } catch (IOException ex) {
+            } catch (IOException | NumberFormatException | ParseException ex) {
                 JOptionPane.showMessageDialog(null, "Ocurrió un error al leer el archivo");
                 System.err.println("Ocurrió un error al leer el archivo: \n" + ex);
                 System.exit(0);
@@ -66,8 +75,15 @@ public class ModeloUsuario
         try{
             FileWriter fw = new FileWriter(this.archivoUsuarios, false);
             BufferedWriter bw = new BufferedWriter(fw);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
             for (UsuarioSistema usuario : this.usuarios) {
-                bw.write(usuario.getLogin() + " " + usuario.getPassword());
+                bw.write(usuario.getLogin() + " "
+                        + usuario.getPassword() + " "
+                        + usuario.getNombre() + " "
+                        + usuario.getEdad() + " "
+                        + sdf.format(usuario.getFechaNacimiento()) + " "
+                        + usuario.getEmail()
+                );
                 bw.newLine();
             }
             bw.close();

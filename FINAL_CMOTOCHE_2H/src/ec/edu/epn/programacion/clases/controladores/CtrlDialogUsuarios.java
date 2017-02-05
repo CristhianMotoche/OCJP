@@ -1,8 +1,10 @@
 package ec.edu.epn.programacion.clases.controladores;
 
 import ec.edu.epn.programacion.clases.controladores.usuario.CtrlNuevoUsuario;
+import ec.edu.epn.programacion.clases.controladores.usuario.CtrlOpcionesUsuario;
 import ec.edu.epn.programacion.clases.gui.DialogOpciones;
 import ec.edu.epn.programacion.clases.gui.usuario.DialogCrearUsuario;
+import ec.edu.epn.programacion.clases.gui.usuario.DialogOpcionesUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,7 +44,11 @@ public class CtrlDialogUsuarios
 
         }
         if (e.getSource() == this.dialogOpciones.getBtnListar()) {
-
+            DialogOpcionesUsuario dialogOpcionesUsuario =
+                    new DialogOpcionesUsuario(this.dialogOpciones, true);
+            CtrlOpcionesUsuario ctrlOpcionesUsuario =
+                    new CtrlOpcionesUsuario(dialogOpcionesUsuario);
+            ctrlOpcionesUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnBuscar()) {
 

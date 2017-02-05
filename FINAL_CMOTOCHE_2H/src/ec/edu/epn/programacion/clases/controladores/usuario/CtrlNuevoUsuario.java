@@ -52,6 +52,7 @@ public class CtrlNuevoUsuario
         user.setNombre(this.dialogCrearUsuario.getTxtNombre());
         user.setEdad(new Byte(this.dialogCrearUsuario.getTxtEdad()));
         user.setFechaNacimiento(this.dialogCrearUsuario.getDateFechaNac());
+        user.setEmail(this.dialogCrearUsuario.getTxtEmail());
         user.setLogin(this.dialogCrearUsuario.getTxtLogin());
         user.setPassword(this.dialogCrearUsuario.getPass());
         return user;

@@ -5,16 +5,27 @@
  */
 package ec.edu.epn.programacion.clases.gui.usuario;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.table.TableModel;
+import org.jdesktop.swingx.JXTable;
+
 /**
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class FrmListarUsuario extends javax.swing.JFrame {
+public class DialogOpcionesUsuario extends javax.swing.JDialog {
 
     /**
-     * Creates new form FrmListarUsuario
+     * Creates new form DialogOpcionesUsuario
      */
-    public FrmListarUsuario() {
+    public DialogOpcionesUsuario(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+    }
+
+    public DialogOpcionesUsuario(java.awt.Dialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
     }
 
@@ -27,17 +38,15 @@ public class FrmListarUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         pnlEliminar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableUsuarios = new org.jdesktop.swingx.JXTable();
         btnCancelar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         lblBuscar = new javax.swing.JLabel();
+        btnOpcion = new javax.swing.JButton();
 
-        jTextField1.setText("jTextField1");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -56,6 +65,8 @@ public class FrmListarUsuario extends javax.swing.JFrame {
 
         lblBuscar.setText("Buscar:");
 
+        btnOpcion.setText("OPCION");
+
         javax.swing.GroupLayout pnlEliminarLayout = new javax.swing.GroupLayout(pnlEliminar);
         pnlEliminar.setLayout(pnlEliminarLayout);
         pnlEliminarLayout.setHorizontalGroup(
@@ -65,7 +76,11 @@ public class FrmListarUsuario extends javax.swing.JFrame {
                 .addComponent(lblBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addContainerGap(259, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEliminarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOpcion)
+                .addGap(118, 118, 118))
             .addGroup(pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlEliminarLayout.createSequentialGroup()
                     .addContainerGap()
@@ -83,7 +98,9 @@ public class FrmListarUsuario extends javax.swing.JFrame {
                 .addGroup(pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblBuscar))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addComponent(btnOpcion)
+                .addContainerGap())
             .addGroup(pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlEliminarLayout.createSequentialGroup()
                     .addGap(38, 38, 38)
@@ -119,7 +136,7 @@ public class FrmListarUsuario extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -129,31 +146,62 @@ public class FrmListarUsuario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmListarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogOpcionesUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmListarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogOpcionesUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmListarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogOpcionesUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmListarUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogOpcionesUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmListarUsuario().setVisible(true);
+                DialogOpcionesUsuario dialog = new DialogOpcionesUsuario(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnOpcion;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblBuscar;
     private javax.swing.JPanel pnlEliminar;
     private org.jdesktop.swingx.JXTable tableUsuarios;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public JButton getBtnOpcion() {
+        return btnOpcion;
+    }
+
+    public JXTable getTableUsuarios() {
+        return tableUsuarios;
+    }
+
+    public JTextField getTextFieldBuscar() {
+        return txtBuscar;
+    }
+
+    public String getTxtBuscar() {
+        return txtBuscar.getText().trim();
+    }
+
+    public void setTableUsuarios(TableModel dataModel){
+        this.tableUsuarios.setModel(dataModel);
+    }
 }

@@ -28,6 +28,7 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         filters();
+        this.dateFechaNac.setFormats("dd/MM/yyyy");
     }
 
     private void filters(){
@@ -299,5 +300,21 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
 
     public String getTxtNombre() {
         return txtNombre.getText().trim();
+    }
+
+    public void setTxtEdad(String txtEdad) {
+        this.txtEdad.setText(txtEdad);
+    }
+
+    public void setTxtEmail(String txtEmail) {
+        this.txtEmail.setText(txtEmail);
+    }
+
+    public void setTxtLogin(String txtLogin) {
+        this.txtLogin.setText(txtLogin);
+    }
+
+    public void setTxtNombre(String txtNombre) {
+        this.txtNombre.setText(txtNombre);
     }
 }
