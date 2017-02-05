@@ -38,16 +38,24 @@ public class CtrlDialogUsuarios
             ctrlNuevoUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnEditar()) {
-
+            DialogOpcionesUsuario dialogOpcionesUsuario =
+                    new DialogOpcionesUsuario(this.dialogOpciones, true);
+            CtrlOpcionesUsuario ctrlOpcionesUsuario =
+                    new CtrlOpcionesUsuario(dialogOpcionesUsuario, false, true);
+            ctrlOpcionesUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnEliminar()) {
-
+            DialogOpcionesUsuario dialogOpcionesUsuario =
+                    new DialogOpcionesUsuario(this.dialogOpciones, true);
+            CtrlOpcionesUsuario ctrlOpcionesUsuario =
+                    new CtrlOpcionesUsuario(dialogOpcionesUsuario, true, false);
+            ctrlOpcionesUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnListar()) {
             DialogOpcionesUsuario dialogOpcionesUsuario =
                     new DialogOpcionesUsuario(this.dialogOpciones, true);
             CtrlOpcionesUsuario ctrlOpcionesUsuario =
-                    new CtrlOpcionesUsuario(dialogOpcionesUsuario);
+                    new CtrlOpcionesUsuario(dialogOpcionesUsuario, false, false);
             ctrlOpcionesUsuario.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnBuscar()) {
