@@ -1,5 +1,7 @@
 package ec.edu.epn.programacion.pojos;
 
+import java.util.Date;
+
 /**
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
@@ -15,6 +17,12 @@ public class Cliente
     }
 
     public Cliente(String celular, double sueldo) {
+        this.celular = celular;
+        this.sueldo = sueldo;
+    }
+
+    public Cliente(String celular, double sueldo, String nombre, byte edad, Date fechaNacimiento, String email) {
+        super(nombre, edad, fechaNacimiento, email);
         this.celular = celular;
         this.sueldo = sueldo;
     }

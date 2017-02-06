@@ -2,8 +2,6 @@ package ec.edu.epn.programacion.clases.validador;
 
 import ec.edu.epn.programacion.interfaces.Validador;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
