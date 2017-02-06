@@ -44,10 +44,25 @@ public class CtrlDialogClientes
             ctrlNuevoCliente.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnEditar()) {
+            DialogOpcionesCliente dialogOpcionesCliente =
+                    new DialogOpcionesCliente(dialogOpciones, true);
+            CtrlOpcionesCliente ctrlOpcionesCliente =
+                    new CtrlOpcionesCliente(dialogOpcionesCliente, false, true);
+            ctrlOpcionesCliente.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnEliminar()) {
+            DialogOpcionesCliente dialogOpcionesCliente =
+                    new DialogOpcionesCliente(dialogOpciones, true);
+            CtrlOpcionesCliente ctrlOpcionesCliente =
+                    new CtrlOpcionesCliente(dialogOpcionesCliente, true, false);
+            ctrlOpcionesCliente.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnListar()) {
+            DialogOpcionesCliente dialogOpcionesCliente =
+                    new DialogOpcionesCliente(dialogOpciones, true);
+            CtrlOpcionesCliente ctrlOpcionesCliente =
+                    new CtrlOpcionesCliente(dialogOpcionesCliente, false, false);
+            ctrlOpcionesCliente.start();
         }
         if (e.getSource() == this.dialogOpciones.getBtnBuscar()) {
             DialogOpcionesCliente dialogOpcionesCliente =

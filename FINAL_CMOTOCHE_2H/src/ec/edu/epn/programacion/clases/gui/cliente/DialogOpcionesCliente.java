@@ -7,6 +7,7 @@ package ec.edu.epn.programacion.clases.gui.cliente;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.table.TableModel;
 import org.jdesktop.swingx.JXTable;
 
 /**
@@ -71,18 +72,21 @@ public class DialogOpcionesCliente extends javax.swing.JDialog {
             pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlEliminarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlEliminarLayout.createSequentialGroup()
-                        .addComponent(btnOpcion)
+                        .addComponent(lblBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCancelar))
-                    .addGroup(pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlEliminarLayout.createSequentialGroup()
-                            .addComponent(lblBuscar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(425, Short.MAX_VALUE))
+                    .addGroup(pnlEliminarLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEliminarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOpcion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCancelar)
+                .addContainerGap())
         );
         pnlEliminarLayout.setVerticalGroup(
             pnlEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +190,7 @@ public class DialogOpcionesCliente extends javax.swing.JDialog {
         return txtBuscar;
     }
 
-    public JXTable getTableUsuarios() {
-        return this.tableClientes;
+    public void setTableClientes(TableModel tableModel) {
+        this.tableClientes.setModel(tableModel);
     }
 }
