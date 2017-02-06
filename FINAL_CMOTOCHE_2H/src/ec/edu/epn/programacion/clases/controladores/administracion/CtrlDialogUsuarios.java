@@ -1,4 +1,4 @@
-package ec.edu.epn.programacion.clases.controladores;
+package ec.edu.epn.programacion.clases.controladores.administracion;
 
 import ec.edu.epn.programacion.clases.controladores.usuario.CtrlNuevoUsuario;
 import ec.edu.epn.programacion.clases.controladores.usuario.CtrlOpcionesUsuario;
@@ -19,7 +19,7 @@ public class CtrlDialogUsuarios
     public CtrlDialogUsuarios(DialogOpciones dialogOpciones) {
         this.dialogOpciones = dialogOpciones;
 
-        this.dialogOpciones.getLblPOJO().setText("Clientes");
+        this.dialogOpciones.getLblPOJO().setText("Usuarios");
         this.dialogOpciones.getBtnNuevo().addActionListener(this);
         this.dialogOpciones.getBtnEditar().addActionListener(this);
         this.dialogOpciones.getBtnEliminar().addActionListener(this);

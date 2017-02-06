@@ -62,7 +62,7 @@ public class ModeloCliente
         Cliente cliente = (Cliente) obj;
         this.clientes.add(cliente);
         if (registrarClientes()) {
-            return "Se creó el cliente " + cliente;
+            return "Se ha creado un nuevo cliente";
         } else {
             return "Existió un error interno.\nNo se creó el cliente";
         }

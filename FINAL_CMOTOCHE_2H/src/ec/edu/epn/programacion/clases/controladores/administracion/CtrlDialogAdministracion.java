@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.epn.programacion.clases.controladores;
+package ec.edu.epn.programacion.clases.controladores.administracion;
 
 import ec.edu.epn.programacion.clases.gui.DialogAdministracion;
 import ec.edu.epn.programacion.clases.gui.DialogOpciones;
@@ -43,7 +43,11 @@ public class CtrlDialogAdministracion
             ctrlDialogUsuarios.start();
         }
         if(e.getSource() == this.dlgAdmin.getBtnClientes()){
-
+            DialogOpciones dialogOpcionesCliente =
+                    new DialogOpciones(this.dlgAdmin, true);
+            CtrlDialogClientes ctrlDialogClientes =
+                    new CtrlDialogClientes(dialogOpcionesCliente);
+            ctrlDialogClientes.start();
         }
         if(e.getSource() == this.dlgAdmin.getBtnCuentas()){
 

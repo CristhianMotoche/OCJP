@@ -5,6 +5,7 @@
  */
 package ec.edu.epn.programacion.clases.controladores;
 
+import ec.edu.epn.programacion.clases.controladores.administracion.CtrlDialogAdministracion;
 import ec.edu.epn.programacion.clases.gui.DialogAdministracion;
 import ec.edu.epn.programacion.clases.gui.DialogTransacciones;
 import ec.edu.epn.programacion.clases.gui.FrmMenuPrincipal;

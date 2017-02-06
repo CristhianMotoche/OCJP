@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
 */
-package ec.edu.epn.programacion.clases.gui.usuario;
+package ec.edu.epn.programacion.clases.gui.cliente;
 
 import ec.edu.epn.programacion.clases.filters.MyIntFilter;
 import java.util.Date;
@@ -14,17 +14,17 @@ import javax.swing.text.PlainDocument;
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class DialogCrearUsuario extends javax.swing.JDialog {
+public class DialogCrearCliente extends javax.swing.JDialog {
 
     /**
-     * Creates new form DialogCrearUsuario
+     * Creates new form DialogCrearCliente
      */
-    public DialogCrearUsuario(java.awt.Frame parent, boolean modal) {
+    public DialogCrearCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
-    public DialogCrearUsuario(java.awt.Dialog parent, boolean modal) {
+    public DialogCrearCliente(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
         filters();
@@ -58,15 +58,15 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
         pnlUsuario = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
-        pass = new javax.swing.JTextField();
+        txtCelular = new javax.swing.JTextField();
+        txtSueldo = new javax.swing.JTextField();
         pnlButtons = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel3.setText("Modificar Usuario");
+        jLabel3.setText("Modificar Cliente");
 
         jLabel4.setText("Nombre:");
 
@@ -92,12 +92,12 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
                     .addComponent(txtNombre)
                     .addComponent(txtEdad)
                     .addComponent(txtEmail)
-                    .addComponent(dateFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dateFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(pnlPersonaLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPersonaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(84, 84, 84))
         );
         pnlPersonaLayout.setVerticalGroup(
             pnlPersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,9 +122,9 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        jLabel1.setText("Login:");
+        jLabel1.setText("Teléfono:");
 
-        jLabel2.setText("Password:");
+        jLabel2.setText("Sueldo:");
 
         javax.swing.GroupLayout pnlUsuarioLayout = new javax.swing.GroupLayout(pnlUsuario);
         pnlUsuario.setLayout(pnlUsuarioLayout);
@@ -137,8 +137,8 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
                     .addComponent(jLabel1))
                 .addGap(36, 36, 36)
                 .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtLogin)
-                    .addComponent(pass))
+                    .addComponent(txtCelular)
+                    .addComponent(txtSueldo))
                 .addContainerGap())
         );
         pnlUsuarioLayout.setVerticalGroup(
@@ -147,11 +147,11 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -223,20 +223,20 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCrearCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCrearCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCrearCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogCrearUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCrearCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogCrearUsuario dialog = new DialogCrearUsuario(new javax.swing.JFrame(), true);
+                DialogCrearCliente dialog = new DialogCrearCliente(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -259,14 +259,14 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField pass;
     private javax.swing.JPanel pnlButtons;
     private javax.swing.JPanel pnlPersona;
     private javax.swing.JPanel pnlUsuario;
+    private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtSueldo;
     // End of variables declaration//GEN-END:variables
 
     public JButton getBtnAceptar() {
@@ -281,8 +281,12 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
         return dateFechaNac.getDate();
     }
 
-    public String getPass() {
-        return pass.getText().trim();
+    public String getTxtSueldo() {
+        return this.txtSueldo.getText().trim();
+    }
+
+    public String getTxtCelular() {
+        return txtCelular.getText().trim();
     }
 
     public String getTxtEdad() {
@@ -291,10 +295,6 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
 
     public String getTxtEmail() {
         return txtEmail.getText().trim();
-    }
-
-    public String getTxtLogin() {
-        return txtLogin.getText().trim();
     }
 
     public String getTxtNombre() {
@@ -309,19 +309,19 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
         this.txtEmail.setText(txtEmail);
     }
 
-    public void setTxtLogin(String txtLogin) {
-        this.txtLogin.setText(txtLogin);
+    public void setTxtSueldo(String txtSueldo) {
+        this.txtSueldo.setText(txtSueldo);
     }
 
     public void setTxtNombre(String txtNombre) {
         this.txtNombre.setText(txtNombre);
     }
 
-    public void setTxtPass(String pass){
-        this.pass.setText(pass);
-    }
-
     public void setDateFechaNac(Date date){
         this.dateFechaNac.setDate(date);
+    }
+
+    public void setTxtCelular(String celular) {
+        this.txtCelular.setText(celular);
     }
 }
