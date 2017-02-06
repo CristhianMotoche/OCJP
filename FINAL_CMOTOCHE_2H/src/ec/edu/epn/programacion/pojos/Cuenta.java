@@ -8,6 +8,7 @@ public class Cuenta {
     private String numeroCta;
     private double saldoInicial;
     private double saldoActual;
+    private String nombreCliente;
 
     public Cuenta() {
     }
@@ -16,6 +17,13 @@ public class Cuenta {
         this.numeroCta = numeroCta;
         this.saldoInicial = saldoInicial;
         this.saldoActual = saldoActual;
+    }
+
+    public Cuenta(String numeroCta, double saldoInicial, double saldoActual, String nombreCliente) {
+        this.numeroCta = numeroCta;
+        this.saldoInicial = saldoInicial;
+        this.saldoActual = saldoActual;
+        this.nombreCliente = nombreCliente;
     }
 
     public String getNumeroCta() {
@@ -40,5 +48,13 @@ public class Cuenta {
 
     public void setSaldoActual(double saldoActual) {
         this.saldoActual = saldoActual;
+    }
+
+    public String getNombreCliente() {
+        return this.nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 }

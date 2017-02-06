@@ -5,8 +5,10 @@
  */
 package ec.edu.epn.programacion.clases.controladores.administracion;
 
+import ec.edu.epn.programacion.clases.controladores.cuenta.CtrlOpcionesCuenta;
 import ec.edu.epn.programacion.clases.gui.DialogAdministracion;
 import ec.edu.epn.programacion.clases.gui.DialogOpciones;
+import ec.edu.epn.programacion.clases.gui.cuenta.DialogOpcionesCuenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -50,7 +52,11 @@ public class CtrlDialogAdministracion
             ctrlDialogClientes.start();
         }
         if(e.getSource() == this.dlgAdmin.getBtnCuentas()){
-
+            DialogOpcionesCuenta dialogOpcionesCuenta =
+                    new DialogOpcionesCuenta(this.dlgAdmin, true);
+            CtrlOpcionesCuenta ctrlOpcionesCuenta =
+                    new CtrlOpcionesCuenta(dialogOpcionesCuenta);
+            ctrlOpcionesCuenta.start();
         }
         if (e.getSource() == this.dlgAdmin.getBtnRegresar()) {
             this.dlgAdmin.dispose();

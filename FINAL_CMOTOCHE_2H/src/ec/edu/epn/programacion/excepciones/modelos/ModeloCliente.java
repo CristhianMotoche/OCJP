@@ -1,4 +1,4 @@
-package ec.edu.epn.programacion.clases.modelos;
+package ec.edu.epn.programacion.excepciones.modelos;
 
 import ec.edu.epn.programacion.interfaces.InterfazAdministracion;
 import ec.edu.epn.programacion.pojos.Cliente;

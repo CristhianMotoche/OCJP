@@ -2,7 +2,7 @@ package ec.edu.epn.programacion.clases.controladores.cliente;
 
 import ec.edu.epn.programacion.clases.gui.cliente.DialogCrearCliente;
 import ec.edu.epn.programacion.clases.gui.cliente.DialogOpcionesCliente;
-import ec.edu.epn.programacion.clases.modelos.ModeloCliente;
+import ec.edu.epn.programacion.excepciones.modelos.ModeloCliente;
 import ec.edu.epn.programacion.pojos.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
