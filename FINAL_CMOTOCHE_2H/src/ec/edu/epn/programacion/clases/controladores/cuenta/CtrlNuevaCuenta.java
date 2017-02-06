@@ -52,9 +52,7 @@ public class CtrlNuevaCuenta
         ModeloCliente modeloCliente = new ModeloCliente();
         List<String> nombres = new  ArrayList<>();
         List<Cliente> clientes = modeloCliente.listar();
-        for (Cliente client : clientes) {
-            nombres.add(client.getNombre());
-        }
+        clientes.forEach(client -> nombres.add(client.getNombre()));
         this.crearCuenta.setCmbClientes(nombres);
     }
 }
