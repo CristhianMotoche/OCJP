@@ -57,4 +57,9 @@ public class Cuenta {
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
+
+    @Override
+    public String toString() {
+        return this.numeroCta;
+    }
 }

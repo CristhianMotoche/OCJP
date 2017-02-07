@@ -85,7 +85,6 @@ public class CtrlNuevaCuenta
     }
 
     private String camposValidos(){
-        String nombreCliente = this.crearCuenta.getCmbClientes();
         String numeroCuenta = this.crearCuenta.getTxtNumeroCuenta();
         String messages = "";
 

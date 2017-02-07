@@ -50,6 +50,9 @@ public class CtrlMenuPrincipal
         if (e.getSource() == this.frmMenuPrincipal.getBtnTransacciones()) {
             DialogTransacciones dlgTransacciones
                     = new DialogTransacciones(this.frmMenuPrincipal, true);
+            CtrlMenuTransacciones ctrlMenuTransacciones =
+                    new CtrlMenuTransacciones(dlgTransacciones);
+            ctrlMenuTransacciones.start();
         }
         if(e.getSource() == this.frmMenuPrincipal.getBtnSalir()){
             System.exit(0);
