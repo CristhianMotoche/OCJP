@@ -41,7 +41,7 @@ public class CtrlMenuTransacciones
             DialogTransaccion dialogTransaccion =
                     new DialogTransaccion(dialogTransacciones, true);
             CtrlTransaccion ctrlTransaccion =
-                    new CtrlTransaccion(dialogTransaccion, "deposito");
+                    new CtrlTransaccion(dialogTransaccion, "retiro");
             ctrlTransaccion.start();
         }
         if (e.getSource() == this.dialogTransacciones.getBtnSalir()) {

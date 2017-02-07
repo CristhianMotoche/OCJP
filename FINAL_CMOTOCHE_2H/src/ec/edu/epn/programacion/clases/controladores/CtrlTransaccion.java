@@ -35,6 +35,7 @@ public class CtrlTransaccion
             this.dialogTransaccion.setTextBtnOpcion("Retirar");
         }
 
+        this.dialogTransaccion.getComboBoxCuenta().addActionListener(this);
         this.dialogTransaccion.getBtnCancelar().addActionListener(this);
         this.dialogTransaccion.getBtnOpcion().addActionListener(this);
     }
@@ -48,6 +49,8 @@ public class CtrlTransaccion
                 double monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
                 Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
                 banco.realizarDeposito(cuenta, monto);
+                this.modeloCuenta.actualizar(cuenta);
+                this.dialogTransaccion.dispose();
             } else {
                 JOptionPane.showMessageDialog(this.dialogTransaccion
                         , mensajesDeError
@@ -63,6 +66,8 @@ public class CtrlTransaccion
                 double monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
                 Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
                 banco.realizarRetiro(cuenta, monto);
+                this.modeloCuenta.actualizar(cuenta);
+                this.dialogTransaccion.dispose();
             } else {
                 JOptionPane.showMessageDialog(this.dialogTransaccion
                         , mensajesDeError
@@ -70,6 +75,11 @@ public class CtrlTransaccion
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
+        }
+        if (e.getSource() == this.dialogTransaccion.getComboBoxCuenta()) {
+            Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
+            this.dialogTransaccion.setTxtNombreCliente(cuenta.getNombreCliente());
+            this.dialogTransaccion.setTxtSaldoActual(cuenta.getSaldoActual());
         }
         if (e.getSource() == this.dialogTransaccion.getBtnCancelar()) {
             this.dialogTransaccion.dispose();

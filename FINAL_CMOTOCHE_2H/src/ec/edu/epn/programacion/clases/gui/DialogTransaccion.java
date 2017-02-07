@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -218,6 +219,10 @@ public class DialogTransaccion extends javax.swing.JDialog {
         return btnOpcion;
     }
 
+    public JComboBox<Cuenta> getComboBoxCuenta() {
+        return cmbCuenta;
+    }
+
     public Cuenta getCmbCuenta() {
         return (Cuenta) cmbCuenta.getSelectedItem();
     }
@@ -237,5 +242,13 @@ public class DialogTransaccion extends javax.swing.JDialog {
     public void setCmbCuentas(List<Cuenta> cuentas) {
         ComboBoxModel model = new DefaultComboBoxModel(cuentas.toArray());
         this.cmbCuenta.setModel(model);
+    }
+
+    public void setTxtNombreCliente(String nombreCliente) {
+        this.txtCliente.setText(nombreCliente);
+    }
+
+    public void setTxtSaldoActual(double saldoActual) {
+        this.txtSaldoActual.setText(Double.toString(saldoActual));
     }
 }
