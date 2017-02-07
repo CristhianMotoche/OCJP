@@ -18,12 +18,19 @@ public class DialogOpcionesCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogOpcionesCliente
+     * @param parent
+     * @param modal
      */
     public DialogOpcionesCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogOpcionesCliente(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -174,22 +181,42 @@ public class DialogOpcionesCliente extends javax.swing.JDialog {
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnOpcion() {
         return btnOpcion;
     }
 
+    /**
+     *
+     * @return
+     */
     public JXTable getTableClientes() {
         return tableClientes;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextFieldBuscar() {
         return txtBuscar;
     }
 
+    /**
+     *
+     * @param tableModel
+     */
     public void setTableClientes(TableModel tableModel) {
         this.tableClientes.setModel(tableModel);
     }

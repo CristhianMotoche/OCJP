@@ -22,6 +22,10 @@ public class CtrlNuevaCuenta
     private DialogCrearCuenta crearCuenta;
     private ModeloCuenta modeloCuenta;
 
+    /**
+     *
+     * @param crearCuenta
+     */
     public CtrlNuevaCuenta(DialogCrearCuenta crearCuenta) {
         this.crearCuenta = crearCuenta;
         this.modeloCuenta = new ModeloCuenta();
@@ -70,12 +74,18 @@ public class CtrlNuevaCuenta
         }
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start(){
         updateCmb();
         this.crearCuenta.setLocationRelativeTo(null);
         this.crearCuenta.setVisible(true);
     }
 
+    /**
+     * Recarga el combobox después del cambio
+     */
     private void updateCmb() {
         ModeloCliente modeloCliente = new ModeloCliente();
         List<String> nombres = new  ArrayList<>();

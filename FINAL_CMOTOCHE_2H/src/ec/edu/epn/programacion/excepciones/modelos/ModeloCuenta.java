@@ -25,10 +25,17 @@ public class ModeloCuenta
     private BufferedReader br;
     private ArrayList<Cuenta> cuentas;
 
+    /**
+     *
+     */
     public ModeloCuenta() {
         cargarCuentas();
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean registrarClientes(){
         try{
             FileWriter fw = new FileWriter(this.archivoClientes, false);

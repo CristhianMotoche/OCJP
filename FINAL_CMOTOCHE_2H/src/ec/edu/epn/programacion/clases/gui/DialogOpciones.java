@@ -16,12 +16,19 @@ public class DialogOpciones extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogOpciones
+     * @param parent
+     * @param modal
      */
     public DialogOpciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogOpciones(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -170,30 +177,58 @@ public class DialogOpciones extends javax.swing.JDialog {
     private javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnBuscar() {
         return btnBuscar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnEditar() {
         return btnEditar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnEliminar() {
         return btnEliminar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnListar() {
         return btnListar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnNuevo() {
         return btnNuevo;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnRegresar() {
         return btnRegresar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JLabel getLblPOJO() {
         return lblPOJO;
     }

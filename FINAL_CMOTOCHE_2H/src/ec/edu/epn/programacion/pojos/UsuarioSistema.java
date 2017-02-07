@@ -17,32 +17,65 @@ public class UsuarioSistema
     private String login;
     private String password;
 
+    /**
+     *
+     */
     public UsuarioSistema() {
     }
 
+    /**
+     *
+     * @param login
+     * @param password
+     * @param nombre
+     * @param edad
+     * @param fechaNacimiento
+     * @param email
+     */
     public UsuarioSistema(String login, String password, String nombre, byte edad, Date fechaNacimiento, String email) {
         super(nombre, edad, fechaNacimiento, email);
         this.login = login;
         this.password = password;
     }
 
+    /**
+     *
+     * @param login
+     * @param password
+     */
     public UsuarioSistema(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     *
+     * @param login
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }

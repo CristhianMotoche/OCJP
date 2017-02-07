@@ -27,6 +27,12 @@ public class CtrlOpcionesCliente
     private boolean remover;
     private boolean editar;
 
+    /**
+     *
+     * @param dialogOpcionesCliente
+     * @param remover
+     * @param editar
+     */
     public CtrlOpcionesCliente(DialogOpcionesCliente dialogOpcionesCliente, boolean remover, boolean editar) {
         this.dialogOpcionesCliente = dialogOpcionesCliente;
         this.modeloCliente = new ModeloCliente();
@@ -126,6 +132,9 @@ public class CtrlOpcionesCliente
         sorter.setRowFilter(RowFilter.regexFilter(this.dialogOpcionesCliente.getTextFieldBuscar().getText()));
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start() {
         List<Cliente> clientes = this.modeloCliente.listar();
         TableModel tableModel = listToModel(clientes);

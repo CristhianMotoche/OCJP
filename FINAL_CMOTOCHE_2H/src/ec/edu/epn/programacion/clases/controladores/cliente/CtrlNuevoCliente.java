@@ -18,6 +18,10 @@ public class CtrlNuevoCliente
     private ModeloCliente modeloCliente;
     private boolean editar;
 
+    /**
+     *
+     * @param dialogCrearCliente
+     */
     public CtrlNuevoCliente(DialogCrearCliente dialogCrearCliente) {
         this.dialogCrearCliente = dialogCrearCliente;
         this.modeloCliente = new ModeloCliente();
@@ -27,10 +31,16 @@ public class CtrlNuevoCliente
         this.dialogCrearCliente.getBtnCancelar().addActionListener(this);
     }
 
+    /**
+     *
+     * @param dialogCrearCliente
+     * @param cliente
+     */
     public CtrlNuevoCliente(DialogCrearCliente dialogCrearCliente, Cliente cliente) {
         this.dialogCrearCliente = dialogCrearCliente;
         this.modeloCliente = new ModeloCliente();
         this.editar = true;
+        this.dialogCrearCliente.getTextFieldCliente().setEditable(false);
 
         this.dialogCrearCliente.setTxtNombre(cliente.getNombre());
         this.dialogCrearCliente.setTxtEdad(Byte.toString(cliente.getEdad()));
@@ -80,6 +90,9 @@ public class CtrlNuevoCliente
         }
     }
 
+    /*
+    * String con los mensajes de error
+    */
     private String camposValidos() {
         String messages = "";
         String nombre = this.dialogCrearCliente.getTxtNombre();
@@ -92,17 +105,28 @@ public class CtrlNuevoCliente
             messages += "\n*El número de celular no puede estar vacio.";
         }
 
+        double sueldo = 0;
         try {
-            double sueldo = new Double(this.dialogCrearCliente.getTxtSueldo());
+            sueldo = new Double(this.dialogCrearCliente.getTxtSueldo());
         } catch (NumberFormatException e){
             messages += "\n*El sueldo debe ser un número decimal";
         }
 
+        if (sueldo <= 0) {
+            messages += "\n*El sueldo debe ser un decimal positivo";
+        }
+
+        byte edad = 0;
         try {
-            byte edad = new Byte(this.dialogCrearCliente.getTxtEdad());
+            edad = new Byte(this.dialogCrearCliente.getTxtEdad());
         } catch (NumberFormatException e){
             messages += "\n*La edad debe ser un número";
         }
+
+        if (edad <= 0) {
+            messages += "\n*La edad debe ser un número entero positivo";
+        }
+
         return messages;
     }
 
@@ -118,6 +142,9 @@ public class CtrlNuevoCliente
         return cliente;
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start() {
         this.dialogCrearCliente.setLocationRelativeTo(null);
         this.dialogCrearCliente.setVisible(true);

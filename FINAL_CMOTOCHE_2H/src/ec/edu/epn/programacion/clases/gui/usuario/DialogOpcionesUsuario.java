@@ -18,12 +18,19 @@ public class DialogOpcionesUsuario extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogOpcionesUsuario
+     * @param parent
+     * @param modal
      */
     public DialogOpcionesUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogOpcionesUsuario(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -181,26 +188,50 @@ public class DialogOpcionesUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnOpcion() {
         return btnOpcion;
     }
 
+    /**
+     *
+     * @return
+     */
     public JXTable getTableUsuarios() {
         return tableUsuarios;
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextFieldBuscar() {
         return txtBuscar;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtBuscar() {
         return txtBuscar.getText().trim();
     }
 
+    /**
+     *
+     * @param dataModel
+     */
     public void setTableUsuarios(TableModel dataModel){
         this.tableUsuarios.setModel(dataModel);
     }

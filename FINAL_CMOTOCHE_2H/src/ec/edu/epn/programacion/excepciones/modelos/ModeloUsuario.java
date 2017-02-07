@@ -28,10 +28,19 @@ public class ModeloUsuario
     private BufferedReader br;
     private ArrayList<UsuarioSistema> usuarios;
 
+    /**
+     *
+     */
     public ModeloUsuario() {
         cargarUsuarios();
     }
 
+    /**
+     *
+     * @param userName
+     * @param password
+     * @return
+     */
     public UsuarioSistema buscarUsuario(String userName, String password) {
         UsuarioSistema usuario = new UsuarioSistema(userName, password);
         if(this.usuarios.contains(usuario)){
@@ -41,6 +50,10 @@ public class ModeloUsuario
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean registrarUsuarios(){
         try{
             FileWriter fw = new FileWriter(this.archivoUsuarios, false);
@@ -71,7 +84,7 @@ public class ModeloUsuario
         UsuarioSistema user = (UsuarioSistema) obj;
         this.usuarios.add(user);
         if (registrarUsuarios()) {
-            return "Se creó el usuario " + user;
+            return "Se ha creado un nuevo usuario.";
         } else {
             return "Existió un error interno.\nNo se creó el usuario";
         }

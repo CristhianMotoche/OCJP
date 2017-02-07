@@ -23,6 +23,10 @@ public class CtrlListarCuentas
     private DialogListaCuenta dialogListaCuenta;
     private ModeloCuenta modeloCuenta;
 
+    /**
+     *
+     * @param dialogListaCuenta
+     */
     public CtrlListarCuentas(DialogListaCuenta dialogListaCuenta) {
         this.dialogListaCuenta = dialogListaCuenta;
         this.modeloCuenta = new ModeloCuenta();
@@ -31,6 +35,9 @@ public class CtrlListarCuentas
         this.dialogListaCuenta.getTextFieldBuscar().addKeyListener(this);
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start(){
         List<Cuenta> cuentas = this.modeloCuenta.listar();
         this.dialogListaCuenta.setTableCuentas(listToModel(cuentas));

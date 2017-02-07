@@ -20,6 +20,10 @@ public class CtrlMenuTransacciones
 
     private DialogTransacciones dialogTransacciones;
 
+    /**
+     *
+     * @param dialogTransacciones
+     */
     public CtrlMenuTransacciones(DialogTransacciones dialogTransacciones) {
         this.dialogTransacciones = dialogTransacciones;
 
@@ -49,6 +53,9 @@ public class CtrlMenuTransacciones
         }
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start() {
         this.dialogTransacciones.setLocationRelativeTo(null);
         this.dialogTransacciones.setVisible(true);

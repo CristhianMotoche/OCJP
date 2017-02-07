@@ -22,6 +22,11 @@ public class CtrlMenuPrincipal
     private FrmMenuPrincipal frmMenuPrincipal;
     private UsuarioSistema user;
 
+    /**
+     *
+     * @param frmMenuPrincipal
+     * @param user
+     */
     public CtrlMenuPrincipal(FrmMenuPrincipal frmMenuPrincipal, UsuarioSistema user) {
         this.frmMenuPrincipal = frmMenuPrincipal;
         this.user = user;
@@ -31,6 +36,9 @@ public class CtrlMenuPrincipal
         this.frmMenuPrincipal.getBtnSalir().addActionListener(this);
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start(){
         this.frmMenuPrincipal.setVisible(true);
         this.frmMenuPrincipal.setLocationRelativeTo(null);

@@ -18,6 +18,10 @@ public class CtrlNuevoUsuario
     private ModeloUsuario modeloUsuario;
     private boolean editar;
 
+    /**
+     *
+     * @param dialogCrearUsuario
+     */
     public CtrlNuevoUsuario(DialogCrearUsuario dialogCrearUsuario) {
         this.dialogCrearUsuario = dialogCrearUsuario;
         this.modeloUsuario = new ModeloUsuario();
@@ -27,6 +31,11 @@ public class CtrlNuevoUsuario
         this.dialogCrearUsuario.getBtnCancelar().addActionListener(this);
     }
 
+    /**
+     *
+     * @param dialogCrearUsuario
+     * @param usuarioEditar
+     */
     public CtrlNuevoUsuario(DialogCrearUsuario dialogCrearUsuario, UsuarioSistema usuarioEditar) {
         this.dialogCrearUsuario = dialogCrearUsuario;
         this.modeloUsuario = new ModeloUsuario();
@@ -92,6 +101,9 @@ public class CtrlNuevoUsuario
         return user;
     }
 
+    /**
+     *
+     */
     public void start() {
         this.dialogCrearUsuario.setLocationRelativeTo(null);
         this.dialogCrearUsuario.setVisible(true);

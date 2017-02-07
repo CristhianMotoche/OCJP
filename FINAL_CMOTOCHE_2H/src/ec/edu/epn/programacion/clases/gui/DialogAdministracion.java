@@ -15,12 +15,19 @@ public class DialogAdministracion extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogAdministracion
+     * @param parent
+     * @param modal
      */
     public DialogAdministracion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogAdministracion(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -154,18 +161,34 @@ public class DialogAdministracion extends javax.swing.JDialog {
     private javax.swing.JPanel pnlPrincipal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnClientes() {
         return btnClientes;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCuentas() {
         return btnCuentas;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnRegresar() {
         return btnRegresar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnUsuarios() {
         return btnUsuarios;
     }

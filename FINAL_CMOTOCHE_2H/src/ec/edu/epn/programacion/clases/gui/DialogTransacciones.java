@@ -15,6 +15,8 @@ public class DialogTransacciones extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogTransacciones
+     * @param parent
+     * @param modal
      */
     public DialogTransacciones(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -142,14 +144,26 @@ public class DialogTransacciones extends javax.swing.JDialog {
     private javax.swing.JLabel lblTransacciones;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnDeposito() {
         return btnDeposito;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnRetiro() {
         return btnRetiro;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnSalir() {
         return btnSalir;
     }

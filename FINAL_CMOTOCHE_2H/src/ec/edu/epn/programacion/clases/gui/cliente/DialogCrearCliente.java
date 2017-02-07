@@ -8,6 +8,7 @@ package ec.edu.epn.programacion.clases.gui.cliente;
 import ec.edu.epn.programacion.clases.filters.MyIntFilter;
 import java.util.Date;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
 
 /**
@@ -18,12 +19,19 @@ public class DialogCrearCliente extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogCrearCliente
+     * @param parent
+     * @param modal
      */
     public DialogCrearCliente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogCrearCliente(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -269,59 +277,119 @@ public class DialogCrearCliente extends javax.swing.JDialog {
     private javax.swing.JTextField txtSueldo;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnAceptar() {
         return btnAceptar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDateFechaNac() {
         return dateFechaNac.getDate();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtSueldo() {
         return this.txtSueldo.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtCelular() {
         return txtCelular.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtEdad() {
         return txtEdad.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtEmail() {
         return txtEmail.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtNombre() {
         return txtNombre.getText().trim();
     }
 
+    /**
+     *
+     * @param txtEdad
+     */
     public void setTxtEdad(String txtEdad) {
         this.txtEdad.setText(txtEdad);
     }
 
+    /**
+     *
+     * @param txtEmail
+     */
     public void setTxtEmail(String txtEmail) {
         this.txtEmail.setText(txtEmail);
     }
 
+    /**
+     *
+     * @param txtSueldo
+     */
     public void setTxtSueldo(String txtSueldo) {
         this.txtSueldo.setText(txtSueldo);
     }
 
+    /**
+     *
+     * @param txtNombre
+     */
     public void setTxtNombre(String txtNombre) {
         this.txtNombre.setText(txtNombre);
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setDateFechaNac(Date date){
         this.dateFechaNac.setDate(date);
     }
 
+    /**
+     *
+     * @param celular
+     */
     public void setTxtCelular(String celular) {
         this.txtCelular.setText(celular);
+    }
+
+    public JTextField getTextFieldCliente (){
+        return this.txtNombre;
     }
 }

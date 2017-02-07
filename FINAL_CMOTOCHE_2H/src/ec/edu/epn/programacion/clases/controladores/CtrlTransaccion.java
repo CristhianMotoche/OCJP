@@ -21,6 +21,11 @@ public class CtrlTransaccion
     private String opcion;
     private ModeloCuenta modeloCuenta;
 
+    /**
+     *
+     * @param dialogTransaccion
+     * @param opcion
+     */
     public CtrlTransaccion(DialogTransaccion dialogTransaccion, String opcion) {
         this.dialogTransaccion = dialogTransaccion;
         this.opcion = opcion;
@@ -86,6 +91,10 @@ public class CtrlTransaccion
         }
     }
 
+    /**
+     *
+     * @return String con los mensajes de error
+     */
     public String camposValidos(){
         String messages = "";
         double monto = 0;
@@ -109,7 +118,9 @@ public class CtrlTransaccion
         this.dialogTransaccion.setCmbCuentas(cuentas);
     }
 
-
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start() {
         updateCmb();
         this.dialogTransaccion.setLocationRelativeTo(null);

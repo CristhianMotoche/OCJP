@@ -29,6 +29,12 @@ public class CtrlOpcionesUsuario
     private boolean remover;
     private boolean editar;
 
+    /**
+     *
+     * @param dialogOpcionesUsuario
+     * @param remover
+     * @param editar
+     */
     public CtrlOpcionesUsuario(DialogOpcionesUsuario dialogOpcionesUsuario, boolean remover, boolean editar) {
         this.dialogOpcionesUsuario = dialogOpcionesUsuario;
         this.modeloUsuario = new ModeloUsuario();
@@ -47,6 +53,9 @@ public class CtrlOpcionesUsuario
         this.dialogOpcionesUsuario.getBtnCancelar().addActionListener(this);
     }
 
+    /**
+     *
+     */
     public void start(){
         List<UsuarioSistema> usuarios = this.modeloUsuario.listar();
         TableModel tableModel = listToModel(usuarios);

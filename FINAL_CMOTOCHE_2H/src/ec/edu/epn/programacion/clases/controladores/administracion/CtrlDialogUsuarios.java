@@ -16,6 +16,10 @@ public class CtrlDialogUsuarios
     implements ActionListener {
     private DialogOpciones dialogOpciones;
 
+    /**
+     *
+     * @param dialogOpciones
+     */
     public CtrlDialogUsuarios(DialogOpciones dialogOpciones) {
         this.dialogOpciones = dialogOpciones;
 
@@ -70,6 +74,9 @@ public class CtrlDialogUsuarios
         }
     }
 
+    /**
+     *
+     */
     public void start() {
         this.dialogOpciones.setLocationRelativeTo(null);
         this.dialogOpciones.setVisible(true);

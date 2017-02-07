@@ -13,16 +13,20 @@ import java.awt.event.ActionListener;
 public class CtrlOpcionesCuenta
         implements ActionListener {
     private DialogOpcionesCuenta dialogOpcionesCuenta;
-    
+
+    /**
+     *
+     * @param dialogOpcionesCuenta
+     */
     public CtrlOpcionesCuenta(DialogOpcionesCuenta dialogOpcionesCuenta) {
         this.dialogOpcionesCuenta = dialogOpcionesCuenta;
-        
+
         this.dialogOpcionesCuenta.getBtnNuevo().addActionListener(this);
         this.dialogOpcionesCuenta.getBtnListar().addActionListener(this);
         this.dialogOpcionesCuenta.getBtnBuscar().addActionListener(this);
         this.dialogOpcionesCuenta.getBtnRegresar().addActionListener(this);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.dialogOpcionesCuenta.getBtnNuevo()) {
@@ -49,7 +53,10 @@ public class CtrlOpcionesCuenta
             this.dialogOpcionesCuenta.dispose();
         }
     }
-    
+
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start() {
         this.dialogOpcionesCuenta.setLocationRelativeTo(null);
         this.dialogOpcionesCuenta.setVisible(true);

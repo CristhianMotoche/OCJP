@@ -118,14 +118,26 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnAdministracion() {
         return btnAdministracion;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnSalir() {
         return btnSalir;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnTransacciones() {
         return btnTransacciones;
     }    

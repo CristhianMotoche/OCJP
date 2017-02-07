@@ -18,12 +18,19 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogCrearCuenta
+     * @param parent
+     * @param modal
      */
     public DialogCrearCuenta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogCrearCuenta(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -198,31 +205,59 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
     private javax.swing.JTextField txtSaldoInicial;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnAceptar() {
         return btnAceptar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    /**
+     *
+     * @param clientes
+     */
     public void setCmbClientes(List<String> clientes){
         ComboBoxModel model = new DefaultComboBoxModel(clientes.toArray());
         this.cmbClientes.setModel(model);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCmbClientes() {
         return (String) cmbClientes.getSelectedItem();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtNumeroCuenta() {
         return txtNumeroCuenta.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtSaldoInicial() {
         return txtSaldoInicial.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCrearCliente() {
         return btnCrearCliente;
     }

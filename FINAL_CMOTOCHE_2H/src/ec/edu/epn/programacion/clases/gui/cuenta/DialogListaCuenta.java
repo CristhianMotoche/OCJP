@@ -17,12 +17,19 @@ import org.jdesktop.swingx.JXTable;
  */
 public class DialogListaCuenta extends javax.swing.JDialog {
 
-    /** Creates new form DialogListaCuenta */
+    /** Creates new form DialogListaCuenta
+     * @param parent
+     * @param modal */
     public DialogListaCuenta(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogListaCuenta(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -160,22 +167,42 @@ public class DialogListaCuenta extends javax.swing.JDialog {
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JXTable getTableCuentas() {
         return tableCuentas;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtBuscar() {
         return txtBuscar.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public JTextField getTextFieldBuscar() {
         return txtBuscar;
     }
 
+    /**
+     *
+     * @param tableModel
+     */
     public void setTableCuentas(TableModel tableModel) {
         this.tableCuentas.setModel(tableModel);
     }

@@ -163,27 +163,50 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
-    
+    /**
+     *
+     * @return
+     */
     public JButton getBtnAceptar() {
         return btnAceptar;
     }
 
+    /**
+     *
+     * @param btnAceptar
+     */
     public void setBtnAceptar(JButton btnAceptar) {
         this.btnAceptar = btnAceptar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCerrar() {
         return btnCerrar;
     }
 
+    /**
+     *
+     * @param btnCerrar
+     */
     public void setBtnCerrar(JButton btnCerrar) {
         this.btnCerrar = btnCerrar;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword(){
         return new String(this.pswdContrasena.getPassword()).trim();
     }
     
+    /**
+     *
+     * @return
+     */
     public String getUsername(){
         return this.txtUsuario.getText().trim();
     }

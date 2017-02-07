@@ -21,6 +21,10 @@ public class CtrlDialogAdministracion
 
     private DialogAdministracion dlgAdmin;
 
+    /**
+     *
+     * @param dlgAdmin
+     */
     public CtrlDialogAdministracion(DialogAdministracion dlgAdmin) {
         this.dlgAdmin = dlgAdmin;
 
@@ -30,6 +34,9 @@ public class CtrlDialogAdministracion
         this.dlgAdmin.getBtnRegresar().addActionListener(this);
     }
 
+    /**
+     *
+     */
     public void start(){
         this.dlgAdmin.setLocationRelativeTo(this.dlgAdmin.getRootPane());
         this.dlgAdmin.setVisible(true);

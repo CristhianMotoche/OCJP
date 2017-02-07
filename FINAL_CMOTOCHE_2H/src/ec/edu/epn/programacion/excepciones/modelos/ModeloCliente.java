@@ -28,10 +28,17 @@ public class ModeloCliente
     private BufferedReader br;
     private ArrayList<Cliente> clientes;
 
+    /**
+     *
+     */
     public ModeloCliente() {
         cargarClientes();
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean registrarClientes(){
         try{
             FileWriter fw = new FileWriter(this.archivoClientes, false);

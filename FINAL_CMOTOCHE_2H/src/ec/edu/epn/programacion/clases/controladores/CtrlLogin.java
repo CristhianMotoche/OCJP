@@ -20,6 +20,10 @@ public class CtrlLogin
     private ValidadorLogin validador;
     private ModeloUsuario modelo;
 
+    /**
+     *
+     * @param frmLogin
+     */
     public CtrlLogin(FrmLogin frmLogin) {
         this.validador = new ValidadorLogin();
         this.modelo = new ModeloUsuario();
@@ -28,6 +32,9 @@ public class CtrlLogin
         this.frmLogin.getBtnCerrar().addActionListener(this);
     }
 
+    /**
+     * Permite iniciar la visualización de la ventana
+     */
     public void start(){
         this.frmLogin.setLocationRelativeTo(null);
         this.frmLogin.setVisible(true);

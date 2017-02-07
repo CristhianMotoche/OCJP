@@ -18,12 +18,19 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
 
     /**
      * Creates new form DialogCrearUsuario
+     * @param parent
+     * @param modal
      */
     public DialogCrearUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
 
+    /**
+     *
+     * @param parent
+     * @param modal
+     */
     public DialogCrearUsuario(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -269,58 +276,114 @@ public class DialogCrearUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnAceptar() {
         return btnAceptar;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDateFechaNac() {
         return dateFechaNac.getDate();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPass() {
         return pass.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtEdad() {
         return txtEdad.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtEmail() {
         return txtEmail.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtLogin() {
         return txtLogin.getText().trim();
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTxtNombre() {
         return txtNombre.getText().trim();
     }
 
+    /**
+     *
+     * @param txtEdad
+     */
     public void setTxtEdad(String txtEdad) {
         this.txtEdad.setText(txtEdad);
     }
 
+    /**
+     *
+     * @param txtEmail
+     */
     public void setTxtEmail(String txtEmail) {
         this.txtEmail.setText(txtEmail);
     }
 
+    /**
+     *
+     * @param txtLogin
+     */
     public void setTxtLogin(String txtLogin) {
         this.txtLogin.setText(txtLogin);
     }
 
+    /**
+     *
+     * @param txtNombre
+     */
     public void setTxtNombre(String txtNombre) {
         this.txtNombre.setText(txtNombre);
     }
 
+    /**
+     *
+     * @param pass
+     */
     public void setTxtPass(String pass){
         this.pass.setText(pass);
     }
 
+    /**
+     *
+     * @param date
+     */
     public void setDateFechaNac(Date date){
         this.dateFechaNac.setDate(date);
     }

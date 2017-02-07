@@ -22,6 +22,10 @@ public class CtrlDialogClientes
         implements ActionListener {
     private DialogOpciones dialogOpciones;
 
+    /**
+     *
+     * @param dialogOpciones
+     */
     public CtrlDialogClientes(DialogOpciones dialogOpciones) {
         this.dialogOpciones = dialogOpciones;
 
@@ -76,6 +80,9 @@ public class CtrlDialogClientes
         }
     }
 
+    /**
+     *
+     */
     public void start() {
         this.dialogOpciones.setLocationRelativeTo(null);
         this.dialogOpciones.setVisible(true);
