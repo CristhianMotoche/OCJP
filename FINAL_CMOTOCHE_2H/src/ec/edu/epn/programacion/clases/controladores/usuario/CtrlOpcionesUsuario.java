@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -129,10 +130,11 @@ public class CtrlOpcionesUsuario
     private DefaultTableModel listToModel(List<UsuarioSistema> usuarios) {
         Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Login", "Password"};
         Object [][] data = new Object[usuarios.size()][columns.length];
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         for (int i = 0; i < usuarios.size(); i++) {
             data[i][0] = usuarios.get(i).getNombre();
             data[i][1] = usuarios.get(i).getEdad();
-            data[i][2] = usuarios.get(i).getFechaNacimiento();
+            data[i][2] = sdf.format(usuarios.get(i).getFechaNacimiento());
             data[i][3] = usuarios.get(i).getEmail();
             data[i][4] = usuarios.get(i).getLogin();
             data[i][5] = usuarios.get(i).getPassword();

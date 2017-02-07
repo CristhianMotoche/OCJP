@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -136,10 +137,11 @@ public class CtrlOpcionesCliente
     private DefaultTableModel listToModel(List<Cliente> clientes) {
         Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Teléfono", "Sueldo"};
         Object [][] data = new Object[clientes.size()][columns.length];
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         for (int i = 0; i < clientes.size(); i++) {
             data[i][0] = clientes.get(i).getNombre();
             data[i][1] = clientes.get(i).getEdad();
-            data[i][2] = clientes.get(i).getFechaNacimiento();
+            data[i][2] = sdf.format(clientes.get(i).getFechaNacimiento());
             data[i][3] = clientes.get(i).getEmail();
             data[i][4] = clientes.get(i).getCelular();
             data[i][5] = clientes.get(i).getSueldo();

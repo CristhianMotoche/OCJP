@@ -47,7 +47,7 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
         btnCancelar = new javax.swing.JButton();
         txtSaldoInicial = new javax.swing.JTextField();
         cmbClientes = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        txtNumeroCuenta = new javax.swing.JTextField();
         btnCrearCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -85,7 +85,7 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtSaldoInicial)
                             .addComponent(cmbClientes, 0, 121, Short.MAX_VALUE)
-                            .addComponent(jTextField1))
+                            .addComponent(txtNumeroCuenta))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCrearCliente)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -114,7 +114,7 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
@@ -194,7 +194,7 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtNumeroCuenta;
     private javax.swing.JTextField txtSaldoInicial;
     // End of variables declaration//GEN-END:variables
 
@@ -215,8 +215,8 @@ public class DialogCrearCuenta extends javax.swing.JDialog {
         return (String) cmbClientes.getSelectedItem();
     }
 
-    public String getjTextField1() {
-        return jTextField1.getText().trim();
+    public String getTxtNumeroCuenta() {
+        return txtNumeroCuenta.getText().trim();
     }
 
     public String getTxtSaldoInicial() {
