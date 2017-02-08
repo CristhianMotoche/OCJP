@@ -1,8 +1,8 @@
 package ec.edu.epn.programacion.clases.controladores.cuenta;
 
 import ec.edu.epn.programacion.clases.controladores.cliente.CtrlNuevoCliente;
-import ec.edu.epn.programacion.clases.gui.cliente.DialogCrearCliente;
-import ec.edu.epn.programacion.clases.gui.cuenta.DialogCrearCuenta;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cliente.DialogCrearCliente;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cuenta.DialogCrearCuenta;
 import ec.edu.epn.programacion.excepciones.modelos.ModeloCliente;
 import ec.edu.epn.programacion.excepciones.modelos.ModeloCuenta;
 import ec.edu.epn.programacion.pojos.Cliente;

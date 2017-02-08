@@ -1,7 +1,7 @@
 package ec.edu.epn.programacion.principal;
 
 import ec.edu.epn.programacion.clases.controladores.CtrlLogin;
-import ec.edu.epn.programacion.clases.gui.FrmLogin;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.FrmLogin;
 
 /**
  * Clase principal que ejecuta la aplicación

@@ -1,6 +1,6 @@
 package ec.edu.epn.programacion.clases.controladores;
 
-import ec.edu.epn.programacion.clases.gui.DialogTransaccion;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.DialogTransaccion;
 import ec.edu.epn.programacion.excepciones.modelos.ModeloCuenta;
 import ec.edu.epn.programacion.pojos.Banco;
 import ec.edu.epn.programacion.pojos.Cuenta;

@@ -1,6 +1,6 @@
 package ec.edu.epn.programacion.clases.controladores.cuenta;
 
-import ec.edu.epn.programacion.clases.gui.cuenta.DialogListaCuenta;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cuenta.DialogListaCuenta;
 import ec.edu.epn.programacion.excepciones.modelos.ModeloCuenta;
 import ec.edu.epn.programacion.pojos.Cuenta;
 import java.awt.event.ActionEvent;

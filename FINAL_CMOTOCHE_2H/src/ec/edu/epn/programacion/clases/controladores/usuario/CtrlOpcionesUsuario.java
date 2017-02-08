@@ -1,7 +1,7 @@
 package ec.edu.epn.programacion.clases.controladores.usuario;
 
-import ec.edu.epn.programacion.clases.gui.usuario.DialogCrearUsuario;
-import ec.edu.epn.programacion.clases.gui.usuario.DialogOpcionesUsuario;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.usuario.DialogCrearUsuario;
+import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.usuario.DialogOpcionesUsuario;
 import ec.edu.epn.programacion.excepciones.modelos.ModeloUsuario;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
 import java.awt.event.ActionEvent;

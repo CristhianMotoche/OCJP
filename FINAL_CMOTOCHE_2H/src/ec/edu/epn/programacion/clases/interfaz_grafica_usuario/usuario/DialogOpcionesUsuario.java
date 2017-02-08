@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.epn.programacion.clases.gui.usuario;
+package ec.edu.epn.programacion.clases.interfaz_grafica_usuario.usuario;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;

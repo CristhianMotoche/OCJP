@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.epn.programacion.clases.gui.cuenta;
+package ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cuenta;
 
 import java.util.List;
 import javax.swing.ComboBoxModel;

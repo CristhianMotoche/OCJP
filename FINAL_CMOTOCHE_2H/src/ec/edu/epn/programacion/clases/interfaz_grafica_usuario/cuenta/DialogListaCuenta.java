@@ -4,7 +4,7 @@
 * and open the template in the editor.
 */
 
-package ec.edu.epn.programacion.clases.gui.cuenta;
+package ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cuenta;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
