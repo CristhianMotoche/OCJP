@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class CtrlNuevoCliente
         implements ActionListener {

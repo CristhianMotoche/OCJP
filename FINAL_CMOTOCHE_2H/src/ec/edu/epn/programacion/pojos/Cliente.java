@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * POJO Cliente
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class Cliente
     extends Persona {

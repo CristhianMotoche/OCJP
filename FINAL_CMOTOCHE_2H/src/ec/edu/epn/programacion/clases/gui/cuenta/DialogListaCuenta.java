@@ -13,7 +13,7 @@ import org.jdesktop.swingx.JXTable;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class DialogListaCuenta extends javax.swing.JDialog {
 

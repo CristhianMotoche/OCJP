@@ -13,7 +13,7 @@ import javax.swing.text.PlainDocument;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class DialogCrearCliente extends javax.swing.JDialog {
 

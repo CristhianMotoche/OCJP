@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class CtrlDialogClientes
         implements ActionListener {

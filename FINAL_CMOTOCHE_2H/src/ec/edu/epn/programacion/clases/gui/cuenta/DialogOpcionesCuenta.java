@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class DialogOpcionesCuenta extends javax.swing.JDialog {
 

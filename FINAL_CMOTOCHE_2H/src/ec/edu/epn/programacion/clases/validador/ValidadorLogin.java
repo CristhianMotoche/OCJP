@@ -4,7 +4,7 @@ import ec.edu.epn.programacion.pojos.UsuarioSistema;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class ValidadorLogin {
 

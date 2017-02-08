@@ -12,7 +12,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class DialogCrearCuenta extends javax.swing.JDialog {
 

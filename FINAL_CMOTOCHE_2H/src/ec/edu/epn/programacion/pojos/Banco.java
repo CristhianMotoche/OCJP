@@ -2,7 +2,7 @@ package ec.edu.epn.programacion.pojos;
 
 /**
  * POJO Banco, para realizar las transacciones.
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class Banco {
     /**

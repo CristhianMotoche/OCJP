@@ -12,7 +12,7 @@ import org.jdesktop.swingx.JXTable;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class DialogOpcionesUsuario extends javax.swing.JDialog {
 

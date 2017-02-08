@@ -5,7 +5,7 @@ import ec.edu.epn.programacion.clases.gui.FrmLogin;
 
 /**
  * Clase principal que ejecuta la aplicación
- * @author Cristhian Motoche
+ * @author Javier Utreras
  */
 public class Principal {
 

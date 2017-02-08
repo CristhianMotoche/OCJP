@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class UsuarioSistema
     extends Persona {

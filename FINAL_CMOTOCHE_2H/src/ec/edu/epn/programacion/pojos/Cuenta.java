@@ -2,7 +2,7 @@ package ec.edu.epn.programacion.pojos;
 
 /**
  *
- * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
+ * @author Javier Utreras
  */
 public class Cuenta {
     private String numeroCta;
