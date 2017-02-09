@@ -1,10 +1,10 @@
 package ec.edu.epn.programacion.clases.controladores.cuenta;
 
 import ec.edu.epn.programacion.clases.controladores.cliente.CtrlNuevoCliente;
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cliente.DialogCrearCliente;
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cuenta.DialogCrearCuenta;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloCliente;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloCuenta;
+import ec.edu.epn.programacion.clases.vista.cliente.DlgCrearCliente;
+import ec.edu.epn.programacion.clases.vista.cuenta.DlgCrearCuenta;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoCliente;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoCuenta;
 import ec.edu.epn.programacion.pojos.Cliente;
 import ec.edu.epn.programacion.pojos.Cuenta;
 import java.awt.event.ActionEvent;
@@ -19,16 +19,16 @@ import javax.swing.JOptionPane;
  */
 public class CtrlNuevaCuenta
     implements ActionListener {
-    private DialogCrearCuenta crearCuenta;
-    private ModeloCuenta modeloCuenta;
+    private DlgCrearCuenta crearCuenta;
+    private ArchivoCuenta modeloCuenta;
 
     /**
      *
      * @param crearCuenta
      */
-    public CtrlNuevaCuenta(DialogCrearCuenta crearCuenta) {
+    public CtrlNuevaCuenta(DlgCrearCuenta crearCuenta) {
         this.crearCuenta = crearCuenta;
-        this.modeloCuenta = new ModeloCuenta();
+        this.modeloCuenta = new ArchivoCuenta();
 
         this.crearCuenta.getBtnAceptar().addActionListener(this);
         this.crearCuenta.getBtnCancelar().addActionListener(this);
@@ -58,13 +58,13 @@ public class CtrlNuevaCuenta
                 JOptionPane
                         .showMessageDialog(this.crearCuenta
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
         }
         if (e.getSource() == this.crearCuenta.getBtnCrearCliente()) {
-            DialogCrearCliente dcc = new DialogCrearCliente(this.crearCuenta, true);
+            DlgCrearCliente dcc = new DlgCrearCliente(this.crearCuenta, true);
             CtrlNuevoCliente cnc = new CtrlNuevoCliente(dcc);
             cnc.start();
             updateCmb();
@@ -79,6 +79,7 @@ public class CtrlNuevaCuenta
      */
     public void start(){
         updateCmb();
+        this.crearCuenta.setTitle("Cuenta");
         this.crearCuenta.setLocationRelativeTo(null);
         this.crearCuenta.setVisible(true);
     }
@@ -87,7 +88,7 @@ public class CtrlNuevaCuenta
      * Recarga el combobox después del cambio
      */
     private void updateCmb() {
-        ModeloCliente modeloCliente = new ModeloCliente();
+        ArchivoCliente modeloCliente = new ArchivoCliente();
         List<String> nombres = new  ArrayList<>();
         List<Cliente> clientes = modeloCliente.listar();
         clientes.forEach(client -> nombres.add(client.getNombre()));
@@ -95,19 +96,19 @@ public class CtrlNuevaCuenta
     }
 
     private String camposValidos(){
+        String errores = "";
         String numeroCuenta = this.crearCuenta.getTxtNumeroCuenta();
-        String messages = "";
 
         if (numeroCuenta.isEmpty()) {
-            messages += "El número de cuenta no puede estar vacio.";
+            errores += "-El número de cuenta debe estar lleno.";
         }
 
         try {
-            double x_ = Double.parseDouble(this.crearCuenta.getTxtSaldoInicial());
+            double cuenta = Double.parseDouble(this.crearCuenta.getTxtSaldoInicial());
         } catch (NumberFormatException e) {
-            messages += "El saldo inicial deber ser un decimal.";
+            errores += "-El saldo inicial deber ser un decimal.";
         }
 
-        return messages;
+        return errores;
     }
 }

@@ -1,16 +1,16 @@
 package ec.edu.epn.programacion.principal;
 
 import ec.edu.epn.programacion.clases.controladores.CtrlLogin;
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.FrmLogin;
+import ec.edu.epn.programacion.clases.vista.FrmLogin;
 
 /**
  * Clase principal que ejecuta la aplicación
- * @author Cristhian Motoche
+ * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
 public class Principal {
-
+    
     /**
-     *
+     * Función principal para ejecutar la aplicación
      * @param args
      */
     public static void main(String args[]){

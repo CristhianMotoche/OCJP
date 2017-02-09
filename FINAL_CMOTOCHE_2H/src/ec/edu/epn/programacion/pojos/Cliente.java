@@ -44,7 +44,7 @@ public class Cliente
     }
 
     /**
-     * get celular
+     * Obtener celular
      * @return Celular del usuario
      */
     public String getCelular() {
@@ -52,7 +52,7 @@ public class Cliente
     }
 
     /**
-     * set celular
+     * Asignar celular
      * @param celular
      */
     public void setCelular(String celular) {
@@ -60,7 +60,7 @@ public class Cliente
     }
 
     /**
-     * get celular
+     * Obtener celular
      * @return Celular del usuario
      */
     public double getSueldo() {
@@ -68,7 +68,7 @@ public class Cliente
     }
 
     /**
-     *
+     * Asignar sueldo
      * @param sueldo
      */
     public void setSueldo(double sueldo) {

@@ -1,10 +1,12 @@
 package ec.edu.epn.programacion.clases.controladores.usuario;
 
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.usuario.DialogCrearUsuario;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloUsuario;
+import ec.edu.epn.programacion.clases.vista.usuario.DlgCrearUsuario;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoUsuario;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,17 +16,17 @@ import javax.swing.JOptionPane;
 public class CtrlNuevoUsuario
         implements ActionListener {
 
-    private DialogCrearUsuario dialogCrearUsuario;
-    private ModeloUsuario modeloUsuario;
+    private DlgCrearUsuario dialogCrearUsuario;
+    private ArchivoUsuario modeloUsuario;
     private boolean editar;
 
     /**
      *
      * @param dialogCrearUsuario
      */
-    public CtrlNuevoUsuario(DialogCrearUsuario dialogCrearUsuario) {
+    public CtrlNuevoUsuario(DlgCrearUsuario dialogCrearUsuario) {
         this.dialogCrearUsuario = dialogCrearUsuario;
-        this.modeloUsuario = new ModeloUsuario();
+        this.modeloUsuario = new ArchivoUsuario();
         this.editar = false;
 
         this.dialogCrearUsuario.getBtnAceptar().addActionListener(this);
@@ -36,9 +38,9 @@ public class CtrlNuevoUsuario
      * @param dialogCrearUsuario
      * @param usuarioEditar
      */
-    public CtrlNuevoUsuario(DialogCrearUsuario dialogCrearUsuario, UsuarioSistema usuarioEditar) {
+    public CtrlNuevoUsuario(DlgCrearUsuario dialogCrearUsuario, UsuarioSistema usuarioEditar) {
         this.dialogCrearUsuario = dialogCrearUsuario;
-        this.modeloUsuario = new ModeloUsuario();
+        this.modeloUsuario = new ArchivoUsuario();
         this.editar = true;
 
         this.dialogCrearUsuario.setTxtNombre(usuarioEditar.getNombre());
@@ -64,7 +66,7 @@ public class CtrlNuevoUsuario
             } else {
                 JOptionPane.showMessageDialog(this.dialogCrearUsuario
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
@@ -79,7 +81,7 @@ public class CtrlNuevoUsuario
             } else {
                 JOptionPane.showMessageDialog(this.dialogCrearUsuario
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
@@ -102,34 +104,40 @@ public class CtrlNuevoUsuario
     }
 
     /**
-     *
+     * Despliega la vista
      */
     public void start() {
+        this.dialogCrearUsuario.setTitle("Usuario");
         this.dialogCrearUsuario.setLocationRelativeTo(null);
         this.dialogCrearUsuario.setVisible(true);
     }
 
     private String camposValidos(){
-        String messages = "";
+        String errores = "";
         String nombre = this.dialogCrearUsuario.getTxtNombre();
         String login = this.dialogCrearUsuario.getTxtLogin();
         String password = this.dialogCrearUsuario.getPass();
+        String email = this.dialogCrearUsuario.getTxtEmail();
 
         if (nombre.isEmpty()) {
-            messages += "\n*El nombre no puede estar vacio.";
+            errores += "\n-El nombre no puede estar vacio.";
         }
         if (login.isEmpty()) {
-            messages += "\n*El login no puede estar vacio.";
+            errores += "\n-El login no puede estar vacio.";
         }
         if (password.isEmpty()) {
-            messages += "\n*La contraseña no puede estar vacia.";
+            errores += "\n-La contraseña no puede estar vacia.";
         }
-
+        Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+        Matcher m = p.matcher(email);
+        if (!m.matches()) {
+            errores += "\n-Email no válido (Ej: usuario@domain.com)";
+        }
         try {
             byte edad = new Byte(this.dialogCrearUsuario.getTxtEdad());
         } catch (NumberFormatException e){
-            messages += "\n*La edad debe ser un número";
+            errores += "\n-La edad debe ser un número";
         }
-        return messages;
+        return errores;
     }
 }

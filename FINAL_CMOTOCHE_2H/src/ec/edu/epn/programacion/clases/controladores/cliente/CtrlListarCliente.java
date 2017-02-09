@@ -1,8 +1,8 @@
 package ec.edu.epn.programacion.clases.controladores.cliente;
 
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cliente.DialogCrearCliente;
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cliente.DialogOpcionesCliente;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloCliente;
+import ec.edu.epn.programacion.clases.vista.cliente.DlgCrearCliente;
+import ec.edu.epn.programacion.clases.vista.cliente.DlgOpcionesCliente;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoCliente;
 import ec.edu.epn.programacion.pojos.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,10 +20,10 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class CtrlOpcionesCliente
+public class CtrlListarCliente
     implements ActionListener, KeyListener {
-    private DialogOpcionesCliente dialogOpcionesCliente;
-    private ModeloCliente modeloCliente;
+    private DlgOpcionesCliente dialogOpcionesCliente;
+    private ArchivoCliente modeloCliente;
     private boolean remover;
     private boolean editar;
 
@@ -33,9 +33,9 @@ public class CtrlOpcionesCliente
      * @param remover
      * @param editar
      */
-    public CtrlOpcionesCliente(DialogOpcionesCliente dialogOpcionesCliente, boolean remover, boolean editar) {
+    public CtrlListarCliente(DlgOpcionesCliente dialogOpcionesCliente, boolean remover, boolean editar) {
         this.dialogOpcionesCliente = dialogOpcionesCliente;
-        this.modeloCliente = new ModeloCliente();
+        this.modeloCliente = new ArchivoCliente();
         this.remover = remover;
         this.editar = editar;
 
@@ -58,7 +58,7 @@ public class CtrlOpcionesCliente
             int rows = this.dialogOpcionesCliente.getTableClientes().getSelectedRowCount();
             if (row < 1 && rows == 0) {
                 JOptionPane.showMessageDialog(dialogOpcionesCliente
-                        , "Debe seleccionar una sola fila"
+                        , "-Debe seleccionar una sola fila"
                         , "Error"
                         , JOptionPane.ERROR_MESSAGE, null);
             } else {
@@ -72,7 +72,12 @@ public class CtrlOpcionesCliente
                 Cliente cliente = new Cliente(nombre);
 
                 // Borrar usuario
-                this.modeloCliente.borrar(cliente);
+                if (JOptionPane.showConfirmDialog(dialogOpcionesCliente, "¿Esta seguro?")
+                        == JOptionPane.YES_OPTION) {
+                    String result = this.modeloCliente.borrar(cliente);
+                    JOptionPane.showMessageDialog(dialogOpcionesCliente, result);
+                }
+
                 // Actualizar modelo
                 clientes = this.modeloCliente.listar();
                 tableModel = listToModel(clientes);
@@ -85,7 +90,7 @@ public class CtrlOpcionesCliente
             int rows = this.dialogOpcionesCliente.getTableClientes().getSelectedRowCount();
             if (row < 1 && rows == 0) {
                 JOptionPane.showMessageDialog(dialogOpcionesCliente
-                        , "Debe seleccionar una sola fila"
+                        , "-Debe seleccionar una sola fila"
                         , "Error"
                         , JOptionPane.ERROR_MESSAGE, null);
             } else {
@@ -102,7 +107,7 @@ public class CtrlOpcionesCliente
                         clienteBusqueda = cliente;
                     }
                 }
-                DialogCrearCliente dcc = new DialogCrearCliente(dialogOpcionesCliente, true);
+                DlgCrearCliente dcc = new DlgCrearCliente(dialogOpcionesCliente, true);
                 CtrlNuevoCliente cnc = new CtrlNuevoCliente(dcc, clienteBusqueda);
                 cnc.start();
 
@@ -139,6 +144,7 @@ public class CtrlOpcionesCliente
         List<Cliente> clientes = this.modeloCliente.listar();
         TableModel tableModel = listToModel(clientes);
         this.dialogOpcionesCliente.setTableClientes(tableModel);
+        this.dialogOpcionesCliente.setTitle("Clientes");
         this.dialogOpcionesCliente.setLocationRelativeTo(null);
         this.dialogOpcionesCliente.setVisible(true);
     }

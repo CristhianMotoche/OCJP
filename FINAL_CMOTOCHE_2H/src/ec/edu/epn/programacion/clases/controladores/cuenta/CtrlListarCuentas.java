@@ -1,7 +1,7 @@
 package ec.edu.epn.programacion.clases.controladores.cuenta;
 
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cuenta.DialogListaCuenta;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloCuenta;
+import ec.edu.epn.programacion.clases.vista.cuenta.DlgListaCuenta;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoCuenta;
 import ec.edu.epn.programacion.pojos.Cuenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,16 +20,16 @@ import javax.swing.table.TableRowSorter;
 public class CtrlListarCuentas
         implements ActionListener, KeyListener {
 
-    private DialogListaCuenta dialogListaCuenta;
-    private ModeloCuenta modeloCuenta;
+    private DlgListaCuenta dialogListaCuenta;
+    private ArchivoCuenta modeloCuenta;
 
     /**
      *
      * @param dialogListaCuenta
      */
-    public CtrlListarCuentas(DialogListaCuenta dialogListaCuenta) {
+    public CtrlListarCuentas(DlgListaCuenta dialogListaCuenta) {
         this.dialogListaCuenta = dialogListaCuenta;
-        this.modeloCuenta = new ModeloCuenta();
+        this.modeloCuenta = new ArchivoCuenta();
 
         this.dialogListaCuenta.getBtnCancelar().addActionListener(this);
         this.dialogListaCuenta.getTextFieldBuscar().addKeyListener(this);
@@ -40,6 +40,7 @@ public class CtrlListarCuentas
      */
     public void start(){
         List<Cuenta> cuentas = this.modeloCuenta.listar();
+        this.dialogListaCuenta.setTitle("Cuentas");
         this.dialogListaCuenta.setTableCuentas(listToModel(cuentas));
         this.dialogListaCuenta.setLocationRelativeTo(null);
         this.dialogListaCuenta.setVisible(true);

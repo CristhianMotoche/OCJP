@@ -1,4 +1,4 @@
-package ec.edu.epn.programacion.excepciones.modelos;
+package ec.edu.epn.programacion.excepciones.archivos;
 
 import ec.edu.epn.programacion.interfaces.InterfazAdministracion;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class ModeloUsuario
+public class ArchivoUsuario
         implements InterfazAdministracion {
 
     private File archivoUsuarios;
@@ -31,7 +31,7 @@ public class ModeloUsuario
     /**
      *
      */
-    public ModeloUsuario() {
+    public ArchivoUsuario() {
         cargarUsuarios();
     }
 

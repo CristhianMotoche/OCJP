@@ -1,8 +1,8 @@
 package ec.edu.epn.programacion.clases.controladores;
 
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.DialogTransaccion;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloCuenta;
-import ec.edu.epn.programacion.pojos.Banco;
+import ec.edu.epn.programacion.clases.vista.DlgTransaccion;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoCuenta;
+import ec.edu.epn.programacion.pojos.Transferencia;
 import ec.edu.epn.programacion.pojos.Cuenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,25 +17,27 @@ import javax.swing.JOptionPane;
 public class CtrlTransaccion
         implements ActionListener {
 
-    private DialogTransaccion dialogTransaccion;
+    private DlgTransaccion dialogTransaccion;
     private String opcion;
-    private ModeloCuenta modeloCuenta;
+    private ArchivoCuenta modeloCuenta;
 
     /**
      *
      * @param dialogTransaccion
      * @param opcion
      */
-    public CtrlTransaccion(DialogTransaccion dialogTransaccion, String opcion) {
+    public CtrlTransaccion(DlgTransaccion dialogTransaccion, String opcion) {
         this.dialogTransaccion = dialogTransaccion;
         this.opcion = opcion;
 
         if (opcion.equals("deposito")) {
+            this.dialogTransaccion.setTitle("Depósito");
             this.dialogTransaccion.setTextLblTransaccion("Depósito");
             this.dialogTransaccion.setTextBtnOpcion("Depositar");
         }
 
         if (opcion.equals("retiro")) {
+            this.dialogTransaccion.setTitle("Retiro");
             this.dialogTransaccion.setTextLblTransaccion("Retiro");
             this.dialogTransaccion.setTextBtnOpcion("Retirar");
         }
@@ -50,7 +52,7 @@ public class CtrlTransaccion
         if (e.getSource() == this.dialogTransaccion.getBtnOpcion() && this.opcion.equals("deposito")) {
             String mensajesDeError = camposValidos();
             if (mensajesDeError.isEmpty()) {
-                Banco banco = new Banco();
+                Transferencia banco = new Transferencia();
                 double monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
                 Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
                 banco.realizarDeposito(cuenta, monto);
@@ -59,7 +61,7 @@ public class CtrlTransaccion
             } else {
                 JOptionPane.showMessageDialog(this.dialogTransaccion
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
@@ -67,7 +69,7 @@ public class CtrlTransaccion
         if (e.getSource() == this.dialogTransaccion.getBtnOpcion() && this.opcion.equals("retiro")) {
             String mensajesDeError = camposValidos();
             if (mensajesDeError.isEmpty()) {
-                Banco banco = new Banco();
+                Transferencia banco = new Transferencia();
                 double monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
                 Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
                 banco.realizarRetiro(cuenta, monto);
@@ -76,7 +78,7 @@ public class CtrlTransaccion
             } else {
                 JOptionPane.showMessageDialog(this.dialogTransaccion
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
@@ -101,7 +103,7 @@ public class CtrlTransaccion
         try {
             monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
         } catch(NumberFormatException e) {
-            messages += "*El monto debe ser un decimal.";
+            messages += "*El monto debe ser un número.";
         }
 
         if (monto < 0) {
@@ -111,7 +113,7 @@ public class CtrlTransaccion
     }
 
     private void updateCmb(){
-        this.modeloCuenta = new ModeloCuenta();
+        this.modeloCuenta = new ArchivoCuenta();
         List<String> nombres = new  ArrayList<>();
         List<Cuenta> cuentas = modeloCuenta.listar();
         cuentas.forEach(client -> nombres.add(client.getNumeroCta()));

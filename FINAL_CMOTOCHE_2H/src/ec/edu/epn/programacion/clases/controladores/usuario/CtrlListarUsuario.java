@@ -1,8 +1,8 @@
 package ec.edu.epn.programacion.clases.controladores.usuario;
 
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.usuario.DialogCrearUsuario;
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.usuario.DialogOpcionesUsuario;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloUsuario;
+import ec.edu.epn.programacion.clases.vista.usuario.DlgCrearUsuario;
+import ec.edu.epn.programacion.clases.vista.usuario.DlgOpcionesUsuario;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoUsuario;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,11 +21,11 @@ import javax.swing.table.TableRowSorter;
  *
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class CtrlOpcionesUsuario
+public class CtrlListarUsuario
         implements ActionListener, KeyListener {
 
-    private DialogOpcionesUsuario dialogOpcionesUsuario;
-    private ModeloUsuario modeloUsuario;
+    private DlgOpcionesUsuario dialogOpcionesUsuario;
+    private ArchivoUsuario modeloUsuario;
     private boolean remover;
     private boolean editar;
 
@@ -35,9 +35,9 @@ public class CtrlOpcionesUsuario
      * @param remover
      * @param editar
      */
-    public CtrlOpcionesUsuario(DialogOpcionesUsuario dialogOpcionesUsuario, boolean remover, boolean editar) {
+    public CtrlListarUsuario(DlgOpcionesUsuario dialogOpcionesUsuario, boolean remover, boolean editar) {
         this.dialogOpcionesUsuario = dialogOpcionesUsuario;
-        this.modeloUsuario = new ModeloUsuario();
+        this.modeloUsuario = new ArchivoUsuario();
         this.remover = remover;
         this.editar = editar;
 
@@ -54,15 +54,19 @@ public class CtrlOpcionesUsuario
     }
 
     /**
-     *
+     * Despliega la vista
      */
     public void start(){
         List<UsuarioSistema> usuarios = this.modeloUsuario.listar();
         TableModel tableModel = listToModel(usuarios);
         this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
+
+        this.dialogOpcionesUsuario.setTitle("Usuarios");
+
         TableColumnModel tcm = this.dialogOpcionesUsuario.getTableUsuarios().getColumnModel();
         tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Login")));
         tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Password")));
+
         this.dialogOpcionesUsuario.setLocationRelativeTo(null);
         this.dialogOpcionesUsuario.setVisible(true);
     }
@@ -74,7 +78,7 @@ public class CtrlOpcionesUsuario
             int rows = this.dialogOpcionesUsuario.getTableUsuarios().getSelectedRowCount();
             if (row < 1 && rows == 0) {
                 JOptionPane.showMessageDialog(dialogOpcionesUsuario
-                        , "Debe seleccionar una sola fila"
+                        , "Seleccione una fila"
                         , "Error"
                         , JOptionPane.ERROR_MESSAGE, null);
             } else {
@@ -82,12 +86,19 @@ public class CtrlOpcionesUsuario
                 List<UsuarioSistema> usuarios = this.modeloUsuario.listar();
                 TableModel tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
+
                 // Buscar usuario por login y password
                 String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
                 String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
                 UsuarioSistema user = new UsuarioSistema(login, pass);
+
                 // Borrar usuario
-                this.modeloUsuario.borrar(user);
+                if (JOptionPane.showConfirmDialog(dialogOpcionesUsuario, "¿Esta seguro?")
+                        == JOptionPane.YES_OPTION) {
+                    String result = this.modeloUsuario.borrar(user);
+                    JOptionPane.showMessageDialog(dialogOpcionesUsuario, result);
+                }
+
                 // Actualizar modelo
                 usuarios = this.modeloUsuario.listar();
                 tableModel = listToModel(usuarios);
@@ -100,7 +111,7 @@ public class CtrlOpcionesUsuario
             int rows = this.dialogOpcionesUsuario.getTableUsuarios().getSelectedRowCount();
             if (row < 1 && rows == 0) {
                 JOptionPane.showMessageDialog(dialogOpcionesUsuario
-                        , "Debe seleccionar una sola fila"
+                        , "Seleccione una sola fila"
                         , "Error"
                         , JOptionPane.ERROR_MESSAGE, null);
             } else {
@@ -120,7 +131,7 @@ public class CtrlOpcionesUsuario
                 }
 
                 // Borrar usuario
-                DialogCrearUsuario dcu = new DialogCrearUsuario(dialogOpcionesUsuario, true);
+                DlgCrearUsuario dcu = new DlgCrearUsuario(dialogOpcionesUsuario, true);
                 CtrlNuevoUsuario cnu = new CtrlNuevoUsuario(dcu, user);
                 cnu.start();
 

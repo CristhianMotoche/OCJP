@@ -1,10 +1,10 @@
 package ec.edu.epn.programacion.pojos;
 
 /**
- * POJO Banco, para realizar las transacciones.
+ * POJO Transferencia, para realizar las transacciones.
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class Banco {
+public class Transferencia {
     /**
      * Metodo que permite reducir el saldo de una cuenta
      * @param cuenta Cuenta a la que se va a despositar

@@ -1,10 +1,12 @@
 package ec.edu.epn.programacion.clases.controladores.cliente;
 
-import ec.edu.epn.programacion.clases.interfaz_grafica_usuario.cliente.DialogCrearCliente;
-import ec.edu.epn.programacion.excepciones.modelos.ModeloCliente;
+import ec.edu.epn.programacion.clases.vista.cliente.DlgCrearCliente;
+import ec.edu.epn.programacion.excepciones.archivos.ArchivoCliente;
 import ec.edu.epn.programacion.pojos.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,17 +16,17 @@ import javax.swing.JOptionPane;
 public class CtrlNuevoCliente
         implements ActionListener {
 
-    private DialogCrearCliente dialogCrearCliente;
-    private ModeloCliente modeloCliente;
+    private DlgCrearCliente dialogCrearCliente;
+    private ArchivoCliente modeloCliente;
     private boolean editar;
 
     /**
      *
      * @param dialogCrearCliente
      */
-    public CtrlNuevoCliente(DialogCrearCliente dialogCrearCliente) {
+    public CtrlNuevoCliente(DlgCrearCliente dialogCrearCliente) {
         this.dialogCrearCliente = dialogCrearCliente;
-        this.modeloCliente = new ModeloCliente();
+        this.modeloCliente = new ArchivoCliente();
         this.editar = false;
 
         this.dialogCrearCliente.getBtnAceptar().addActionListener(this);
@@ -36,9 +38,9 @@ public class CtrlNuevoCliente
      * @param dialogCrearCliente
      * @param cliente
      */
-    public CtrlNuevoCliente(DialogCrearCliente dialogCrearCliente, Cliente cliente) {
+    public CtrlNuevoCliente(DlgCrearCliente dialogCrearCliente, Cliente cliente) {
         this.dialogCrearCliente = dialogCrearCliente;
-        this.modeloCliente = new ModeloCliente();
+        this.modeloCliente = new ArchivoCliente();
         this.editar = true;
         this.dialogCrearCliente.getTextFieldCliente().setEditable(false);
 
@@ -65,7 +67,7 @@ public class CtrlNuevoCliente
             } else {
                 JOptionPane.showMessageDialog(this.dialogCrearCliente
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
@@ -80,7 +82,7 @@ public class CtrlNuevoCliente
             } else {
                 JOptionPane.showMessageDialog(this.dialogCrearCliente
                         , mensajesDeError
-                        , "Errores de usuario"
+                        , "Errores"
                         , JOptionPane.ERROR_MESSAGE
                         , null);
             }
@@ -94,40 +96,45 @@ public class CtrlNuevoCliente
     * String con los mensajes de error
     */
     private String camposValidos() {
-        String messages = "";
+        String errores = "";
         String nombre = this.dialogCrearCliente.getTxtNombre();
         String celular = this.dialogCrearCliente.getTxtCelular();
+        String email = this.dialogCrearCliente.getTxtEmail();
 
         if (nombre.isEmpty()) {
-            messages += "\n*El nombre no puede estar vacio.";
+            errores += "\n-El nombre no puede estar vacio.";
         }
         if (celular.isEmpty()) {
-            messages += "\n*El número de celular no puede estar vacio.";
+            errores += "\n-El número de celular debe estar lleno.";
         }
-
+        Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+        Matcher m = p.matcher(email);
+        if (!m.matches()) {
+            errores += "\n-Email no válido (Ej: usuario@domain.com)";
+        }
         double sueldo = 0;
         try {
             sueldo = new Double(this.dialogCrearCliente.getTxtSueldo());
         } catch (NumberFormatException e){
-            messages += "\n*El sueldo debe ser un número decimal";
+            errores += "\n-El sueldo debe ser un número.";
         }
 
         if (sueldo <= 0) {
-            messages += "\n*El sueldo debe ser un decimal positivo";
+            errores += "\n-El sueldo debe ser positivo.";
         }
 
         byte edad = 0;
         try {
             edad = new Byte(this.dialogCrearCliente.getTxtEdad());
         } catch (NumberFormatException e){
-            messages += "\n*La edad debe ser un número";
+            errores += "\n*La edad debe ser un número";
         }
 
         if (edad <= 0) {
-            messages += "\n*La edad debe ser un número entero positivo";
+            errores += "\n*La edad debe ser un número entero positivo";
         }
 
-        return messages;
+        return errores;
     }
 
     private Cliente getDatosCliente() {
@@ -146,6 +153,7 @@ public class CtrlNuevoCliente
      * Permite iniciar la visualización de la ventana
      */
     public void start() {
+        this.dialogCrearCliente.setTitle("Cliente");
         this.dialogCrearCliente.setLocationRelativeTo(null);
         this.dialogCrearCliente.setVisible(true);
     }

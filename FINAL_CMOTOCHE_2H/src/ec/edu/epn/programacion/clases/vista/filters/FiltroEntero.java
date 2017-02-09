@@ -1,4 +1,4 @@
-package ec.edu.epn.programacion.clases.filters;
+package ec.edu.epn.programacion.clases.vista.filters;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.AttributeSet;
@@ -10,7 +10,7 @@ import javax.swing.text.DocumentFilter;
  *
  * @author Hovercraft Full Of Eels
  */
-public class MyIntFilter  extends DocumentFilter {
+public class FiltroEntero  extends DocumentFilter {
     @Override
     public void insertString(FilterBypass fb, int offset, String string,
             AttributeSet attr) throws BadLocationException {
