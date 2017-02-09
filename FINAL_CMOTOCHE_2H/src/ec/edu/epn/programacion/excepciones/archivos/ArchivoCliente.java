@@ -29,15 +29,15 @@ public class ArchivoCliente
     private ArrayList<Cliente> clientes;
 
     /**
-     *
+     * Constructor que carga clientes
      */
     public ArchivoCliente() {
         cargarClientes();
     }
 
     /**
-     *
-     * @return
+     * Registra las cuentas en el archivo de clientes
+     * @return bolean si pudo o no guardar los clientes.
      */
     public boolean registrarClientes(){
         try{
@@ -57,7 +57,7 @@ public class ArchivoCliente
             bw.close();
             return true;
         } catch(IOException io){
-            JOptionPane.showMessageDialog(null, "Error en la escritura del archivo.");
+            JOptionPane.showMessageDialog(null, "Error al intentar escribir en el archivo.");
             System.err.println("No existe el fichero.\n" + io);
             System.exit(0);
         }
@@ -146,13 +146,13 @@ public class ArchivoCliente
                 }
                 br.close();
             } catch (IOException | NumberFormatException | ParseException ex) {
-                JOptionPane.showMessageDialog(null, "Ocurrió un error al leer el archivo");
-                System.err.println("Ocurrió un error al leer el archivo: \n" + ex);
+                JOptionPane.showMessageDialog(null, "Ocurrió un error al intentar leer el archivo");
+                System.err.println("Ocurrió un error al intentar leer el archivo: \n" + ex);
                 System.exit(0);
             }
         } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "No existe el fichero de clientes");
-            System.err.println("No existe el fichero.");
+            JOptionPane.showMessageDialog(null, "No existe el archivo de clientes");
+            System.err.println("No existe el archivo.");
             System.exit(0);
         }
     }

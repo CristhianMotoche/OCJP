@@ -26,17 +26,17 @@ public class ArchivoCuenta
     private ArrayList<Cuenta> cuentas;
 
     /**
-     *
+     * Constructor que carga las cuentas
      */
     public ArchivoCuenta() {
         cargarCuentas();
     }
 
     /**
-     *
-     * @return
+     * Registra las cuentas en el archivo de cuentas
+     * @return bolean si pudo o no guardar las cuentas.
      */
-    public boolean registrarClientes(){
+    public boolean registrarCuentas(){
         try{
             FileWriter fw = new FileWriter(this.archivoClientes, false);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -62,7 +62,7 @@ public class ArchivoCuenta
     public String crear(Object obj) {
         Cuenta cuenta = (Cuenta) obj;
         this.cuentas.add(cuenta);
-        if (registrarClientes()) {
+        if (registrarCuentas()) {
             return "Se ha creado una cuenta nueva.";
         } else {
             return "Existió un error interno.\nNo se creó la cuenta.";
@@ -80,7 +80,7 @@ public class ArchivoCuenta
             }
         }
 
-        if (registrarClientes()) {
+        if (registrarCuentas()) {
             return "Se actualizó la cuenta";
         } else {
             return "Existió un error interno.\nNo se actualizó la cuenta.";
@@ -96,7 +96,7 @@ public class ArchivoCuenta
             }
         }
 
-        if (registrarClientes()) {
+        if (registrarCuentas()) {
             return "Se eliminó la cuenta";
         } else {
             return "No se eliminó la cuenta";

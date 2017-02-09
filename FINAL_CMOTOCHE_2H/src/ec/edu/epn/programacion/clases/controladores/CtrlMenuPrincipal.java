@@ -34,19 +34,16 @@ public class CtrlMenuPrincipal
         this.frmMenuPrincipal.getMenuItemEditarUsuario().addActionListener(this);
         this.frmMenuPrincipal.getMenuItemEliminarUsuario().addActionListener(this);
         this.frmMenuPrincipal.getMenuItemListarUsuario().addActionListener(this);
-        this.frmMenuPrincipal.getMenuItemBuscarUsuario().addActionListener(this);
 
         /* CLIENTES */
         this.frmMenuPrincipal.getMenuItemNuevoCliente().addActionListener(this);
         this.frmMenuPrincipal.getMenuItemEditarCliente().addActionListener(this);
         this.frmMenuPrincipal.getMenuItemEliminarCliente().addActionListener(this);
         this.frmMenuPrincipal.getMenuItemListarClientes().addActionListener(this);
-        this.frmMenuPrincipal.getMenuItemBuscarClientes().addActionListener(this);
 
         /* CUENTAS */
         this.frmMenuPrincipal.getMenuItemNuevaCuenta().addActionListener(this);
         this.frmMenuPrincipal.getMenuItemListarCuenta().addActionListener(this);
-        this.frmMenuPrincipal.getMenuItemBuscarCuenta().addActionListener(this);
 
         /* TRANSACCIONES */
         this.frmMenuPrincipal.getMenuItemDepositar().addActionListener(this);
@@ -87,13 +84,6 @@ public class CtrlMenuPrincipal
                     new CtrlListarUsuario(dialogOpcionesUsuario, false, false);
             ctrlOpcionesUsuario.start();
         }
-        if (e.getSource() == this.frmMenuPrincipal.getMenuItemBuscarUsuario()) {
-            DlgOpcionesUsuario dialogOpcionesUsuario =
-                    new DlgOpcionesUsuario(this.frmMenuPrincipal, true);
-            CtrlListarUsuario ctrlOpcionesUsuario =
-                    new CtrlListarUsuario(dialogOpcionesUsuario, false, false);
-            ctrlOpcionesUsuario.start();
-        }
 
         /* USUARIOS */
         if (e.getSource() == this.frmMenuPrincipal.getMenuItemNuevoCliente()) {
@@ -124,13 +114,6 @@ public class CtrlMenuPrincipal
                     new CtrlListarCliente(dialogOpcionesCliente, false, false);
             ctrlOpcionesCliente.start();
         }
-        if (e.getSource() == this.frmMenuPrincipal.getMenuItemBuscarClientes()) {
-            DlgOpcionesCliente dialogOpcionesCliente =
-                    new DlgOpcionesCliente(this.frmMenuPrincipal, true);
-            CtrlListarCliente ctrlOpcionesCliente =
-                    new CtrlListarCliente(dialogOpcionesCliente, false, false);
-            ctrlOpcionesCliente.start();
-        }
 
         /* CUENTAS */
         if (e.getSource() == this.frmMenuPrincipal.getMenuItemNuevaCuenta()) {
@@ -140,13 +123,6 @@ public class CtrlMenuPrincipal
             ctrlNuevaCuenta.start();
         }
         if (e.getSource() == this.frmMenuPrincipal.getMenuItemListarCuenta()) {
-            DlgListaCuenta dialogListaCuenta =
-                    new DlgListaCuenta(this.frmMenuPrincipal, true);
-            CtrlListarCuentas ctrlListarCuentas =
-                    new CtrlListarCuentas(dialogListaCuenta);
-            ctrlListarCuentas.start();
-        }
-        if (e.getSource() == this.frmMenuPrincipal.getMenuItemBuscarCuenta()) {
             DlgListaCuenta dialogListaCuenta =
                     new DlgListaCuenta(this.frmMenuPrincipal, true);
             CtrlListarCuentas ctrlListarCuentas =

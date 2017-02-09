@@ -39,17 +39,14 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuItemEditarUsuario = new javax.swing.JMenuItem();
         menuItemEliminarUsuario = new javax.swing.JMenuItem();
         menuItemListarUsuario = new javax.swing.JMenuItem();
-        menuItemBuscarUsuario = new javax.swing.JMenuItem();
         menuCliente = new javax.swing.JMenu();
         menuItemNuevoCliente = new javax.swing.JMenuItem();
         menuItemEditarCliente = new javax.swing.JMenuItem();
         menuItemEliminarCliente = new javax.swing.JMenuItem();
         menuItemListarClientes = new javax.swing.JMenuItem();
-        menuItemBuscarClientes = new javax.swing.JMenuItem();
         menuCuentas = new javax.swing.JMenu();
         menuItemNuevaCuenta = new javax.swing.JMenuItem();
         menuItemListarCuenta = new javax.swing.JMenuItem();
-        menuItemBuscarCuenta = new javax.swing.JMenuItem();
         menuTransacciones = new javax.swing.JMenu();
         menuItemDepositar = new javax.swing.JMenuItem();
         menuItemRetirar = new javax.swing.JMenuItem();
@@ -92,10 +89,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuItemListarUsuario.setToolTipText("");
         menuUsuarios.add(menuItemListarUsuario);
 
-        menuItemBuscarUsuario.setText("Buscar");
-        menuItemBuscarUsuario.setToolTipText("");
-        menuUsuarios.add(menuItemBuscarUsuario);
-
         menuAdministracion.add(menuUsuarios);
 
         menuCliente.setText("Clientes");
@@ -117,10 +110,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuItemListarClientes.setToolTipText("");
         menuCliente.add(menuItemListarClientes);
 
-        menuItemBuscarClientes.setText("Buscar");
-        menuItemBuscarClientes.setToolTipText("");
-        menuCliente.add(menuItemBuscarClientes);
-
         menuAdministracion.add(menuCliente);
 
         menuCuentas.setText("Cuentas");
@@ -133,10 +122,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
         menuItemListarCuenta.setText("Listar");
         menuItemListarCuenta.setToolTipText("");
         menuCuentas.add(menuItemListarCuenta);
-
-        menuItemBuscarCuenta.setText("Buscar");
-        menuItemBuscarCuenta.setToolTipText("");
-        menuCuentas.add(menuItemBuscarCuenta);
 
         menuAdministracion.add(menuCuentas);
 
@@ -238,9 +223,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuAdministracion;
     private javax.swing.JMenu menuCliente;
     private javax.swing.JMenu menuCuentas;
-    private javax.swing.JMenuItem menuItemBuscarClientes;
-    private javax.swing.JMenuItem menuItemBuscarCuenta;
-    private javax.swing.JMenuItem menuItemBuscarUsuario;
     private javax.swing.JMenuItem menuItemDepositar;
     private javax.swing.JMenuItem menuItemEditarCliente;
     private javax.swing.JMenuItem menuItemEditarUsuario;
@@ -268,18 +250,6 @@ public class FrmMenuPrincipal extends javax.swing.JFrame {
 
     public JMenu getMenuCuentas() {
         return menuCuentas;
-    }
-
-    public JMenuItem getMenuItemBuscarClientes() {
-        return menuItemBuscarClientes;
-    }
-
-    public JMenuItem getMenuItemBuscarCuenta() {
-        return menuItemBuscarCuenta;
-    }
-
-    public JMenuItem getMenuItemBuscarUsuario() {
-        return menuItemBuscarUsuario;
     }
 
     public JMenuItem getMenuItemEditarCliente() {

@@ -7,7 +7,7 @@ import ec.edu.epn.programacion.clases.vista.FrmLogin;
  * Clase principal que ejecuta la aplicación
  * @author Cristhian Motoche (cristhian.motoche@epn.edu.ec)
  */
-public class Principal {
+public class Main {
     
     /**
      * Función principal para ejecutar la aplicación

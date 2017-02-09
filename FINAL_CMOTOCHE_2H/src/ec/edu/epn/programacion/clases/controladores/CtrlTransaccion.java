@@ -52,10 +52,11 @@ public class CtrlTransaccion
         if (e.getSource() == this.dialogTransaccion.getBtnOpcion() && this.opcion.equals("deposito")) {
             String mensajesDeError = camposValidos();
             if (mensajesDeError.isEmpty()) {
-                Transferencia banco = new Transferencia();
+                Transferencia transaccion = new Transferencia();
                 double monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
                 Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
-                banco.realizarDeposito(cuenta, monto);
+                String result = transaccion.realizarDeposito(cuenta, monto);
+                JOptionPane.showMessageDialog(dialogTransaccion, result);
                 this.modeloCuenta.actualizar(cuenta);
                 this.dialogTransaccion.dispose();
             } else {
@@ -69,10 +70,11 @@ public class CtrlTransaccion
         if (e.getSource() == this.dialogTransaccion.getBtnOpcion() && this.opcion.equals("retiro")) {
             String mensajesDeError = camposValidos();
             if (mensajesDeError.isEmpty()) {
-                Transferencia banco = new Transferencia();
+                Transferencia transaccion = new Transferencia();
                 double monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
                 Cuenta cuenta = this.dialogTransaccion.getCmbCuenta();
-                banco.realizarRetiro(cuenta, monto);
+                String result = transaccion.realizarRetiro(cuenta, monto);
+                JOptionPane.showMessageDialog(dialogTransaccion, result);
                 this.modeloCuenta.actualizar(cuenta);
                 this.dialogTransaccion.dispose();
             } else {
@@ -99,6 +101,7 @@ public class CtrlTransaccion
      */
     public String camposValidos(){
         String messages = "";
+
         double monto = 0;
         try {
             monto = Double.parseDouble(this.dialogTransaccion.getTxtMonto());
