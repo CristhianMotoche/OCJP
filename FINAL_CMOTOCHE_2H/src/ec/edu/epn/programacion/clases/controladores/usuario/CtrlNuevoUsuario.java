@@ -122,6 +122,9 @@ public class CtrlNuevoUsuario
         if (nombre.isEmpty()) {
             errores += "\n-El nombre no puede estar vacio.";
         }
+        if (nombre.contains(" ")) {
+            errores += "\n-El nombre no debe tener espacios.";
+        }
         if (login.isEmpty()) {
             errores += "\n-El login no puede estar vacio.";
         }

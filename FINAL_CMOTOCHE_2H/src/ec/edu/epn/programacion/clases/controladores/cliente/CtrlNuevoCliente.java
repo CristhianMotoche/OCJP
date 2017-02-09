@@ -104,6 +104,9 @@ public class CtrlNuevoCliente
         if (nombre.isEmpty()) {
             errores += "\n-El nombre no puede estar vacio.";
         }
+        if (nombre.contains(" ")) {
+            errores += "\n-El nombre no debe contener espacios.";
+        }
         if (celular.isEmpty()) {
             errores += "\n-El número de celular debe estar lleno.";
         }

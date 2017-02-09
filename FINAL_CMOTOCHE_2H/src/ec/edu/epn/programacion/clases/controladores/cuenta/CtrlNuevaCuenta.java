@@ -103,6 +103,10 @@ public class CtrlNuevaCuenta
             errores += "-El número de cuenta debe estar lleno.";
         }
 
+        if (numeroCuenta.contains(" ")) {
+            errores += "\n-El número de cuenta no debe tener espacios.";
+        }
+
         try {
             double cuenta = Double.parseDouble(this.crearCuenta.getTxtSaldoInicial());
         } catch (NumberFormatException e) {
