@@ -27,6 +27,7 @@ public class CtrlNuevoUsuario
         this.modeloUsuario = new ModeloUsuario();
         this.editar = false;
 
+        this.dialogCrearUsuario.setTxtId(0);
         this.dialogCrearUsuario.getBtnAceptar().addActionListener(this);
         this.dialogCrearUsuario.getBtnCancelar().addActionListener(this);
     }
@@ -41,6 +42,7 @@ public class CtrlNuevoUsuario
         this.modeloUsuario = new ModeloUsuario();
         this.editar = true;
 
+        this.dialogCrearUsuario.setTxtId(usuarioEditar.getId());
         this.dialogCrearUsuario.setTxtNombre(usuarioEditar.getNombre());
         this.dialogCrearUsuario.setTxtEdad(Byte.toString(usuarioEditar.getEdad()));
         this.dialogCrearUsuario.setDateFechaNac(usuarioEditar.getFechaNacimiento());
@@ -58,6 +60,8 @@ public class CtrlNuevoUsuario
             String mensajesDeError = camposValidos();
             if(mensajesDeError.isEmpty()){
                 UsuarioSistema user = getDatosUsuario();
+                user.setId(this.dialogCrearUsuario.getTxtId());
+
                 String result = this.modeloUsuario.actualizar(user);
                 JOptionPane.showMessageDialog(this.dialogCrearUsuario, result);
                 this.dialogCrearUsuario.dispose();
@@ -73,6 +77,8 @@ public class CtrlNuevoUsuario
             String mensajesDeError = camposValidos();
             if(mensajesDeError.isEmpty()){
                 UsuarioSistema user = getDatosUsuario();
+                user.setId();
+
                 String result = this.modeloUsuario.crear(user);
                 JOptionPane.showMessageDialog(this.dialogCrearUsuario, result);
                 this.dialogCrearUsuario.dispose();
@@ -91,7 +97,6 @@ public class CtrlNuevoUsuario
 
     private UsuarioSistema getDatosUsuario() {
         UsuarioSistema user = new UsuarioSistema();
-        user.setId();
         user.setNombre(this.dialogCrearUsuario.getTxtNombre());
         user.setEdad(new Byte(this.dialogCrearUsuario.getTxtEdad()));
         user.setFechaNacimiento(this.dialogCrearUsuario.getDateFechaNac());

@@ -5,10 +5,13 @@
  */
 package ec.edu.epn.programacion.clases.controladores;
 
-import ec.edu.epn.programacion.clases.controladores.administracion.CtrlDialogAdministracion;
-import ec.edu.epn.programacion.clases.gui.DialogAdministracion;
-import ec.edu.epn.programacion.clases.gui.DialogTransacciones;
-import ec.edu.epn.programacion.clases.gui.FrmMenuPrincipal;
+import ec.edu.epn.programacion.clases.controladores.administracion.CtrlDialogClientes;
+import ec.edu.epn.programacion.clases.controladores.administracion.CtrlDialogUsuarios;
+import ec.edu.epn.programacion.clases.controladores.cuenta.CtrlOpcionesCuenta;
+import ec.edu.epn.programacion.clases.gui.DialogOpciones;
+import ec.edu.epn.programacion.clases.gui.DialogTransaccion;
+import ec.edu.epn.programacion.clases.gui.FormPrincipal;
+import ec.edu.epn.programacion.clases.gui.cuenta.DialogOpcionesCuenta;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +22,7 @@ import java.awt.event.ActionListener;
  */
 public class CtrlMenuPrincipal
     implements ActionListener {
-    private FrmMenuPrincipal frmMenuPrincipal;
+    private FormPrincipal frmPrincipal;
     private UsuarioSistema user;
 
     /**
@@ -27,43 +30,51 @@ public class CtrlMenuPrincipal
      * @param frmMenuPrincipal
      * @param user
      */
-    public CtrlMenuPrincipal(FrmMenuPrincipal frmMenuPrincipal, UsuarioSistema user) {
-        this.frmMenuPrincipal = frmMenuPrincipal;
+    public CtrlMenuPrincipal(FormPrincipal frmMenuPrincipal, UsuarioSistema user) {
+        this.frmPrincipal = frmMenuPrincipal;
         this.user = user;
 
-        this.frmMenuPrincipal.getBtnAdministracion().addActionListener(this);
-        this.frmMenuPrincipal.getBtnTransacciones().addActionListener(this);
-        this.frmMenuPrincipal.getBtnSalir().addActionListener(this);
+        this.frmPrincipal.getBtnClientes().addActionListener(this);
+        this.frmPrincipal.getBtnCuentas().addActionListener(this);
+        this.frmPrincipal.getBtnDeposito().addActionListener(this);
+        this.frmPrincipal.getBtnRetiro().addActionListener(this);
+        this.frmPrincipal.getBtnUsuarios().addActionListener(this);
     }
 
     /**
      * Permite iniciar la visualización de la ventana
      */
     public void start(){
-        this.frmMenuPrincipal.setVisible(true);
-        this.frmMenuPrincipal.setLocationRelativeTo(null);
+        this.frmPrincipal.setVisible(true);
+        this.frmPrincipal.setLocationRelativeTo(null);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.frmMenuPrincipal.getBtnAdministracion()){
-            DialogAdministracion dlgAdministracion
-                    = new DialogAdministracion(this.frmMenuPrincipal, true);
-
-            CtrlDialogAdministracion ctrlDialogAdministracion
-                    = new CtrlDialogAdministracion(dlgAdministracion);
-
-            ctrlDialogAdministracion.start();
+        if (e.getSource() == this.frmPrincipal.getBtnUsuarios()) {
+            DialogOpciones dialogOpcionesUsuario = new DialogOpciones(this.frmPrincipal, true);
+            CtrlDialogUsuarios ctrlDialogUsuarios = new CtrlDialogUsuarios(dialogOpcionesUsuario);
+            ctrlDialogUsuarios.start();
         }
-        if (e.getSource() == this.frmMenuPrincipal.getBtnTransacciones()) {
-            DialogTransacciones dlgTransacciones
-                    = new DialogTransacciones(this.frmMenuPrincipal, true);
-            CtrlMenuTransacciones ctrlMenuTransacciones =
-                    new CtrlMenuTransacciones(dlgTransacciones);
-            ctrlMenuTransacciones.start();
+        if(e.getSource() == this.frmPrincipal.getBtnClientes()){
+            DialogOpciones dialogOpcionesCliente = new DialogOpciones(this.frmPrincipal, true);
+            CtrlDialogClientes ctrlDialogClientes = new CtrlDialogClientes(dialogOpcionesCliente);
+            ctrlDialogClientes.start();
         }
-        if(e.getSource() == this.frmMenuPrincipal.getBtnSalir()){
-            System.exit(0);
+        if(e.getSource() == this.frmPrincipal.getBtnCuentas()){
+            DialogOpcionesCuenta dialogOpcionesCuenta = new DialogOpcionesCuenta(this.frmPrincipal, true);
+            CtrlOpcionesCuenta ctrlOpcionesCuenta = new CtrlOpcionesCuenta(dialogOpcionesCuenta);
+            ctrlOpcionesCuenta.start();
+        }
+        if (e.getSource() == this.frmPrincipal.getBtnDeposito()) {
+            DialogTransaccion dialogTransaccion = new DialogTransaccion(frmPrincipal, true);
+            CtrlTransaccion ctrlTransaccion = new CtrlTransaccion(dialogTransaccion, "deposito");
+            ctrlTransaccion.start();
+        }
+        if (e.getSource() == this.frmPrincipal.getBtnRetiro()) {
+            DialogTransaccion dialogTransaccion = new DialogTransaccion(frmPrincipal, true);
+            CtrlTransaccion ctrlTransaccion = new CtrlTransaccion(dialogTransaccion, "retiro");
+            ctrlTransaccion.start();
         }
     }
 }

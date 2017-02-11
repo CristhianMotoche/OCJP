@@ -21,6 +21,7 @@ public class CtrlOpcionesCuenta
     public CtrlOpcionesCuenta(DialogOpcionesCuenta dialogOpcionesCuenta) {
         this.dialogOpcionesCuenta = dialogOpcionesCuenta;
 
+        this.dialogOpcionesCuenta.getLblPOJO().setText("Cuentas");
         this.dialogOpcionesCuenta.getBtnNuevo().addActionListener(this);
         this.dialogOpcionesCuenta.getBtnListar().addActionListener(this);
         this.dialogOpcionesCuenta.getBtnBuscar().addActionListener(this);

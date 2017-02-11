@@ -1,7 +1,7 @@
 package ec.edu.epn.programacion.clases.controladores;
 
+import ec.edu.epn.programacion.clases.gui.FormPrincipal;
 import ec.edu.epn.programacion.clases.gui.FrmLogin;
-import ec.edu.epn.programacion.clases.gui.FrmMenuPrincipal;
 import ec.edu.epn.programacion.excepciones.modelos.ModeloUsuario;
 import ec.edu.epn.programacion.clases.validador.ValidadorLogin;
 import ec.edu.epn.programacion.pojos.UsuarioSistema;
@@ -49,7 +49,7 @@ public class CtrlLogin
             UsuarioSistema user = this.modelo.buscarUsuario(userName, password);
             String mensajesDeError = validador.validar(user);
             if (mensajesDeError.isEmpty()) {
-                FrmMenuPrincipal frmMenuPrincipal = new FrmMenuPrincipal();
+                FormPrincipal frmMenuPrincipal = new FormPrincipal();
                 CtrlMenuPrincipal ctrlMenuPrincipal = new CtrlMenuPrincipal(frmMenuPrincipal, user);
                 ctrlMenuPrincipal.start();
                 this.frmLogin.dispose();

@@ -61,8 +61,7 @@ public class CtrlOpcionesUsuario
         TableModel tableModel = listToModel(usuarios);
         this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
         TableColumnModel tcm = this.dialogOpcionesUsuario.getTableUsuarios().getColumnModel();
-        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Login")));
-        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Password")));
+        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Id")));
         this.dialogOpcionesUsuario.setLocationRelativeTo(null);
         this.dialogOpcionesUsuario.setVisible(true);
     }
@@ -83,16 +82,22 @@ public class CtrlOpcionesUsuario
                 TableModel tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
                 // Buscar usuario por login y password
-                String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
-                String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
-                UsuarioSistema user = new UsuarioSistema(login, pass);
+                int id = Integer.parseInt(this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4));
+                UsuarioSistema user = new UsuarioSistema();
+                for (UsuarioSistema usuario : usuarios) {
+                    if (usuario.getId() == id) {
+                        user = usuario;
+                    }
+                }
+
                 // Borrar usuario
                 this.modeloUsuario.borrar(user);
                 // Actualizar modelo
                 usuarios = this.modeloUsuario.listar();
                 tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
-                this.dialogOpcionesUsuario.getTableUsuarios().updateUI();
+                TableColumnModel tcm = this.dialogOpcionesUsuario.getTableUsuarios().getColumnModel();
+                tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Id")));
             }
         }
         if (e.getSource() == this.dialogOpcionesUsuario.getBtnOpcion() && this.editar) {
@@ -110,12 +115,12 @@ public class CtrlOpcionesUsuario
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
 
                 // Buscar usuario por login y password
-                String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
-                String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
-                UsuarioSistema user = new UsuarioSistema(login, pass);
+                UsuarioSistema user = new UsuarioSistema();
+                int id = Integer.parseInt(this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4));
                 for (UsuarioSistema usuario : usuarios) {
-                    if (user.equals(usuario)) {
+                    if (usuario.getId() == id) {
                         user = usuario;
+                        break;
                     }
                 }
 
@@ -129,6 +134,8 @@ public class CtrlOpcionesUsuario
                 tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
                 ((DefaultTableModel) this.dialogOpcionesUsuario.getTableUsuarios().getModel()).fireTableDataChanged();
+                TableColumnModel tcm = this.dialogOpcionesUsuario.getTableUsuarios().getColumnModel();
+                tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Id")));
             }
         }
         if (e.getSource() == this.dialogOpcionesUsuario.getBtnCancelar()) {
@@ -137,7 +144,7 @@ public class CtrlOpcionesUsuario
     }
 
     private DefaultTableModel listToModel(List<UsuarioSistema> usuarios) {
-        Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Login", "Password"};
+        Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Id"};
         Object [][] data = new Object[usuarios.size()][columns.length];
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         for (int i = 0; i < usuarios.size(); i++) {
@@ -145,8 +152,7 @@ public class CtrlOpcionesUsuario
             data[i][1] = usuarios.get(i).getEdad();
             data[i][2] = sdf.format(usuarios.get(i).getFechaNacimiento());
             data[i][3] = usuarios.get(i).getEmail();
-            data[i][4] = usuarios.get(i).getLogin();
-            data[i][5] = usuarios.get(i).getPassword();
+            data[i][4] = usuarios.get(i).getId();
         }
         return new DefaultTableModel(data, columns);
     }
