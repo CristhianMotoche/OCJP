@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -68,8 +69,8 @@ public class CtrlListarCliente
                 this.dialogOpcionesCliente.setTableClientes(tableModel);
 
                 // Buscar usuario por id
-                String nombre = this.dialogOpcionesCliente.getTableClientes().getStringAt(row, 0);
-                Cliente cliente = new Cliente(nombre);
+                int id = Integer.parseInt(this.dialogOpcionesCliente.getTableClientes().getStringAt(row, 0));
+                Cliente cliente = (Cliente) this.modeloCliente.buscarPorParametro(this.modeloCliente.listar(), id);
 
                 // Borrar usuario
                 if (JOptionPane.showConfirmDialog(dialogOpcionesCliente, "¿Esta seguro?")
@@ -82,7 +83,7 @@ public class CtrlListarCliente
                 clientes = this.modeloCliente.listar();
                 tableModel = listToModel(clientes);
                 this.dialogOpcionesCliente.setTableClientes(tableModel);
-                this.dialogOpcionesCliente.getTableClientes().updateUI();
+                removerColumnaId();
             }
         }
         if(e.getSource() == this.dialogOpcionesCliente.getBtnOpcion() && this.editar){
@@ -100,15 +101,11 @@ public class CtrlListarCliente
                 this.dialogOpcionesCliente.setTableClientes(tableModel);
 
                 // Buscar usuario por login y password
-                String nombre = this.dialogOpcionesCliente.getTableClientes().getStringAt(row, 0);
-                Cliente clienteBusqueda = new Cliente(nombre);
-                for (Cliente cliente : clientes) {
-                    if (cliente.equals(clienteBusqueda)) {
-                        clienteBusqueda = cliente;
-                    }
-                }
+                int id = Integer.parseInt(this.dialogOpcionesCliente.getTableClientes().getStringAt(row, 0));
+                Cliente cliente = (Cliente) this.modeloCliente.buscarPorParametro(this.modeloCliente.listar(), id);
+
                 DlgCrearCliente dcc = new DlgCrearCliente(dialogOpcionesCliente, true);
-                CtrlNuevoCliente cnc = new CtrlNuevoCliente(dcc, clienteBusqueda);
+                CtrlNuevoCliente cnc = new CtrlNuevoCliente(dcc, cliente);
                 cnc.start();
 
                 // Actualizar modelo
@@ -116,6 +113,7 @@ public class CtrlListarCliente
                 tableModel = listToModel(clientes);
                 this.dialogOpcionesCliente.setTableClientes(tableModel);
                 ((DefaultTableModel) this.dialogOpcionesCliente.getTableClientes().getModel()).fireTableDataChanged();
+                removerColumnaId();
             }
         }
         if (e.getSource() == this.dialogOpcionesCliente.getBtnCancelar()) {
@@ -144,23 +142,30 @@ public class CtrlListarCliente
         List<Cliente> clientes = this.modeloCliente.listar();
         TableModel tableModel = listToModel(clientes);
         this.dialogOpcionesCliente.setTableClientes(tableModel);
+        removerColumnaId();
         this.dialogOpcionesCliente.setTitle("Clientes");
         this.dialogOpcionesCliente.setLocationRelativeTo(null);
         this.dialogOpcionesCliente.setVisible(true);
     }
 
     private DefaultTableModel listToModel(List<Cliente> clientes) {
-        Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Teléfono", "Sueldo"};
+        Object [] columns = {"Id", "Nombre", "Edad", "Fecha Nac.", "Email", "Teléfono", "Sueldo"};
         Object [][] data = new Object[clientes.size()][columns.length];
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         for (int i = 0; i < clientes.size(); i++) {
-            data[i][0] = clientes.get(i).getNombre();
-            data[i][1] = clientes.get(i).getEdad();
-            data[i][2] = sdf.format(clientes.get(i).getFechaNacimiento());
-            data[i][3] = clientes.get(i).getEmail();
-            data[i][4] = clientes.get(i).getCelular();
-            data[i][5] = clientes.get(i).getSueldo();
+            data[i][0] = clientes.get(i).getId();
+            data[i][1] = clientes.get(i).getNombre();
+            data[i][2] = clientes.get(i).getEdad();
+            data[i][3] = sdf.format(clientes.get(i).getFechaNacimiento());
+            data[i][4] = clientes.get(i).getEmail();
+            data[i][5] = clientes.get(i).getCelular();
+            data[i][6] = clientes.get(i).getSueldo();
         }
         return new DefaultTableModel(data, columns);
+    }
+
+    private void removerColumnaId() {
+        TableColumnModel tcm = this.dialogOpcionesCliente.getTableClientes().getColumnModel();
+        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Id")));
     }
 }

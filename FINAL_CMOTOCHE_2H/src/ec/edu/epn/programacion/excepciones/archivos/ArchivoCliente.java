@@ -45,7 +45,8 @@ public class ArchivoCliente
             BufferedWriter bw = new BufferedWriter(fw);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
             for (Cliente cliente : this.clientes) {
-                bw.write(cliente.getCelular()+ " "
+                bw.write( cliente.getId() + " "
+                        + cliente.getCelular()+ " "
                         + cliente.getSueldo()+ " "
                         + cliente.getNombre() + " "
                         + cliente.getEdad() + " "
@@ -114,7 +115,14 @@ public class ArchivoCliente
 
     @Override
     public Object buscarPorParametro(List lista, Object parametro) {
-        return new Object();
+        List<Cliente> clientes = lista;
+        int id = (int) parametro;
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == id) {
+                return cliente;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -134,14 +142,15 @@ public class ArchivoCliente
                 String linea;
                 while((linea = br.readLine())!= null){
                     String contenidoLinea [] = linea.split(" ");
-                    String telefono = contenidoLinea[0];
-                    Double sueldo = Double.parseDouble(contenidoLinea[1]);
-                    String nombre = contenidoLinea[2];
-                    byte edad = new Byte(contenidoLinea[3]);
+                    int id = Integer.parseInt(contenidoLinea[0]);
+                    String telefono = contenidoLinea[1];
+                    Double sueldo = Double.parseDouble(contenidoLinea[2]);
+                    String nombre = contenidoLinea[3];
+                    byte edad = new Byte(contenidoLinea[4]);
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fechaNac = sdf.parse(contenidoLinea[4]);
-                    String email = contenidoLinea[5];
-                    Cliente cliente = new Cliente(telefono, sueldo, nombre, edad, fechaNac, email);
+                    Date fechaNac = sdf.parse(contenidoLinea[5]);
+                    String email = contenidoLinea[6];
+                    Cliente cliente = new Cliente(id, telefono, sueldo, nombre, edad, fechaNac, email);
                     clientes.add(cliente);
                 }
                 br.close();

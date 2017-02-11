@@ -44,6 +44,21 @@ public class Cliente
     }
 
     /**
+     * Constructor con todos los parámetros para crear un cliente
+     * @param celular
+     * @param sueldo
+     * @param nombre Nombre del cliente
+     * @param edad
+     * @param fechaNacimiento
+     * @param email
+     */
+    public Cliente(int id, String celular, double sueldo, String nombre, byte edad, Date fechaNacimiento, String email) {
+        super(id, nombre, edad, fechaNacimiento, email);
+        this.celular = celular;
+        this.sueldo = sueldo;
+    }
+
+    /**
      * Obtener celular
      * @return Celular del usuario
      */

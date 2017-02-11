@@ -42,8 +42,8 @@ public class CtrlNuevoCliente
         this.dialogCrearCliente = dialogCrearCliente;
         this.modeloCliente = new ArchivoCliente();
         this.editar = true;
-        this.dialogCrearCliente.getTextFieldCliente().setEditable(false);
 
+        this.dialogCrearCliente.setTxtId(cliente.getId());
         this.dialogCrearCliente.setTxtNombre(cliente.getNombre());
         this.dialogCrearCliente.setTxtEdad(Byte.toString(cliente.getEdad()));
         this.dialogCrearCliente.setTxtEmail(cliente.getEmail());
@@ -61,6 +61,7 @@ public class CtrlNuevoCliente
             String mensajesDeError = camposValidos();
             if(mensajesDeError.isEmpty()){
                 Cliente cliente = getDatosCliente();
+                cliente.setId(this.dialogCrearCliente.getTxtId());
                 String result = this.modeloCliente.actualizar(cliente);
                 JOptionPane.showMessageDialog(this.dialogCrearCliente, result);
                 this.dialogCrearCliente.dispose();
@@ -76,6 +77,7 @@ public class CtrlNuevoCliente
             String mensajesDeError = camposValidos();
             if(mensajesDeError.isEmpty()){
                 Cliente cliente = getDatosCliente();
+                cliente.setId();
                 String result = this.modeloCliente.crear(cliente);
                 JOptionPane.showMessageDialog(this.dialogCrearCliente, result);
                 this.dialogCrearCliente.dispose();

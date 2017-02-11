@@ -55,6 +55,7 @@ public class DlgCrearCliente extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtId = new javax.swing.JTextField();
         pnlPersona = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -74,6 +75,8 @@ public class DlgCrearCliente extends javax.swing.JDialog {
         pnlButtons = new javax.swing.JPanel();
         btnCancelar = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
+
+        txtId.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -297,6 +300,7 @@ public class DlgCrearCliente extends javax.swing.JDialog {
     private javax.swing.JTextField txtCelular;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtSueldo;
     // End of variables declaration//GEN-END:variables
@@ -415,5 +419,13 @@ public class DlgCrearCliente extends javax.swing.JDialog {
 
     public JTextField getTextFieldCliente (){
         return this.txtNombre;
+    }
+
+    public int getTxtId() {
+        return Integer.parseInt(txtId.getText().trim());
+    }
+
+    public void setTxtId(int txtId) {
+        this.txtId.setText(Integer.toString(txtId));
     }
 }
