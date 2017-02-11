@@ -50,6 +50,22 @@ public class UsuarioSistema
 
     /**
      *
+     * @param login
+     * @param id
+     * @param nombre
+     * @param contrasena
+     * @param edad
+     * @param fechaNac
+     * @param email
+     */
+    public UsuarioSistema(int id, String login, String contrasena, String nombre, byte edad, Date fechaNac, String email) {
+        super(id, nombre, edad, fechaNac, email);
+        this.login = login;
+        this.password = contrasena;
+    }
+
+    /**
+     *
      * @return
      */
     public String getLogin() {
@@ -78,13 +94,6 @@ public class UsuarioSistema
      */
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        UsuarioSistema user = (UsuarioSistema) obj;
-        return this.login.equals(user.login)
-                && this.password.equals(user.password);
     }
 
     @Override

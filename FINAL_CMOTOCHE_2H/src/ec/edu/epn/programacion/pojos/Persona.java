@@ -1,6 +1,7 @@
 package ec.edu.epn.programacion.pojos;
 
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -17,7 +18,8 @@ public class Persona {
      *
      */
     public static char PAIS = 'E';
-    private static int count = 0;
+    public static int PERSONAS = 9999999;
+    private final Random random = new Random();
 
     /**
      *
@@ -43,9 +45,32 @@ public class Persona {
 
     /**
      *
+     * @param id
+     * @param nombre
+     * @param edad
+     * @param fechaNacimiento
+     * @param email
+     */
+    public Persona(int id, String nombre, byte edad, Date fechaNacimiento, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
+        this.email = email;
+    }
+
+    /**
+     *
      */
     public final void setId() {
-        this.id = Persona.count++;
+        this.id = random.nextInt(Persona.PERSONAS);
+    }
+
+    /**
+     *
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -116,15 +141,13 @@ public class Persona {
      *
      * @return
      */
-    public int getCount() {
-        return count;
+    public int getId() {
+        return id;
     }
 
-    /**
-     *
-     * @param count
-     */
-    public void setCount(int count) {
-        this.count = count;
+    @Override
+    public boolean equals(Object obj) {
+        Persona persona = (Persona) obj;
+        return persona.getId() == this.id;
     }
 }

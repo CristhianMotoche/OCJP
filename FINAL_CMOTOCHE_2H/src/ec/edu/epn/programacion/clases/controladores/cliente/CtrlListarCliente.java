@@ -67,7 +67,7 @@ public class CtrlListarCliente
                 TableModel tableModel = listToModel(clientes);
                 this.dialogOpcionesCliente.setTableClientes(tableModel);
 
-                // Buscar usuario por login y password
+                // Buscar usuario por id
                 String nombre = this.dialogOpcionesCliente.getTableClientes().getStringAt(row, 0);
                 Cliente cliente = new Cliente(nombre);
 

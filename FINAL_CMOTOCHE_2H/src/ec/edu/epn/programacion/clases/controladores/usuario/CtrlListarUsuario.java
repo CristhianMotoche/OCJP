@@ -63,9 +63,7 @@ public class CtrlListarUsuario
 
         this.dialogOpcionesUsuario.setTitle("Usuarios");
 
-        TableColumnModel tcm = this.dialogOpcionesUsuario.getTableUsuarios().getColumnModel();
-        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Login")));
-        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Password")));
+        removerColumnaId();
 
         this.dialogOpcionesUsuario.setLocationRelativeTo(null);
         this.dialogOpcionesUsuario.setVisible(true);
@@ -87,10 +85,14 @@ public class CtrlListarUsuario
                 TableModel tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
 
-                // Buscar usuario por login y password
-                String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
-                String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
-                UsuarioSistema user = new UsuarioSistema(login, pass);
+                // Buscar usuario por id
+                int id = Integer.parseInt(this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 0));
+                UsuarioSistema user = new UsuarioSistema();
+                for (UsuarioSistema usuario : usuarios) {
+                    if (usuario.getId() == id) {
+                        user = usuario;
+                    }
+                }
 
                 // Borrar usuario
                 if (JOptionPane.showConfirmDialog(dialogOpcionesUsuario, "¿Esta seguro?")
@@ -103,7 +105,7 @@ public class CtrlListarUsuario
                 usuarios = this.modeloUsuario.listar();
                 tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
-                this.dialogOpcionesUsuario.getTableUsuarios().updateUI();
+                removerColumnaId();
             }
         }
         if (e.getSource() == this.dialogOpcionesUsuario.getBtnOpcion() && this.editar) {
@@ -120,17 +122,17 @@ public class CtrlListarUsuario
                 DefaultTableModel tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
 
-                // Buscar usuario por login y password
-                String login = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 4);
-                String pass = this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 5);
-                UsuarioSistema user = new UsuarioSistema(login, pass);
+                // Buscar usuario por id
+                UsuarioSistema user = new UsuarioSistema();
+                int identificador = Integer.parseInt(this.dialogOpcionesUsuario.getTableUsuarios().getStringAt(row, 0));
+
                 for (UsuarioSistema usuario : usuarios) {
-                    if (user.equals(usuario)) {
+                    if (usuario.getId() == identificador) {
                         user = usuario;
                     }
                 }
 
-                // Borrar usuario
+                // Editar usuario
                 DlgCrearUsuario dcu = new DlgCrearUsuario(dialogOpcionesUsuario, true);
                 CtrlNuevoUsuario cnu = new CtrlNuevoUsuario(dcu, user);
                 cnu.start();
@@ -140,6 +142,7 @@ public class CtrlListarUsuario
                 tableModel = listToModel(usuarios);
                 this.dialogOpcionesUsuario.setTableUsuarios(tableModel);
                 ((DefaultTableModel) this.dialogOpcionesUsuario.getTableUsuarios().getModel()).fireTableDataChanged();
+                removerColumnaId();
             }
         }
         if (e.getSource() == this.dialogOpcionesUsuario.getBtnCancelar()) {
@@ -148,16 +151,15 @@ public class CtrlListarUsuario
     }
 
     private DefaultTableModel listToModel(List<UsuarioSistema> usuarios) {
-        Object [] columns = {"Nombre", "Edad", "Fecha Nac.", "Email", "Login", "Password"};
+        Object [] columns = {"Id", "Nombre", "Edad", "Fecha Nac.", "Email"};
         Object [][] data = new Object[usuarios.size()][columns.length];
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         for (int i = 0; i < usuarios.size(); i++) {
-            data[i][0] = usuarios.get(i).getNombre();
-            data[i][1] = usuarios.get(i).getEdad();
-            data[i][2] = sdf.format(usuarios.get(i).getFechaNacimiento());
-            data[i][3] = usuarios.get(i).getEmail();
-            data[i][4] = usuarios.get(i).getLogin();
-            data[i][5] = usuarios.get(i).getPassword();
+            data[i][0] = usuarios.get(i).getId();
+            data[i][1] = usuarios.get(i).getNombre();
+            data[i][2] = usuarios.get(i).getEdad();
+            data[i][3] = sdf.format(usuarios.get(i).getFechaNacimiento());
+            data[i][4] = usuarios.get(i).getEmail();
         }
         return new DefaultTableModel(data, columns);
     }
@@ -174,5 +176,10 @@ public class CtrlListarUsuario
         TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(dtm);
         this.dialogOpcionesUsuario.getTableUsuarios().setRowSorter(sorter);
         sorter.setRowFilter(RowFilter.regexFilter(this.dialogOpcionesUsuario.getTextFieldBuscar().getText()));
+    }
+
+    private void removerColumnaId() {
+        TableColumnModel tcm = this.dialogOpcionesUsuario.getTableUsuarios().getColumnModel();
+        tcm.removeColumn(tcm.getColumn(tcm.getColumnIndex("Id")));
     }
 }

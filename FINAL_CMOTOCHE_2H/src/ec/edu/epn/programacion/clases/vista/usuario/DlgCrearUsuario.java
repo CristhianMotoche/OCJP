@@ -54,6 +54,7 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtId = new javax.swing.JTextField();
         pnlPersona = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -73,6 +74,8 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         pnlButtons = new javax.swing.JPanel();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+
+        txtId.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -298,6 +301,7 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     private javax.swing.JPanel pnlUsuario;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLogin;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
@@ -412,5 +416,13 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
      */
     public void setDateFechaNac(Date date){
         this.dateFechaNac.setDate(date);
+    }
+
+    public int getId() {
+        return Integer.parseInt(this.txtId.getText().trim());
+    }
+
+    public void setTxtId(int id) {
+        this.txtId.setText(Integer.toString(id));
     }
 }

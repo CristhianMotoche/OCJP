@@ -42,12 +42,12 @@ public class ArchivoUsuario
      * @return
      */
     public UsuarioSistema buscarUsuario(String userName, String password) {
-        UsuarioSistema usuario = new UsuarioSistema(userName, password);
-        if(this.usuarios.contains(usuario)){
-            return usuario;
-        } else {
-            return null;
+        for (UsuarioSistema usuario : usuarios) {
+            if(usuario.getLogin().equals(userName) && usuario.getPassword().equals(password)){
+                return usuario;
+            }
         }
+        return null;
     }
 
     /**
@@ -60,7 +60,8 @@ public class ArchivoUsuario
             BufferedWriter bw = new BufferedWriter(fw);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
             for (UsuarioSistema usuario : this.usuarios) {
-                bw.write(usuario.getLogin() + " "
+                bw.write( usuario.getId() + " "
+                        + usuario.getLogin() + " "
                         + usuario.getPassword() + " "
                         + usuario.getNombre() + " "
                         + usuario.getEdad() + " "
@@ -149,14 +150,15 @@ public class ArchivoUsuario
                 String linea;
                 while((linea = br.readLine())!= null){
                     String contenidoLinea [] = linea.split(" ");
-                    String login = contenidoLinea[0];
-                    String contrasena = contenidoLinea[1];
-                    String nombre = contenidoLinea[2];
-                    byte edad = new Byte(contenidoLinea[3]);
+                    int id = Integer.parseInt(contenidoLinea[0]);
+                    String login = contenidoLinea[1];
+                    String contrasena = contenidoLinea[2];
+                    String nombre = contenidoLinea[3];
+                    byte edad = new Byte(contenidoLinea[4]);
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date fechaNac = sdf.parse(contenidoLinea[4]);
-                    String email = contenidoLinea[5];
-                    UsuarioSistema user = new UsuarioSistema(login, contrasena, nombre, edad, fechaNac, email);
+                    Date fechaNac = sdf.parse(contenidoLinea[5]);
+                    String email = contenidoLinea[6];
+                    UsuarioSistema user = new UsuarioSistema(id, login, contrasena, nombre, edad, fechaNac, email);
                     usuarios.add(user);
                 }
                 br.close();

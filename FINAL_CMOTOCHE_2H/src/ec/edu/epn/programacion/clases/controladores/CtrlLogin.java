@@ -46,6 +46,7 @@ public class CtrlLogin
 
             UsuarioSistema user = this.modelo.buscarUsuario(userName, password);
             String mensajesDeError = camposValidos(user);
+
             if (mensajesDeError.isEmpty()) {
                 FrmMenuPrincipal frmMenuPrincipal = new FrmMenuPrincipal();
                 CtrlMenuPrincipal ctrlMenuPrincipal = new CtrlMenuPrincipal(frmMenuPrincipal);
