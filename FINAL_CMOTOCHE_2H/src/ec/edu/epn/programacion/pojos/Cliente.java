@@ -89,10 +89,4 @@ public class Cliente
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        Cliente cliente = (Cliente) obj;
-        return cliente.getNombre().equals(this.getNombre());
-    }
 }
